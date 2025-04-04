@@ -11,3 +11,8 @@ documentation API : https://musicbrainz.org/doc/MusicBrainz_API
 doc API : https://www.discogs.com/developers/
 - LAST-fm : https://www.last.fm/
 doc API : https://www.last.fm/api
+- Spotify API : https://developer.spotify.com/documentation/web-api/
+- Genius API : https://docs.genius.com/
+
+Logiciel de visualisation graphique de réseaux :
+- Gephi : https://gephi.org/
