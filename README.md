@@ -5,4 +5,7 @@ NLP Rapminerz : https://huggingface.co/rapminerz
 
 
 Sites de BDD musicales :
-https://musicbrainz.org/artist/2c832944-52b6-428e-8d36-5d2cbc7121d9
+- Music brainz : https://musicbrainz.org/artist/2c832944-52b6-428e-8d36-5d2cbc7121d9
+documentation API : https://musicbrainz.org/doc/MusicBrainz_API
+- Discogz : https://www.discogs.com/
+doc API : https://www.discogs.com/developers/
