@@ -9,3 +9,5 @@ Sites de BDD musicales :
 documentation API : https://musicbrainz.org/doc/MusicBrainz_API
 - Discogz : https://www.discogs.com/
 doc API : https://www.discogs.com/developers/
+- LAST-fm : https://www.last.fm/
+doc API : https://www.last.fm/api
