@@ -19,10 +19,10 @@ Logiciel de visualisation graphique de réseaux :
 
 Objectifs :
 -	Identifier des clusters d’artistes musicaux et les afficher sur une carte, sur la base de collaborations musicales
-  - Relier la betweeness des artistes à leur nombre d'écoutes/stream
-  - Recherche de bridge : collaboration entre 2 genres ou 2 sous-genres différents
-  - Longueure moyenne d'un chemin entre 2 artistes
-  - Statistiques du graphe
+  -	Relier la betweeness des artistes à leur nombre d'écoutes/stream
+  -	Recherche de bridge : collaboration entre 2 genres ou 2 sous-genres différents
+  -	Longueure moyenne d'un chemin entre 2 artistes
+  -	Statistiques du graphe
 -	Chercher des chaines de sources d’inspiration (trouver qui a inspiré qui, parmi les artistes dont on dispose de suffisamment de données)
 -	Identifier les références faites à d'autres artistes dans les textes, de manière analogue à la chaine de sources d'inspirations
 - Étude des textes
