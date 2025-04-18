@@ -16,4 +16,10 @@ doc API : https://www.last.fm/api
 
 Logiciel de visualisation graphique de réseaux :
 - Gephi : https://gephi.org/
->>>>>>> dd9d3f70bfc9feebf8f493cf500fcc17d42963a4
+
+Objectifs :
+-	Identifier des clusters d’artistes musicaux et les afficher sur une carte, sur la base de collaborations musicales
+-	Chercher des chaines de sources d’inspiration (trouver qui a inspiré qui, parmi les artistes dont on dispose de suffisamment de données)
+-	Rechercher de la similarité par embedding dans les textes des artistes, notamment pour donner un « thème » à chaque cluster. Nous disposons pour cela d'un modèle NLP entrainé sur des textes de rap français et son vocabulaire spécifique
+-	Identifier les références faites à d'autres artistes dans les textes, de manière analogue à la chaine de sources d'inspirations
+
