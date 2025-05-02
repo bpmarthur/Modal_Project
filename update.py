@@ -8,11 +8,13 @@ def update(filename = "artists.json"):
     This function updates the data in the file.
     """
     print("Ouverture de la base de données...")
+    artistes = []
     if os.path.exists(filename):
         with open(filename, "r", encoding="utf-8") as f:
-            artistes = json.load(f)
-    else:
-        artistes = []
+            try:
+                artistes = json.load(f)
+            except json.JSONDecodeError:
+                print("⚠️ Erreur : le fichier JSON est mal formé.")
     
     print("Récupération des artistes en ligne...")
 
@@ -36,13 +38,17 @@ def update(filename = "artists.json"):
             '''
     #Mise à jour de tous les liens
     print("Mise à jour des liens...")
+    length = len(artistes)
+    i = 0
     for artiste in artistes:
+        print(f"[i/{length}] Mise à jour de : {artiste['name']} + {" "*100}", end='\r')
         artiste['id_genius'] = genius.get_artist_id_by_name(artiste['name'])
         #artiste['id_mb']
         #artiste['id_lastfm']
 
+        i+=1
     # Sauvegarde mise à jour du JSON
-    print("Écriture dans la base de données...")
+    print(f"Écriture dans la base de données... {""*100}", end='\r')
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(artistes, f, indent=2, ensure_ascii=False)
     print("Fermeture de la base de données...")

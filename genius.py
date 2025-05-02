@@ -79,8 +79,7 @@ def get_artist_id_by_name(artist_name):
 
     # On prend l'artiste principal du premier résultat
     artist = hits[0]["result"]["primary_artist"]
-    print(f"Nom : {artist['name']}")
-    print(f"ID : {artist['id']}")
+    #print(f"Nom : {artist['name']}, ID : {artist['id']}")
     return artist["id"]
 
 def get_artists_from_song(song_id):
@@ -125,22 +124,23 @@ def get_song_from_id(id):
         "featured_artists": [a["name"] for a in song["featured_artists"]]
     }
 
-# Exemple
-#search_song("Lose Yourself Eminem")
 
-# Exemple : Eminem (ID = 45)
-#songs = get_all_songs_from_artist(artist_id=45,max_songs=10)
-#songs = get_all_songs_from_artist(artist_id=get_artist_id_by_name("lutherantz"),max_songs=1000)
+if __name__ == "__main__":
+    pass
+    # Exemple
+    #search_song("Lose Yourself Eminem")
 
-# Affiche les titres et URLs
-#for song in songs:
-#    print(f"{song['title']} -> {song['url']}")
+    # Exemple : Eminem (ID = 45)
+    #songs = get_all_songs_from_artist(artist_id=45,max_songs=10)
+    #songs = get_all_songs_from_artist(artist_id=get_artist_id_by_name("lutherantz"),max_songs=1000)
 
-#artists = get_artists_from_song(get_song_id_by_name("Lose Yourself Eminem"))
-#print(artists)
+    # Affiche les titres et URLs
+    #for song in songs:
+    #    print(f"{song['title']} -> {song['url']}")
 
-#get_song_from_id(get_song_id_by_name("Lose Yourself Eminem"))
+    #artists = get_artists_from_song(get_song_id_by_name("Lose Yourself Eminem"))
+    #print(artists)
 
-#print(json.dumps(data, indent=2, ensure_ascii=False))
+    #get_song_from_id(get_song_id_by_name("Lose Yourself Eminem"))
 
-search_song("La fève")
+    #print(json.dumps(data, indent=2, ensure_ascii=False))

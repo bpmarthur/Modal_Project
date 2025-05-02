@@ -82,6 +82,3 @@ def get_artists(genres = list_genres):
                 break
     print(f"Récupération terminée{" "*100}")
     return artists
-
-show_artists("new wave rap français")
-#print(len(get_artists()))
