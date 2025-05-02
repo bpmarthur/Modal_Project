@@ -15,4 +15,3 @@ doc API : https://www.last.fm/api
 - Genius API : https://docs.genius.com/
 
 Logiciel de visualisation graphique de réseaux :
-- Gephi : https://gephi.org/
