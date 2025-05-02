@@ -50,7 +50,7 @@ def show_artists(genre):
             print(f"[{i}]", artist['name'], artist['id'])
             i += 1
 
-list_genres = ["french rap", "new wave rap français"] #, "french hip hop", "rap français", "drill français"]    #, "rap", "hip hop", "trap", "pop rap", "r&b", "soul", "new wave rap français"]
+list_genres = ["french rap"] #, "french hip hop", "rap français", "drill français"]    #, "rap", "hip hop", "trap", "pop rap", "r&b", "soul", "new wave rap français"]
 def get_artists(genres = list_genres):
     """
     This function returns a list of artists from Spotify.
