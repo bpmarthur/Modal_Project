@@ -80,7 +80,12 @@ def get_artist_id_by_name(artist_name):
     # On prend l'artiste principal du premier résultat
     artist = hits[0]["result"]["primary_artist"]
     #print(f"Nom : {artist['name']}, ID : {artist['id']}")
-    return artist["id"]
+
+    response = requests.get(f"https://api.genius.com/artists/{artist["id"]}", headers=headers)
+    data = response.json()
+
+    url = data["response"]["artist"]["url"]
+    return artist["id"], url
 
 def get_artists_from_song(song_id):
     url = f"https://api.genius.com/songs/{song_id}"
