@@ -136,9 +136,11 @@ def get_song_from_id(id):
 #for song in songs:
 #    print(f"{song['title']} -> {song['url']}")
 
-artists = get_artists_from_song(get_song_id_by_name("Lose Yourself Eminem"))
+#artists = get_artists_from_song(get_song_id_by_name("Lose Yourself Eminem"))
 #print(artists)
 
-get_song_from_id(get_song_id_by_name("Lose Yourself Eminem"))
+#get_song_from_id(get_song_id_by_name("Lose Yourself Eminem"))
 
 #print(json.dumps(data, indent=2, ensure_ascii=False))
+
+search_song("La fève")
