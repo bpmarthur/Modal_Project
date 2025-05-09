@@ -81,7 +81,7 @@ def get_artist_id_by_name(artist_name):
     artist = hits[0]["result"]["primary_artist"]
     #print(f"Nom : {artist['name']}, ID : {artist['id']}")
 
-    response = requests.get(f"https://api.genius.com/artists/{artist["id"]}", headers=headers)
+    response = requests.get(f"https://api.genius.com/artists/{artist['id']}", headers=headers)
     data = response.json()
 
     url = data["response"]["artist"]["url"]
@@ -128,6 +128,40 @@ def get_song_from_id(id):
         "primary_artist": song["primary_artist"]["name"],
         "featured_artists": [a["name"] for a in song["featured_artists"]]
     }
+    
+def get_artist_featurings(artist_id, max_pages=1):
+    
+    songs = []
+    for page in range(1, max_pages + 1):
+        url = f'https://api.genius.com/artists/{artist_id}/songs'
+        params = {
+            'page': page,
+            'sort': 'popularity'
+        }
+        response = requests.get(url, headers=headers, params=params)
+        if response.status_code != 200:
+            print(f"Erreur page {page} : {response.status_code}")
+            break
+
+        data = response.json()
+        song_list = data.get('response', {}).get('songs', [])
+
+        for i, song in enumerate(song_list):
+            title = song.get('title')
+            song_id = song.get('id')
+            primary_artist = song.get('primary_artist', {}).get('name')
+            featured_artists = song.get('featured_artists', [])
+            print(f"Traitement de la page {page} / ? ... {' '*100}", end='\r')
+
+            # Extraire les noms des artistes (principal + feats)
+            authors = [primary_artist] + [artist['name'] for artist in featured_artists]
+            if len(authors) > 1:
+                songs.append((song_id, title, authors))
+
+        if not song_list:
+            break
+
+    return songs
 
 
 if __name__ == "__main__":

@@ -80,5 +80,5 @@ def get_artists(genres = list_genres):
                 })
             if empty:
                 break
-    print(f"Récupération terminée{" "*100}")
+    print(f"Récupération terminée{' '*100}")
     return artists
