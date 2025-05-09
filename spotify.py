@@ -1,8 +1,11 @@
 import requests
 import base64
+import os
 import requests
 from tools import get_key
 import time
+
+this_name = os.path.basename(__file__)
 
 client_id = get_key("Client_ID_spotify")
 client_secret = get_key("Client_secret_spotify")
@@ -39,7 +42,7 @@ for artist in results['artists']['items']:
 
 # Afficher les artistes d'un genre spécifique
 def show_artists(genre):
-    print(f"Récupération des artistes de : {genre}")
+    print(f"[{this_name}] Récupération des artistes de : {genre}")
     i = 0
     for offset in range(0, 1000, 50):
         params["offset"] = offset
@@ -47,7 +50,7 @@ def show_artists(genre):
         response = requests.get("https://api.spotify.com/v1/search", headers=headers, params=params)
         artists = response.json()['artists']['items']
         for artist in artists:
-            print(f"[{i}]", artist['name'], artist['id'])
+            print(f"[{this_name}] [{i}]", artist['name'], artist['id'])
             i += 1
 
 list_genres = ["french rap"] #, "french hip hop", "rap français", "drill français"]    #, "rap", "hip hop", "trap", "pop rap", "r&b", "soul", "new wave rap français"]
@@ -57,14 +60,14 @@ def get_artists(genres = list_genres):
     """
     artists = []
     for genre in genres:
-        print(f"Récupération des artistes de : {genre}")
+        print(f"[{this_name}] Récupération des artistes de : {genre}")
         for offset in range(0, 1000, 50):
 
             #Éviter de spammer l'API
             time.sleep(0.5)
 
             #Préparation de la requête
-            print(f"Artistes traités : {offset}, récupération des 50 prochains", end='\r')
+            print(f"[{this_name}] Artistes traités : {offset}, récupération des 50 prochains", end='\r')
             params["offset"] = offset
             params["q"] = f"genre:\"{genre}\""            
             response = requests.get("https://api.spotify.com/v1/search", headers=headers, params=params)
@@ -80,5 +83,5 @@ def get_artists(genres = list_genres):
                 })
             if empty:
                 break
-    print(f"Récupération terminée{" "*100}")
+    print(f"[{this_name}] Récupération terminée{" "*100}")
     return artists

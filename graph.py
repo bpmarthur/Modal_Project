@@ -1,21 +1,36 @@
 from pymongo import MongoClient
 import csv
+import networkx as nx
 
-def convert_to_csv(filename = "artists.csv"):
-    # Connexion à MongoDB
+this_name = "graph.py"
+def build_graph():
+    print(f"[{this_name}] Building graph...")
+    #Récupération des données
     client = MongoClient("mongodb://localhost:27017/")
     db = client["musicdb"]  # nom de la base de données
-    collection = db["artists"]  # nom de la collection
+    artists = db["artists"] 
+    songs = db["songs"] 
+    featurings = db["featurings"] 
 
-    # Récupération des données des artistes
-    artistes = collection.find()
+    #Création du graph
+    G = nx.Graph()
 
-    # Exportation vers un fichier CSV pour Gephi
-    with open(filename, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.writer(file)
-        writer.writerow(["name", "id_spotify", "id_genius", "url_genius", "genres"])  # En-têtes de colonnes
-        for artiste in artistes:
-            writer.writerow([artiste["name"], artiste["id_spotify"], artiste["id_genius"], artiste["url_genius"], ",".join(artiste["genres"])])  # Données d'artistes
+    #On itère sur les artistes
+    for artist in artists.find({}):
+        G.add_node(artist["id_genius"], name=artist["name"], id=artist["_id"], id_genius=artist["id_genius"])
+
+        #On itère sur les featurings de la chanson
+        for featuring in featurings.find({}):
+            G.add_node(featuring["featuring"], id=featuring["_id"], type="utilisateur")
+            G.add_edge(song["title"], featuring["featuring"])
+
+    return G
+        
+def export_graph_to_gephi(graph, filename = "graph.gexf"):
+    print(f"[{this_name}] Exporting graph to Gephi...")
+    nx.write_gexf(graph, filename)
+    print(f"[{this_name}] Graph exported to {filename}")
 
 if __name__ == "__main__":
-    convert_to_csv()
+    graph = build_graph()
+    export_graph_to_gephi(graph)

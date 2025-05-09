@@ -1,5 +1,6 @@
 import requests
 import time
+import os
 import json
 from tools import get_key
 
@@ -8,6 +9,8 @@ GENIUS_API_TOKEN = get_key("Client_access_genius")
 headers = {
     'Authorization': f'Bearer {GENIUS_API_TOKEN}'
 }
+
+this_name = os.path.basename(__file__)
 
 def get_song_id_by_name(song_name):
     base_url = 'https://api.genius.com/search'
@@ -18,7 +21,7 @@ def get_song_id_by_name(song_name):
         results = response.json()['response']['hits']
         return results[0]['result']['id']
     else:
-        print("Erreur dans la requête :", response.status_code)
+        print(f"[{this_name}] Erreur dans la requête :", response.status_code)
         
 def search_song(query):
     base_url = 'https://api.genius.com/search'
@@ -31,7 +34,7 @@ def search_song(query):
             song = hit['result']
             print(f"{song['full_title']} -> {song['url']}")
     else:
-        print("Erreur dans la requête :", response.status_code)
+        print(f"[{this_name}] Erreur dans la requête :", response.status_code)
 
 def get_all_songs_from_artist(artist_id, max_songs=1000):
     base_url = f"https://api.genius.com/artists/{artist_id}/songs"
@@ -53,7 +56,7 @@ def get_all_songs_from_artist(artist_id, max_songs=1000):
 
         songs.extend(new_songs)
 
-        print(f"Page {page} : {len(new_songs)} chansons récupérées")
+        print(f"[{this_name}] Page {page} : {len(new_songs)} chansons récupérées")
         page += 1
         time.sleep(0.2)  # pour éviter d'être bloqué par l'API
 
@@ -62,30 +65,62 @@ def get_all_songs_from_artist(artist_id, max_songs=1000):
 
     return songs
 
+def get_artist_url_by_id(artist_id):
+    url = f"https://api.genius.com/artists/{artist_id}"
+    response = requests.get(url, headers=headers)
 
-def get_artist_id_by_name(artist_name):
+    if response.status_code != 200:
+        print(f"[{this_name}] Erreur :", response.status_code)
+        return None
+
+    data = response.json()
+    artist_url = data["response"]["artist"]["url"]
+    return artist_url
+
+def get_artist_id_by_name(artist_name, artist_data = ""):
     url = "https://api.genius.com/search"
-    params = {"q": artist_name}
+    if artist_data == "":
+        params = {"q": artist_name}
+    else:
+        params = {"q": f"{artist_name} {' '.join(artist_data)}"}
     response = requests.get(url, headers=headers, params=params)
 
     if response.status_code != 200:
-        print("Erreur :", response.status_code)
+        print(f"[{this_name}] Erreur :", response.status_code)
         return None
 
     hits = response.json()["response"]["hits"]
     if not hits:
-        print("Aucun résultat trouvé.")
+        print(f"[{this_name}] Aucun résultat trouvé.")
         return None
 
-    # On prend l'artiste principal du premier résultat
+    # On prend un artiste qui matche avec le nom
     artist = hits[0]["result"]["primary_artist"]
-    #print(f"Nom : {artist['name']}, ID : {artist['id']}")
-
+    found = False
+    index_rep = 0
+    for i in range(0, len(hits)):
+        if hits[i]["result"]["primary_artist"]["name"].lower() == artist_name.lower().strip():
+            artist = hits[i]["result"]["primary_artist"]
+            #print(f"[{this_name}] [{i}] Nom : {artist['name']}, ID : {artist['id']}, URL : {artist['url']}")   #Debug
+            found = True
+            index_rep = i
+            break
+    if not found:
+        print(f"[{this_name}] Aucun artiste trouvé pour {artist_name}")
+        #print(f"[{this_name}] [0] Nom : {artist['name']}, ID : {artist['id']}, URL : {artist['url']}") #Debug
+    
+    '''
+    # On récupère l'url de l'artiste
     response = requests.get(f"https://api.genius.com/artists/{artist["id"]}", headers=headers)
     data = response.json()
 
     url = data["response"]["artist"]["url"]
-    return artist["id"], url
+    '''
+    url = artist["url"]
+    id = artist["id"]
+    name = artist["name"]
+
+    return name, id, url, index_rep #Retourne le nom, l'id, l'url de l'artiste et l'index de la réponse
 
 def get_artists_from_song(song_id):
     url = f"https://api.genius.com/songs/{song_id}"
@@ -99,7 +134,7 @@ def get_artists_from_song(song_id):
     main_artist = song["primary_artist"]["name"]
     featured_artists = [a["name"] for a in song["featured_artists"]]
 
-    print("Artiste principal :", main_artist)
+    print(f"[{this_name}] Artiste principal :", main_artist)
     if featured_artists:
         print("Featuring :", ", ".join(featured_artists))
     else:
@@ -115,7 +150,7 @@ def get_song_from_id(id):
     response = requests.get(url, headers=headers)
 
     if response.status_code != 200:
-        print("Erreur :", response.status_code)
+        print(f"[{this_name}] Erreur :", response.status_code)
         return None
 
     song = response.json()["response"]["song"]
@@ -128,10 +163,14 @@ def get_song_from_id(id):
         "primary_artist": song["primary_artist"]["name"],
         "featured_artists": [a["name"] for a in song["featured_artists"]]
     }
-
+def show_artist():
+    artist_name = input(f"[{this_name}] Nom de l'artiste : ")
+    #data = input("Data : ")
+    name, id, url, index = get_artist_id_by_name(artist_name)
+    print(f"[{this_name}] [{index}] Nom : {name}, ID : {id}, URL : {url}")
 
 if __name__ == "__main__":
-    pass
+    show_artist()
     # Exemple
     #search_song("Lose Yourself Eminem")
 

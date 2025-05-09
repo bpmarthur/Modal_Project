@@ -5,8 +5,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 74283,
-    "url_genius": "https://genius.com/artists/Jul"
+    "id_genius": 409643,
+    "url_genius": "https://genius.com/artists/Julia-michaels"
   },
   {
     "name": "GIMS",
@@ -31,8 +31,8 @@
     "name": "Gazo",
     "id_spotify": "5gqmbbfjcikQBzPB5Hv13I",
     "genres": [
-      "pop urbaine",
-      "drill"
+      "drill",
+      "pop urbaine"
     ],
     "id_genius": 23012,
     "url_genius": "https://genius.com/artists/Gazo"
@@ -56,6 +56,13 @@
     "url_genius": "https://genius.com/artists/Booba"
   },
   {
+    "name": "L2B",
+    "id_spotify": "4hYxvgmTzS29XAXlo5adgM",
+    "genres": [],
+    "id_genius": 1262771,
+    "url_genius": "https://genius.com/artists/L2b"
+  },
+  {
     "name": "Hamza",
     "id_spotify": "5gs4Sm2WQUkcGeikMcVHbh",
     "genres": [
@@ -65,20 +72,13 @@
     "url_genius": "https://genius.com/artists/Hamza"
   },
   {
-    "name": "L2B",
-    "id_spotify": "4hYxvgmTzS29XAXlo5adgM",
-    "genres": [],
-    "id_genius": 1262771,
-    "url_genius": "https://genius.com/artists/L2b"
-  },
-  {
     "name": "SCH",
     "id_spotify": "2kXKa3aAFngGz2P4GjG5w2",
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 276476,
-    "url_genius": "https://genius.com/artists/Sch"
+    "id_genius": 11353,
+    "url_genius": "https://genius.com/artists/Schoolboy-q"
   },
   {
     "name": "Maes",
@@ -86,8 +86,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 638160,
-    "url_genius": "https://genius.com/artists/Maes"
+    "id_genius": 1042749,
+    "url_genius": "https://genius.com/artists/Matt-maeson"
   },
   {
     "name": "Vald",
@@ -95,8 +95,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 19217,
-    "url_genius": "https://genius.com/artists/Vald"
+    "id_genius": 189848,
+    "url_genius": "https://genius.com/artists/6lack"
   },
   {
     "name": "Josman",
@@ -118,8 +118,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 13711,
-    "url_genius": "https://genius.com/artists/Alonzo"
+    "id_genius": 131018,
+    "url_genius": "https://genius.com/artists/Duru-tha-king"
   },
   {
     "name": "Leto",
@@ -127,17 +127,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 183940,
-    "url_genius": "https://genius.com/artists/Leto"
-  },
-  {
-    "name": "Guy2Bezbar",
-    "id_spotify": "07h4CCFmlXkwx0g4PL5Uuh",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 466514,
-    "url_genius": "https://genius.com/artists/Guy2bezbar"
+    "id_genius": 2833262,
+    "url_genius": "https://genius.com/artists/Akim-apachev"
   },
   {
     "name": "Naps",
@@ -148,6 +139,15 @@
     ],
     "id_genius": 984017,
     "url_genius": "https://genius.com/artists/Naps"
+  },
+  {
+    "name": "Guy2Bezbar",
+    "id_spotify": "07h4CCFmlXkwx0g4PL5Uuh",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 466514,
+    "url_genius": "https://genius.com/artists/Guy2bezbar"
   },
   {
     "name": "Djadja & Dinaz",
@@ -185,8 +185,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 14806,
-    "url_genius": "https://genius.com/artists/Dinos"
+    "id_genius": 138995,
+    "url_genius": "https://genius.com/artists/Selena"
   },
   {
     "name": "OBOY",
@@ -207,15 +207,6 @@
     "url_genius": "https://genius.com/artists/Koba-lad"
   },
   {
-    "name": "Niro",
-    "id_spotify": "1wAtSe79kItIb9nf5EhI2Q",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 14724,
-    "url_genius": "https://genius.com/artists/Niro"
-  },
-  {
     "name": "Rim'K",
     "id_spotify": "2eh8cEKZk4VeruUrGq748D",
     "genres": [
@@ -225,6 +216,22 @@
     "url_genius": "https://genius.com/artists/Rimk"
   },
   {
+    "name": "Niro",
+    "id_spotify": "1wAtSe79kItIb9nf5EhI2Q",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 14724,
+    "url_genius": "https://genius.com/artists/Niro"
+  },
+  {
+    "name": "Zola",
+    "id_spotify": "54kCbQZaZWHnwwj9VP2hn4",
+    "genres": [],
+    "id_genius": 585517,
+    "url_genius": "https://genius.com/artists/Zolarmoon"
+  },
+  {
     "name": "Kaaris",
     "id_spotify": "1ntQKIMIgESKpKoNXVBvQg",
     "genres": [
@@ -232,25 +239,6 @@
     ],
     "id_genius": 14693,
     "url_genius": "https://genius.com/artists/Kaaris"
-  },
-  {
-    "name": "Zola",
-    "id_spotify": "54kCbQZaZWHnwwj9VP2hn4",
-    "genres": [],
-    "id_genius": 1101709,
-    "url_genius": "https://genius.com/artists/Zola"
-  },
-  {
-    "name": "Soprano",
-    "id_spotify": "2RJBv9wXbW6m539q9NOfW1",
-    "genres": [
-      "chanson",
-      "french pop",
-      "pop urbaine",
-      "variété française"
-    ],
-    "id_genius": 1431,
-    "url_genius": "https://genius.com/artists/Soprano"
   },
   {
     "name": "Orelsan",
@@ -265,6 +253,18 @@
     "genres": [],
     "id_genius": 14723,
     "url_genius": "https://genius.com/artists/Luidji"
+  },
+  {
+    "name": "Soprano",
+    "id_spotify": "2RJBv9wXbW6m539q9NOfW1",
+    "genres": [
+      "chanson",
+      "french pop",
+      "pop urbaine",
+      "variété française"
+    ],
+    "id_genius": 1053236,
+    "url_genius": "https://genius.com/artists/Burry-soprano"
   },
   {
     "name": "Laylow",
@@ -308,8 +308,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 399005,
-    "url_genius": "https://genius.com/artists/Naza"
+    "id_genius": 212437,
+    "url_genius": "https://genius.com/artists/Obladaet"
   },
   {
     "name": "UZI",
@@ -336,8 +336,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 666286,
-    "url_genius": "https://genius.com/artists/Landy"
+    "id_genius": 3408779,
+    "url_genius": "https://genius.com/artists/Blp-kosher"
   },
   {
     "name": "Youssoupha",
@@ -354,6 +354,13 @@
     "url_genius": "https://genius.com/artists/Uzi"
   },
   {
+    "name": "Zed",
+    "id_spotify": "4reog9Hn84AuUWvGX5a2Yq",
+    "genres": [],
+    "id_genius": 24215,
+    "url_genius": "https://genius.com/artists/Zedd"
+  },
+  {
     "name": "Lomepal",
     "id_spotify": "1Yfe3ONJlioHys7jwHdfVm",
     "genres": [],
@@ -368,27 +375,22 @@
     "url_genius": "https://genius.com/artists/Green-montana"
   },
   {
-    "name": "Zed",
-    "id_spotify": "4reog9Hn84AuUWvGX5a2Yq",
-    "genres": [],
-    "id_genius": 682393,
-    "url_genius": "https://genius.com/artists/Zed"
-  },
-  {
-    "name": "Sexion d'Assaut",
-    "id_spotify": "4vnmifnGOeRXfNTRtgd4Tj",
-    "genres": [],
-    "id_genius": 1261,
-    "url_genius": "https://genius.com/artists/Sexion-dassaut"
-  },
-  {
     "name": "RK",
     "id_spotify": "2s7fZ34RK8RUJQ2ewsh6I5",
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 1415345,
-    "url_genius": "https://genius.com/artists/Rk"
+    "id_genius": 639036,
+    "url_genius": "https://genius.com/artists/Rkomi"
+  },
+  {
+    "name": "1PLIKÉ140",
+    "id_spotify": "4Ue6MAZqz18NlaOQomRXLU",
+    "genres": [
+      "drill"
+    ],
+    "id_genius": 2015456,
+    "url_genius": "https://genius.com/artists/1plike140"
   },
   {
     "name": "Bekar",
@@ -403,8 +405,15 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 12085,
-    "url_genius": "https://genius.com/artists/Sofiane"
+    "id_genius": 575371,
+    "url_genius": "https://genius.com/artists/Boef"
+  },
+  {
+    "name": "Sexion d'Assaut",
+    "id_spotify": "4vnmifnGOeRXfNTRtgd4Tj",
+    "genres": [],
+    "id_genius": 1261,
+    "url_genius": "https://genius.com/artists/Sexion-dassaut"
   },
   {
     "name": "Kalash Criminel",
@@ -414,13 +423,11 @@
     "url_genius": "https://genius.com/artists/Kalash-criminel"
   },
   {
-    "name": "1PLIKÉ140",
-    "id_spotify": "4Ue6MAZqz18NlaOQomRXLU",
-    "genres": [
-      "drill"
-    ],
-    "id_genius": 2015456,
-    "url_genius": "https://genius.com/artists/1plike140"
+    "name": "Zkr",
+    "id_spotify": "2yJ6lsLqG06r9bckSTQRt4",
+    "genres": [],
+    "id_genius": 217822,
+    "url_genius": "https://genius.com/artists/Zkr"
   },
   {
     "name": "Zamdane",
@@ -430,20 +437,13 @@
     "url_genius": "https://genius.com/artists/Zamdane"
   },
   {
-    "name": "Zkr",
-    "id_spotify": "2yJ6lsLqG06r9bckSTQRt4",
-    "genres": [],
-    "id_genius": 217822,
-    "url_genius": "https://genius.com/artists/Zkr"
-  },
-  {
     "name": "Gambi",
     "id_spotify": "1lB3I3SI30v2ZOpR4XQqzJ",
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 1726656,
-    "url_genius": "https://genius.com/artists/Gambi"
+    "id_genius": 1745,
+    "url_genius": "https://genius.com/artists/Childish-gambino"
   },
   {
     "name": "Luv Resval",
@@ -460,24 +460,6 @@
     ],
     "id_genius": 147487,
     "url_genius": "https://genius.com/artists/Soso-maness"
-  },
-  {
-    "name": "TK",
-    "id_spotify": "5vnUF9uAL0ly7qw25ERLuC",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 1507735,
-    "url_genius": "https://genius.com/artists/Genius-romanizations"
-  },
-  {
-    "name": "So La Lune",
-    "id_spotify": "4ZW7BptOWzjNFLEqRiNCT7",
-    "genres": [
-      "new wave"
-    ],
-    "id_genius": 1908116,
-    "url_genius": "https://genius.com/artists/So-la-lune"
   },
   {
     "name": "Disiz",
@@ -507,15 +489,24 @@
       "raï",
       "pop urbaine"
     ],
-    "id_genius": 27457,
-    "url_genius": "https://genius.com/artists/Kore"
+    "id_genius": 221253,
+    "url_genius": "https://genius.com/artists/Korede-bello"
+  },
+  {
+    "name": "Kofs",
+    "id_spotify": "5RaQ9nmVGoTye2SI76x3yw",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 566498,
+    "url_genius": "https://genius.com/artists/Kofs"
   },
   {
     "name": "Lorenzo",
     "id_spotify": "62zLrboqOTPyozwi721CVy",
     "genres": [],
-    "id_genius": 339523,
-    "url_genius": "https://genius.com/artists/Lorenzo"
+    "id_genius": 63888,
+    "url_genius": "https://genius.com/artists/Freeze-corleone"
   },
   {
     "name": "Hornet La Frappe",
@@ -534,13 +525,13 @@
     "url_genius": "https://genius.com/artists/Rohff"
   },
   {
-    "name": "Kofs",
-    "id_spotify": "5RaQ9nmVGoTye2SI76x3yw",
+    "name": "TK",
+    "id_spotify": "5vnUF9uAL0ly7qw25ERLuC",
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 566498,
-    "url_genius": "https://genius.com/artists/Kofs"
+    "id_genius": 1507735,
+    "url_genius": "https://genius.com/artists/Genius-romanizations"
   },
   {
     "name": "Moha La Squale",
@@ -550,20 +541,13 @@
     "url_genius": "https://genius.com/artists/Moha-la-squale"
   },
   {
-    "name": "IAM",
-    "id_spotify": "56Q6weEROZ1RsVrTak8Bm7",
-    "genres": [],
-    "id_genius": 45,
-    "url_genius": "https://genius.com/artists/Eminem"
-  },
-  {
-    "name": "4Keus",
-    "id_spotify": "2LUi4eKMEFKFM4awgurcSs",
+    "name": "So La Lune",
+    "id_spotify": "4ZW7BptOWzjNFLEqRiNCT7",
     "genres": [
-      "pop urbaine"
+      "new wave"
     ],
-    "id_genius": 1285728,
-    "url_genius": "https://genius.com/artists/4keus"
+    "id_genius": 1908116,
+    "url_genius": "https://genius.com/artists/So-la-lune"
   },
   {
     "name": "Kaza",
@@ -571,24 +555,24 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 1696555,
-    "url_genius": "https://genius.com/artists/Kaza"
+    "id_genius": 1077834,
+    "url_genius": "https://genius.com/artists/Dzharakhov"
   },
   {
-    "name": "Médine",
-    "id_spotify": "1afjj7vSBkpIjkiJdSV6bV",
-    "genres": [],
-    "id_genius": 1265,
-    "url_genius": "https://genius.com/artists/Medine"
-  },
-  {
-    "name": "Mig",
-    "id_spotify": "3mKyKC4BjNrNJSSBSrNy0a",
+    "name": "4Keus",
+    "id_spotify": "2LUi4eKMEFKFM4awgurcSs",
     "genres": [
-      "drill"
+      "pop urbaine"
     ],
-    "id_genius": 34646,
-    "url_genius": "https://genius.com/artists/Natasja"
+    "id_genius": 653543,
+    "url_genius": "https://genius.com/artists/4keus-gang"
+  },
+  {
+    "name": "IAM",
+    "id_spotify": "56Q6weEROZ1RsVrTak8Bm7",
+    "genres": [],
+    "id_genius": 45,
+    "url_genius": "https://genius.com/artists/Eminem"
   },
   {
     "name": "Elams",
@@ -600,11 +584,38 @@
     "url_genius": "https://genius.com/artists/Elams"
   },
   {
-    "name": "ISK",
-    "id_spotify": "1HH5TlkjRt2FG8dpkWNm5j",
+    "name": "Médine",
+    "id_spotify": "1afjj7vSBkpIjkiJdSV6bV",
     "genres": [],
-    "id_genius": 214694,
-    "url_genius": "https://genius.com/artists/Isk"
+    "id_genius": 569121,
+    "url_genius": "https://genius.com/artists/Genius-turkce-ceviriler"
+  },
+  {
+    "name": "Mig",
+    "id_spotify": "3mKyKC4BjNrNJSSBSrNy0a",
+    "genres": [
+      "drill"
+    ],
+    "id_genius": 44080,
+    "url_genius": "https://genius.com/artists/Migos"
+  },
+  {
+    "name": "Sasso",
+    "id_spotify": "35B6bq5keTR1PYEahq1TAF",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 652529,
+    "url_genius": "https://genius.com/artists/Ernia"
+  },
+  {
+    "name": "Dosseh",
+    "id_spotify": "3b5bg1k6N9u31OtzSfK2dP",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 2223,
+    "url_genius": "https://genius.com/artists/Dosseh"
   },
   {
     "name": "Le Rat Luciano",
@@ -614,13 +625,15 @@
     "url_genius": "https://genius.com/artists/Le-rat-luciano"
   },
   {
-    "name": "Sasso",
-    "id_spotify": "35B6bq5keTR1PYEahq1TAF",
+    "name": "Black M",
+    "id_spotify": "7lMgpN1tEBQKpRoUMKB8iw",
     "genres": [
+      "french pop",
+      "chanson",
       "pop urbaine"
     ],
-    "id_genius": 16197,
-    "url_genius": "https://genius.com/artists/Sasso"
+    "id_genius": 16690,
+    "url_genius": "https://genius.com/artists/Denzel-curry"
   },
   {
     "name": "L'Algérino",
@@ -633,26 +646,6 @@
     "url_genius": "https://genius.com/artists/Lalgerino"
   },
   {
-    "name": "Dosseh",
-    "id_spotify": "3b5bg1k6N9u31OtzSfK2dP",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 2223,
-    "url_genius": "https://genius.com/artists/Dosseh"
-  },
-  {
-    "name": "Black M",
-    "id_spotify": "7lMgpN1tEBQKpRoUMKB8iw",
-    "genres": [
-      "french pop",
-      "chanson",
-      "pop urbaine"
-    ],
-    "id_genius": 15788,
-    "url_genius": "https://genius.com/artists/Black-m"
-  },
-  {
     "name": "S.Pri Noir",
     "id_spotify": "5olcgTzelGdyP1rHRLyWgs",
     "genres": [
@@ -660,6 +653,13 @@
     ],
     "id_genius": 15330,
     "url_genius": "https://genius.com/artists/Spri-noir"
+  },
+  {
+    "name": "ISK",
+    "id_spotify": "1HH5TlkjRt2FG8dpkWNm5j",
+    "genres": [],
+    "id_genius": 1507735,
+    "url_genius": "https://genius.com/artists/Genius-romanizations"
   },
   {
     "name": "Suprême NTM",
@@ -672,8 +672,8 @@
     "name": "Nemir",
     "id_spotify": "5f6nz3iqzrfiUfKOIKvLvd",
     "genres": [],
-    "id_genius": 14877,
-    "url_genius": "https://genius.com/artists/Nemir"
+    "id_genius": 79371,
+    "url_genius": "https://genius.com/artists/Rasta"
   },
   {
     "name": "Brulux",
@@ -683,13 +683,6 @@
     "url_genius": "https://genius.com/artists/Brulux"
   },
   {
-    "name": "Oxmo Puccino",
-    "id_spotify": "44bvfFf9VeGwVjK0QDqQ7O",
-    "genres": [],
-    "id_genius": 1947,
-    "url_genius": "https://genius.com/artists/Oxmo-puccino"
-  },
-  {
     "name": "Liim’s",
     "id_spotify": "2XpsF0ZQfBV08auUoRnNJE",
     "genres": [],
@@ -697,28 +690,18 @@
     "url_genius": "https://genius.com/artists/Liims"
   },
   {
+    "name": "Oxmo Puccino",
+    "id_spotify": "44bvfFf9VeGwVjK0QDqQ7O",
+    "genres": [],
+    "id_genius": 1947,
+    "url_genius": "https://genius.com/artists/Oxmo-puccino"
+  },
+  {
     "name": "MC Solaar",
     "id_spotify": "3nU8TSIICYDbUqRpJISTRE",
     "genres": [],
     "id_genius": 1310,
     "url_genius": "https://genius.com/artists/Mc-solaar"
-  },
-  {
-    "name": "ASHE 22",
-    "id_spotify": "3tTvSeZiFDP3CY5EdPGcR4",
-    "genres": [
-      "drill",
-      "uk drill"
-    ],
-    "id_genius": 1580013,
-    "url_genius": "https://genius.com/artists/Ashe-22"
-  },
-  {
-    "name": "Scylla",
-    "id_spotify": "7fRBY7RRf4iMn2Z4bhZcYA",
-    "genres": [],
-    "id_genius": 17103,
-    "url_genius": "https://genius.com/artists/Scylla"
   },
   {
     "name": "Guizmo",
@@ -738,13 +721,28 @@
     "url_genius": "https://genius.com/artists/Lefa"
   },
   {
-    "name": "Kekra",
-    "id_spotify": "20pbz4TbpkBUr5JwYfGgPS",
+    "name": "Scylla",
+    "id_spotify": "7fRBY7RRf4iMn2Z4bhZcYA",
+    "genres": [],
+    "id_genius": 2717914,
+    "url_genius": "https://genius.com/artists/Jorge-rivera-herrans"
+  },
+  {
+    "name": "Stupeflip",
+    "id_spotify": "7qiRNP9z0FhN63YcLmb8Ai",
+    "genres": [],
+    "id_genius": 13866,
+    "url_genius": "https://genius.com/artists/Stupeflip"
+  },
+  {
+    "name": "ASHE 22",
+    "id_spotify": "3tTvSeZiFDP3CY5EdPGcR4",
     "genres": [
-      "pop urbaine"
+      "drill",
+      "uk drill"
     ],
-    "id_genius": 649966,
-    "url_genius": "https://genius.com/artists/Kekra"
+    "id_genius": 63888,
+    "url_genius": "https://genius.com/artists/Freeze-corleone"
   },
   {
     "name": "Benab",
@@ -756,18 +754,29 @@
     "url_genius": "https://genius.com/artists/Benab"
   },
   {
-    "name": "Stupeflip",
-    "id_spotify": "7qiRNP9z0FhN63YcLmb8Ai",
-    "genres": [],
-    "id_genius": 13866,
-    "url_genius": "https://genius.com/artists/Stupeflip"
-  },
-  {
     "name": "SNIPER",
     "id_spotify": "1nTVNdaDAzXB1AbP30cGk6",
     "genres": [],
     "id_genius": 1507,
     "url_genius": "https://genius.com/artists/Sniper"
+  },
+  {
+    "name": "Kekra",
+    "id_spotify": "20pbz4TbpkBUr5JwYfGgPS",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 649966,
+    "url_genius": "https://genius.com/artists/Kekra"
+  },
+  {
+    "name": "Nahir",
+    "id_spotify": "3x3gsBtmPOSQVqdBzO7N5E",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 1713995,
+    "url_genius": "https://genius.com/artists/Nahir"
   },
   {
     "name": "Gambino",
@@ -788,24 +797,6 @@
     "url_genius": "https://genius.com/artists/Fresh-ladouille"
   },
   {
-    "name": "Nahir",
-    "id_spotify": "3x3gsBtmPOSQVqdBzO7N5E",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 1713995,
-    "url_genius": "https://genius.com/artists/Nahir"
-  },
-  {
-    "name": "Benash",
-    "id_spotify": "53loJtHWjCG1TyKarW2mzk",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 342577,
-    "url_genius": "https://genius.com/artists/Benash"
-  },
-  {
     "name": "Lujipeka",
     "id_spotify": "1eTRyiHsWMoWKPD6s4Kiqt",
     "genres": [],
@@ -818,6 +809,15 @@
     "genres": [],
     "id_genius": 20190,
     "url_genius": "https://genius.com/artists/Casseurs-flowters"
+  },
+  {
+    "name": "Benash",
+    "id_spotify": "53loJtHWjCG1TyKarW2mzk",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 342577,
+    "url_genius": "https://genius.com/artists/Benash"
   },
   {
     "name": "B.B. Jacques",
@@ -834,24 +834,6 @@
     "url_genius": "https://genius.com/artists/Columbine"
   },
   {
-    "name": "BOLEMVN",
-    "id_spotify": "0gGcw3tA1fZoF23qa8KFb7",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 1219062,
-    "url_genius": "https://genius.com/artists/Bolemvn"
-  },
-  {
-    "name": "YL",
-    "id_spotify": "2k8fAJK9HbH1FhqVpZL98P",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 996826,
-    "url_genius": "https://genius.com/artists/Yl"
-  },
-  {
     "name": "Krisy",
     "id_spotify": "6RwBaA9wZC0BPWZfmGeWMo",
     "genres": [],
@@ -859,13 +841,13 @@
     "url_genius": "https://genius.com/artists/Krisy"
   },
   {
-    "name": "13 Block",
-    "id_spotify": "7rTPCNINGzMp3Hc8Xqht5Z",
+    "name": "YL",
+    "id_spotify": "2k8fAJK9HbH1FhqVpZL98P",
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 327072,
-    "url_genius": "https://genius.com/artists/13-block"
+    "id_genius": 69575,
+    "url_genius": "https://genius.com/artists/Ylvis"
   },
   {
     "name": "Mister V",
@@ -886,6 +868,24 @@
     "url_genius": "https://genius.com/artists/Sadek"
   },
   {
+    "name": "13 Block",
+    "id_spotify": "7rTPCNINGzMp3Hc8Xqht5Z",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 327072,
+    "url_genius": "https://genius.com/artists/13-block"
+  },
+  {
+    "name": "BOLEMVN",
+    "id_spotify": "0gGcw3tA1fZoF23qa8KFb7",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 1219062,
+    "url_genius": "https://genius.com/artists/Bolemvn"
+  },
+  {
     "name": "Fonky Family",
     "id_spotify": "1BTmMBPzv3zEO3f6ilFoct",
     "genres": [],
@@ -893,18 +893,25 @@
     "url_genius": "https://genius.com/artists/Fonky-family"
   },
   {
-    "name": "Ashh",
-    "id_spotify": "4YUcg2ee9TxMNdjhAxzZBF",
+    "name": "A2h",
+    "id_spotify": "2ktpq7bp4m1quizyEmp4r1",
     "genres": [],
-    "id_genius": 340886,
-    "url_genius": "https://genius.com/artists/Ashh"
+    "id_genius": 14415,
+    "url_genius": "https://genius.com/artists/A2h"
   },
   {
     "name": "ISHA",
     "id_spotify": "0dSh0CIa0HPd9kJmJSmGQo",
     "genres": [],
-    "id_genius": 25569,
-    "url_genius": "https://genius.com/artists/Isha"
+    "id_genius": 3874269,
+    "url_genius": "https://genius.com/artists/Ishaan-bgd"
+  },
+  {
+    "name": "Ashh",
+    "id_spotify": "4YUcg2ee9TxMNdjhAxzZBF",
+    "genres": [],
+    "id_genius": 340886,
+    "url_genius": "https://genius.com/artists/Ashh"
   },
   {
     "name": "Shurik'n",
@@ -919,48 +926,8 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 182183,
-    "url_genius": "https://genius.com/artists/Kamikaz"
-  },
-  {
-    "name": "A2h",
-    "id_spotify": "2ktpq7bp4m1quizyEmp4r1",
-    "genres": [],
-    "id_genius": 14415,
-    "url_genius": "https://genius.com/artists/A2h"
-  },
-  {
-    "name": "Gambino La MG",
-    "id_spotify": "2xdTZfuOFh2ylOnnTEs5sg",
-    "genres": [],
-    "id_genius": 1480619,
-    "url_genius": "https://genius.com/artists/Gambino-la-mg"
-  },
-  {
-    "name": "L'Allemand",
-    "id_spotify": "3BX2N7cc1OrBUJQiiei3On",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 1144818,
-    "url_genius": "https://genius.com/artists/Lallemand"
-  },
-  {
-    "name": "Doums",
-    "id_spotify": "4yLgYK2B5nZjZMBiaLyLyK",
-    "genres": [],
-    "id_genius": 13259,
-    "url_genius": "https://genius.com/artists/Doums"
-  },
-  {
-    "name": "USKY",
-    "id_spotify": "0VbfTzGkMlei0XtibnO466",
-    "genres": [
-      "cloud rap",
-      "pop urbaine"
-    ],
-    "id_genius": 671555,
-    "url_genius": "https://genius.com/artists/Usky"
+    "id_genius": 45,
+    "url_genius": "https://genius.com/artists/Eminem"
   },
   {
     "name": "Sneazzy",
@@ -968,6 +935,13 @@
     "genres": [],
     "id_genius": 13508,
     "url_genius": "https://genius.com/artists/Sneazzy"
+  },
+  {
+    "name": "Gambino La MG",
+    "id_spotify": "2xdTZfuOFh2ylOnnTEs5sg",
+    "genres": [],
+    "id_genius": 1480619,
+    "url_genius": "https://genius.com/artists/Gambino-la-mg"
   },
   {
     "name": "Bosh",
@@ -984,8 +958,8 @@
     "genres": [
       "raï"
     ],
-    "id_genius": 11574,
-    "url_genius": "https://genius.com/artists/113"
+    "id_genius": 1282,
+    "url_genius": "https://genius.com/artists/Booba"
   },
   {
     "name": "GLK",
@@ -997,11 +971,11 @@
     "url_genius": "https://genius.com/artists/Glk"
   },
   {
-    "name": "Lesram",
-    "id_spotify": "0UeKDbiaApyP7qKfcmGN03",
+    "name": "Doums",
+    "id_spotify": "4yLgYK2B5nZjZMBiaLyLyK",
     "genres": [],
-    "id_genius": 162014,
-    "url_genius": "https://genius.com/artists/Lesram"
+    "id_genius": 13259,
+    "url_genius": "https://genius.com/artists/Doums"
   },
   {
     "name": "Gringe",
@@ -1009,6 +983,13 @@
     "genres": [],
     "id_genius": 13895,
     "url_genius": "https://genius.com/artists/Gringe"
+  },
+  {
+    "name": "Akhenaton",
+    "id_spotify": "4ddg7PH5OuSossiSBWgueu",
+    "genres": [],
+    "id_genius": 1770,
+    "url_genius": "https://genius.com/artists/Iam"
   },
   {
     "name": "Graya",
@@ -1020,11 +1001,21 @@
     "url_genius": "https://genius.com/artists/Graya"
   },
   {
-    "name": "Akhenaton",
-    "id_spotify": "4ddg7PH5OuSossiSBWgueu",
+    "name": "USKY",
+    "id_spotify": "0VbfTzGkMlei0XtibnO466",
+    "genres": [
+      "cloud rap",
+      "pop urbaine"
+    ],
+    "id_genius": 671555,
+    "url_genius": "https://genius.com/artists/Usky"
+  },
+  {
+    "name": "Souffrance",
+    "id_spotify": "1uzx1lyRA2RIZlVSxOfBAi",
     "genres": [],
-    "id_genius": 1961,
-    "url_genius": "https://genius.com/artists/Akhenaton"
+    "id_genius": 12061,
+    "url_genius": "https://genius.com/artists/Diams"
   },
   {
     "name": "Yaro",
@@ -1032,15 +1023,22 @@
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 141729,
-    "url_genius": "https://genius.com/artists/Yaro"
+    "id_genius": 2330030,
+    "url_genius": "https://genius.com/artists/Exile-music"
   },
   {
     "name": "Passi",
     "id_spotify": "41o2A93SPxIUxsy5HQjvul",
     "genres": [],
-    "id_genius": 13095,
-    "url_genius": "https://genius.com/artists/Passi"
+    "id_genius": 130,
+    "url_genius": "https://genius.com/artists/Drake"
+  },
+  {
+    "name": "Lesram",
+    "id_spotify": "0UeKDbiaApyP7qKfcmGN03",
+    "genres": [],
+    "id_genius": 162014,
+    "url_genius": "https://genius.com/artists/Lesram"
   },
   {
     "name": "Larry",
@@ -1050,6 +1048,15 @@
     "url_genius": "https://genius.com/artists/Mac-miller"
   },
   {
+    "name": "L'Allemand",
+    "id_spotify": "3BX2N7cc1OrBUJQiiei3On",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 1144818,
+    "url_genius": "https://genius.com/artists/Lallemand"
+  },
+  {
     "name": "Hös Copperfield",
     "id_spotify": "4fn6Kez1kGOO74vNuKrvCU",
     "genres": [
@@ -1057,13 +1064,6 @@
     ],
     "id_genius": 1174310,
     "url_genius": "https://genius.com/artists/Hos-copperfield"
-  },
-  {
-    "name": "Souffrance",
-    "id_spotify": "1uzx1lyRA2RIZlVSxOfBAi",
-    "genres": [],
-    "id_genius": 580259,
-    "url_genius": "https://genius.com/artists/Souffrance"
   },
   {
     "name": "MMZ",
@@ -1096,15 +1096,6 @@
     "url_genius": "https://genius.com/artists/Kery-james"
   },
   {
-    "name": "Bramsito",
-    "id_spotify": "1WDkNp8Duv9QhO246S4dDa",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 994802,
-    "url_genius": "https://genius.com/artists/Bramsito"
-  },
-  {
     "name": "Zuukou mayzie",
     "id_spotify": "6a2V6IHS7jT9M1IvJ8V3yB",
     "genres": [],
@@ -1112,13 +1103,13 @@
     "url_genius": "https://genius.com/artists/Zuukou-mayzie"
   },
   {
-    "name": "Hooss",
-    "id_spotify": "3p4FNslxuuEYSEnMsx4YI1",
+    "name": "Bramsito",
+    "id_spotify": "1WDkNp8Duv9QhO246S4dDa",
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 265169,
-    "url_genius": "https://genius.com/artists/Hooss"
+    "id_genius": 994802,
+    "url_genius": "https://genius.com/artists/Bramsito"
   },
   {
     "name": "Seth Gueko",
@@ -1131,8 +1122,8 @@
     "name": "Rémy",
     "id_spotify": "1rT9J8vtPCzEKL7oGntxnr",
     "genres": [],
-    "id_genius": 797875,
-    "url_genius": "https://genius.com/artists/Remy"
+    "id_genius": 2274,
+    "url_genius": "https://genius.com/artists/Remy-ma"
   },
   {
     "name": "Keny Arkana",
@@ -1158,11 +1149,13 @@
     "url_genius": "https://genius.com/artists/Neg-marrons"
   },
   {
-    "name": "Furax Barbarossa",
-    "id_spotify": "4LujPNfyrtunY5noju2iIa",
-    "genres": [],
-    "id_genius": 17313,
-    "url_genius": "https://genius.com/artists/Furax-barbarossa"
+    "name": "Hooss",
+    "id_spotify": "3p4FNslxuuEYSEnMsx4YI1",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 265169,
+    "url_genius": "https://genius.com/artists/Hooss"
   },
   {
     "name": "4Keus Gang",
@@ -1181,6 +1174,20 @@
     "url_genius": "https://genius.com/artists/Kenza-farah"
   },
   {
+    "name": "Alkpote",
+    "id_spotify": "0QcZD8V0Ug1KINWBSyG0dB",
+    "genres": [],
+    "id_genius": 15427,
+    "url_genius": "https://genius.com/artists/Alkpote"
+  },
+  {
+    "name": "Lunatic",
+    "id_spotify": "2T94BUd6X8J1G5EfJj3hZr",
+    "genres": [],
+    "id_genius": 1945,
+    "url_genius": "https://genius.com/artists/Lunatic"
+  },
+  {
     "name": "Chily",
     "id_spotify": "0mnNM5o7vtxo3ivC7Tmoah",
     "genres": [
@@ -1191,20 +1198,11 @@
     "url_genius": "https://genius.com/artists/Chily"
   },
   {
-    "name": "Kpoint",
-    "id_spotify": "3ABLHSKKZzNcgpBuXvLB9W",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 332627,
-    "url_genius": "https://genius.com/artists/Kpoint"
-  },
-  {
-    "name": "Alkpote",
-    "id_spotify": "0QcZD8V0Ug1KINWBSyG0dB",
+    "name": "Furax Barbarossa",
+    "id_spotify": "4LujPNfyrtunY5noju2iIa",
     "genres": [],
-    "id_genius": 15427,
-    "url_genius": "https://genius.com/artists/Alkpote"
+    "id_genius": 17313,
+    "url_genius": "https://genius.com/artists/Furax-barbarossa"
   },
   {
     "name": "Hayce Lemsi",
@@ -1216,27 +1214,13 @@
     "url_genius": "https://genius.com/artists/Hayce-lemsi"
   },
   {
-    "name": "Lunatic",
-    "id_spotify": "2T94BUd6X8J1G5EfJj3hZr",
-    "genres": [],
-    "id_genius": 1945,
-    "url_genius": "https://genius.com/artists/Lunatic"
-  },
-  {
-    "name": "Ghetto Phénomène",
-    "id_spotify": "40fhusTxvAWqq7xKB2rlgf",
+    "name": "Kpoint",
+    "id_spotify": "3ABLHSKKZzNcgpBuXvLB9W",
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 63001,
-    "url_genius": "https://genius.com/artists/Ghetto-phenomene"
-  },
-  {
-    "name": "Dooz Kawa",
-    "id_spotify": "4z8LvfxawVZLoLR1KTUzQL",
-    "genres": [],
-    "id_genius": 26970,
-    "url_genius": "https://genius.com/artists/Dooz-kawa"
+    "id_genius": 332627,
+    "url_genius": "https://genius.com/artists/Kpoint"
   },
   {
     "name": "Jewel Usain",
@@ -1253,6 +1237,43 @@
     "url_genius": "https://genius.com/artists/Sopico"
   },
   {
+    "name": "Dooz Kawa",
+    "id_spotify": "4z8LvfxawVZLoLR1KTUzQL",
+    "genres": [],
+    "id_genius": 26970,
+    "url_genius": "https://genius.com/artists/Dooz-kawa"
+  },
+  {
+    "name": "Ghetto Phénomène",
+    "id_spotify": "40fhusTxvAWqq7xKB2rlgf",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 63001,
+    "url_genius": "https://genius.com/artists/Ghetto-phenomene"
+  },
+  {
+    "name": "Davodka",
+    "id_spotify": "3viUmbbKSqgMFOVHfrZQpn",
+    "genres": [],
+    "id_genius": 41763,
+    "url_genius": "https://genius.com/artists/Davodka"
+  },
+  {
+    "name": "Le Dé",
+    "id_spotify": "2UZBLsGKZZnYDb37cDM13m",
+    "genres": [],
+    "id_genius": 569922,
+    "url_genius": "https://genius.com/artists/Lil-peep"
+  },
+  {
+    "name": "Roshi",
+    "id_spotify": "4bDcCV0zjPsVs2GxtduYry",
+    "genres": [],
+    "id_genius": 196943,
+    "url_genius": "https://genius.com/artists/Genius-english-translations"
+  },
+  {
     "name": "Lord Kossity",
     "id_spotify": "5QWxhSb2qupA3pNE3X6VpM",
     "genres": [
@@ -1264,25 +1285,11 @@
     "url_genius": "https://genius.com/artists/Lord-kossity"
   },
   {
-    "name": "Roshi",
-    "id_spotify": "4bDcCV0zjPsVs2GxtduYry",
+    "name": "EDGE",
+    "id_spotify": "0ZCX1rGywF2LATUUCq0nOg",
     "genres": [],
-    "id_genius": 1320878,
-    "url_genius": "https://genius.com/artists/Roshi"
-  },
-  {
-    "name": "Le Dé",
-    "id_spotify": "2UZBLsGKZZnYDb37cDM13m",
-    "genres": [],
-    "id_genius": 1133247,
-    "url_genius": "https://genius.com/artists/Kiana-lede"
-  },
-  {
-    "name": "Davodka",
-    "id_spotify": "3viUmbbKSqgMFOVHfrZQpn",
-    "genres": [],
-    "id_genius": 41763,
-    "url_genius": "https://genius.com/artists/Davodka"
+    "id_genius": 21747,
+    "url_genius": "https://genius.com/artists/Stevie-nicks"
   },
   {
     "name": "Siboy",
@@ -1294,11 +1301,11 @@
     "url_genius": "https://genius.com/artists/Siboy"
   },
   {
-    "name": "EDGE",
-    "id_spotify": "0ZCX1rGywF2LATUUCq0nOg",
+    "name": "Spider ZED",
+    "id_spotify": "4kAzmAcboZ0F6bCCb4jj8I",
     "genres": [],
-    "id_genius": 21747,
-    "url_genius": "https://genius.com/artists/Stevie-nicks"
+    "id_genius": 77714,
+    "url_genius": "https://genius.com/artists/Spider-zed"
   },
   {
     "name": "Doc Gynéco",
@@ -1315,20 +1322,6 @@
     "url_genius": "https://genius.com/artists/Diddi-trix"
   },
   {
-    "name": "Spider ZED",
-    "id_spotify": "4kAzmAcboZ0F6bCCb4jj8I",
-    "genres": [],
-    "id_genius": 77714,
-    "url_genius": "https://genius.com/artists/Spider-zed"
-  },
-  {
-    "name": "Ikaz Boi",
-    "id_spotify": "1h0vYLWMAElSWYCjm6RBpe",
-    "genres": [],
-    "id_genius": 174331,
-    "url_genius": "https://genius.com/artists/Ikaz-boi"
-  },
-  {
     "name": "F430",
     "id_spotify": "11ajgggOI6hGjR8CF53mhG",
     "genres": [
@@ -1336,6 +1329,23 @@
     ],
     "id_genius": 1152268,
     "url_genius": "https://genius.com/artists/F430"
+  },
+  {
+    "name": "Negrito",
+    "id_spotify": "1i8gGjDzv2FNoy6dHcr25K",
+    "genres": [
+      "drill",
+      "pop urbaine"
+    ],
+    "id_genius": 640693,
+    "url_genius": "https://genius.com/artists/Ozuna"
+  },
+  {
+    "name": "Ikaz Boi",
+    "id_spotify": "1h0vYLWMAElSWYCjm6RBpe",
+    "genres": [],
+    "id_genius": 174331,
+    "url_genius": "https://genius.com/artists/Ikaz-boi"
   },
   {
     "name": "Admiral T",
@@ -1350,16 +1360,6 @@
     "url_genius": "https://genius.com/artists/Admiral-t"
   },
   {
-    "name": "Negrito",
-    "id_spotify": "1i8gGjDzv2FNoy6dHcr25K",
-    "genres": [
-      "drill",
-      "pop urbaine"
-    ],
-    "id_genius": 640693,
-    "url_genius": "https://genius.com/artists/Ozuna"
-  },
-  {
     "name": "Smeels",
     "id_spotify": "6FyY3mlFrDdKUX35GrzeOZ",
     "genres": [],
@@ -1370,15 +1370,8 @@
     "name": "Wit.",
     "id_spotify": "4ME56PlDfT9QKf6sGcRgPm",
     "genres": [],
-    "id_genius": 639521,
-    "url_genius": "https://genius.com/artists/A-boogie-wit-da-hoodie"
-  },
-  {
-    "name": "Don Choa",
-    "id_spotify": "3nRUvKHrGi4lrRF01yTzod",
-    "genres": [],
-    "id_genius": 1963,
-    "url_genius": "https://genius.com/artists/Don-choa"
+    "id_genius": 45,
+    "url_genius": "https://genius.com/artists/Eminem"
   },
   {
     "name": "Swift Guad",
@@ -1386,6 +1379,13 @@
     "genres": [],
     "id_genius": 13158,
     "url_genius": "https://genius.com/artists/Swift-guad"
+  },
+  {
+    "name": "Don Choa",
+    "id_spotify": "3nRUvKHrGi4lrRF01yTzod",
+    "genres": [],
+    "id_genius": 1963,
+    "url_genius": "https://genius.com/artists/Don-choa"
   },
   {
     "name": "Lonepsi",
@@ -1398,8 +1398,15 @@
     "name": "ICO",
     "id_spotify": "5VkemxUDiz46ZHPdvh0LX0",
     "genres": [],
-    "id_genius": 1128641,
-    "url_genius": "https://genius.com/artists/Ico"
+    "id_genius": 12232,
+    "url_genius": "https://genius.com/artists/Jaden"
+  },
+  {
+    "name": "Zed Yun Pavarotti",
+    "id_spotify": "2TM7WyJwjfD5wKyX9OtIWJ",
+    "genres": [],
+    "id_genius": 1276822,
+    "url_genius": "https://genius.com/artists/Zed-yun-pavarotti"
   },
   {
     "name": "Scred Connexion",
@@ -1416,18 +1423,11 @@
     "url_genius": "https://genius.com/artists/Zikxo"
   },
   {
-    "name": "Zed Yun Pavarotti",
-    "id_spotify": "2TM7WyJwjfD5wKyX9OtIWJ",
-    "genres": [],
-    "id_genius": 1276822,
-    "url_genius": "https://genius.com/artists/Zed-yun-pavarotti"
-  },
-  {
     "name": "PRIME",
     "id_spotify": "1FhFAnXsMLYJhRVBKvcdHU",
     "genres": [],
-    "id_genius": 662123,
-    "url_genius": "https://genius.com/artists/Prime"
+    "id_genius": 2,
+    "url_genius": "https://genius.com/artists/Jay-z"
   },
   {
     "name": "Sifax",
@@ -1437,6 +1437,13 @@
     ],
     "id_genius": 1552972,
     "url_genius": "https://genius.com/artists/Sifax"
+  },
+  {
+    "name": "Lord Esperanza",
+    "id_spotify": "7CPznx8a1emLVLeCHGuJeN",
+    "genres": [],
+    "id_genius": 790419,
+    "url_genius": "https://genius.com/artists/Lord-esperanza"
   },
   {
     "name": "Tandem",
@@ -1462,18 +1469,11 @@
     "url_genius": "https://genius.com/artists/La-famax"
   },
   {
-    "name": "Kodes",
-    "id_spotify": "3fnfvu19t4JYyEkRldXsO5",
+    "name": "Cheu-B",
+    "id_spotify": "2bbQRkTmEgKA1INGHeH7oT",
     "genres": [],
-    "id_genius": 1599302,
-    "url_genius": "https://genius.com/artists/Kodes"
-  },
-  {
-    "name": "Lord Esperanza",
-    "id_spotify": "7CPznx8a1emLVLeCHGuJeN",
-    "genres": [],
-    "id_genius": 790419,
-    "url_genius": "https://genius.com/artists/Lord-esperanza"
+    "id_genius": 651153,
+    "url_genius": "https://genius.com/artists/Cheu-b"
   },
   {
     "name": "404Billy",
@@ -1483,11 +1483,18 @@
     "url_genius": "https://genius.com/artists/404billy"
   },
   {
-    "name": "Cheu-B",
-    "id_spotify": "2bbQRkTmEgKA1INGHeH7oT",
+    "name": "Kodes",
+    "id_spotify": "3fnfvu19t4JYyEkRldXsO5",
     "genres": [],
-    "id_genius": 651153,
-    "url_genius": "https://genius.com/artists/Cheu-b"
+    "id_genius": 25180,
+    "url_genius": "https://genius.com/artists/Massaka"
+  },
+  {
+    "name": "Haristone",
+    "id_spotify": "4A1BIRTQQ1yNPwcg57Ubq7",
+    "genres": [],
+    "id_genius": 659218,
+    "url_genius": "https://genius.com/artists/Haristone"
   },
   {
     "name": "Elh Kmer",
@@ -1499,11 +1506,11 @@
     "url_genius": "https://genius.com/artists/Elh-kmer"
   },
   {
-    "name": "Haristone",
-    "id_spotify": "4A1BIRTQQ1yNPwcg57Ubq7",
+    "name": "Zoxea",
+    "id_spotify": "2uuaoYjn1Pk0Y3NOyMR0KR",
     "genres": [],
-    "id_genius": 659218,
-    "url_genius": "https://genius.com/artists/Haristone"
+    "id_genius": 11623,
+    "url_genius": "https://genius.com/artists/Zoxea"
   },
   {
     "name": "AM La Scampia",
@@ -1523,18 +1530,11 @@
     "url_genius": "https://genius.com/artists/Mehdi-yz"
   },
   {
-    "name": "Zoxea",
-    "id_spotify": "2uuaoYjn1Pk0Y3NOyMR0KR",
+    "name": "Ärsenik",
+    "id_spotify": "3Mo6O9iqKSw3Mn6v5zZfEy",
     "genres": [],
-    "id_genius": 11623,
-    "url_genius": "https://genius.com/artists/Zoxea"
-  },
-  {
-    "name": "100 Blaze",
-    "id_spotify": "0JxUh8qDlG3xflSV9Of500",
-    "genres": [],
-    "id_genius": 544293,
-    "url_genius": "https://genius.com/artists/100-blaze"
+    "id_genius": 13280,
+    "url_genius": "https://genius.com/artists/Arsenik-fra"
   },
   {
     "name": "Tunisiano",
@@ -1546,18 +1546,11 @@
     "url_genius": "https://genius.com/artists/Tunisiano"
   },
   {
-    "name": "Ärsenik",
-    "id_spotify": "3Mo6O9iqKSw3Mn6v5zZfEy",
+    "name": "100 Blaze",
+    "id_spotify": "0JxUh8qDlG3xflSV9Of500",
     "genres": [],
-    "id_genius": 13280,
-    "url_genius": "https://genius.com/artists/Arsenik-fra"
-  },
-  {
-    "name": "Lino",
-    "id_spotify": "6RM5eA0SSP7B8UV3qHbLa8",
-    "genres": [],
-    "id_genius": 1946,
-    "url_genius": "https://genius.com/artists/Lino"
+    "id_genius": 544293,
+    "url_genius": "https://genius.com/artists/100-blaze"
   },
   {
     "name": "Dabs",
@@ -1569,6 +1562,13 @@
     "url_genius": "https://genius.com/artists/Dabs"
   },
   {
+    "name": "Lino",
+    "id_spotify": "6RM5eA0SSP7B8UV3qHbLa8",
+    "genres": [],
+    "id_genius": 1946,
+    "url_genius": "https://genius.com/artists/Lino"
+  },
+  {
     "name": "MRC",
     "id_spotify": "4m90Zo0X5ACTTk27IZ9eMY",
     "genres": [
@@ -1578,11 +1578,18 @@
     "url_genius": "https://genius.com/artists/Mrc"
   },
   {
+    "name": "Fabe",
+    "id_spotify": "5Jh4UFOCWwleD3kcd88xyh",
+    "genres": [],
+    "id_genius": 1496514,
+    "url_genius": "https://genius.com/artists/Powfu"
+  },
+  {
     "name": "Swing",
     "id_spotify": "0OQMxt6l70FM2YlLwYDiEn",
     "genres": [],
-    "id_genius": 34365,
-    "url_genius": "https://genius.com/artists/Dire-straits"
+    "id_genius": 1801970,
+    "url_genius": "https://genius.com/artists/Pop-smoke"
   },
   {
     "name": "Nakry",
@@ -1592,18 +1599,11 @@
     "url_genius": "https://genius.com/artists/Nakry"
   },
   {
-    "name": "Fabe",
-    "id_spotify": "5Jh4UFOCWwleD3kcd88xyh",
+    "name": "L'Skadrille",
+    "id_spotify": "12fU2Tyt3TEQn0bjNS0kzC",
     "genres": [],
-    "id_genius": 1937,
-    "url_genius": "https://genius.com/artists/Fabe"
-  },
-  {
-    "name": "Key Largo",
-    "id_spotify": "4LuLF5H9fe5ViyDQb9Zxmt",
-    "genres": [],
-    "id_genius": 1050615,
-    "url_genius": "https://genius.com/artists/Key-largo"
+    "id_genius": 16333,
+    "url_genius": "https://genius.com/artists/Lskadrille"
   },
   {
     "name": "Mafia K'1 Fry",
@@ -1613,11 +1613,11 @@
     "url_genius": "https://genius.com/artists/Mafia-k1-fry"
   },
   {
-    "name": "L'Skadrille",
-    "id_spotify": "12fU2Tyt3TEQn0bjNS0kzC",
+    "name": "Key Largo",
+    "id_spotify": "4LuLF5H9fe5ViyDQb9Zxmt",
     "genres": [],
-    "id_genius": 16333,
-    "url_genius": "https://genius.com/artists/Lskadrille"
+    "id_genius": 1050615,
+    "url_genius": "https://genius.com/artists/Key-largo"
   },
   {
     "name": "Kacem Wapalek",
@@ -1625,6 +1625,13 @@
     "genres": [],
     "id_genius": 19118,
     "url_genius": "https://genius.com/artists/Kacem-wapalek"
+  },
+  {
+    "name": "Sat",
+    "id_spotify": "3c8I79WjXzJzWacsiZlAxT",
+    "genres": [],
+    "id_genius": 572149,
+    "url_genius": "https://genius.com/artists/Original-broadway-cast-of-hamilton"
   },
   {
     "name": "Frenetik",
@@ -1643,32 +1650,11 @@
     "url_genius": "https://genius.com/artists/Dehmo"
   },
   {
-    "name": "Sat",
-    "id_spotify": "3c8I79WjXzJzWacsiZlAxT",
-    "genres": [],
-    "id_genius": 25320,
-    "url_genius": "https://genius.com/artists/Queens-of-the-stone-age"
-  },
-  {
-    "name": "Pit Baccardi",
-    "id_spotify": "5Gf71JW8QjF77ELQ94JX38",
-    "genres": [],
-    "id_genius": 13211,
-    "url_genius": "https://genius.com/artists/Pit-baccardi"
-  },
-  {
     "name": "Sheldon",
     "id_spotify": "6162ZDzd0LT28Lxdj52jjK",
     "genres": [],
     "id_genius": 997209,
     "url_genius": "https://genius.com/artists/Complete"
-  },
-  {
-    "name": "Q.E Favelas",
-    "id_spotify": "16vfg5F2MKku9FMIrFIqry",
-    "genres": [],
-    "id_genius": 977594,
-    "url_genius": "https://genius.com/artists/Qe-favelas"
   },
   {
     "name": "nelick",
@@ -1678,6 +1664,20 @@
     ],
     "id_genius": 115707,
     "url_genius": "https://genius.com/artists/Nelick"
+  },
+  {
+    "name": "Pit Baccardi",
+    "id_spotify": "5Gf71JW8QjF77ELQ94JX38",
+    "genres": [],
+    "id_genius": 30976,
+    "url_genius": "https://genius.com/artists/Neg-marrons"
+  },
+  {
+    "name": "Q.E Favelas",
+    "id_spotify": "16vfg5F2MKku9FMIrFIqry",
+    "genres": [],
+    "id_genius": 977594,
+    "url_genius": "https://genius.com/artists/Qe-favelas"
   },
   {
     "name": "Shotas",
@@ -1701,18 +1701,18 @@
     "url_genius": "https://genius.com/artists/Lhexaler"
   },
   {
+    "name": "Slimka",
+    "id_spotify": "3JudvZnY94AkCzfAVXzawN",
+    "genres": [],
+    "id_genius": 60891,
+    "url_genius": "https://genius.com/artists/Di-meh"
+  },
+  {
     "name": "Lacraps",
     "id_spotify": "082dnQ2APdm4cFw8eILB4u",
     "genres": [],
     "id_genius": 182217,
     "url_genius": "https://genius.com/artists/Lacraps"
-  },
-  {
-    "name": "Dibson",
-    "id_spotify": "3I2ayKNkuX0gqKPZDBnxNk",
-    "genres": [],
-    "id_genius": 87434,
-    "url_genius": "https://genius.com/artists/Dibson"
   },
   {
     "name": "ZeGuerre",
@@ -1722,11 +1722,11 @@
     "url_genius": "https://genius.com/artists/Zeguerre"
   },
   {
-    "name": "Slimka",
-    "id_spotify": "3JudvZnY94AkCzfAVXzawN",
+    "name": "Dibson",
+    "id_spotify": "3I2ayKNkuX0gqKPZDBnxNk",
     "genres": [],
-    "id_genius": 299788,
-    "url_genius": "https://genius.com/artists/Slimka"
+    "id_genius": 87434,
+    "url_genius": "https://genius.com/artists/Dibson"
   },
   {
     "name": "Kool Shen",
@@ -1752,6 +1752,13 @@
     "url_genius": "https://genius.com/artists/Cut-killer"
   },
   {
+    "name": "Le 3ème Oeil",
+    "id_spotify": "4UUv9SzL15YuB6epX0YGdy",
+    "genres": [],
+    "id_genius": 80732,
+    "url_genius": "https://genius.com/artists/Le-3eme-il"
+  },
+  {
     "name": "Biwaï",
     "id_spotify": "3ydKJWfVcxb3hOECejiAYi",
     "genres": [
@@ -1768,20 +1775,13 @@
     "url_genius": "https://genius.com/artists/Booba"
   },
   {
-    "name": "Le 3ème Oeil",
-    "id_spotify": "4UUv9SzL15YuB6epX0YGdy",
-    "genres": [],
-    "id_genius": 80732,
-    "url_genius": "https://genius.com/artists/Le-3eme-il"
-  },
-  {
     "name": "Gianni",
     "id_spotify": "5W9ShLREoRMuXqSSYMeHqk",
     "genres": [
       "pop urbaine"
     ],
-    "id_genius": 1034569,
-    "url_genius": "https://genius.com/artists/Shinigami"
+    "id_genius": 939,
+    "url_genius": "https://genius.com/artists/Freddie-gibbs"
   },
   {
     "name": "Lucio Bukowski",
@@ -1791,13 +1791,6 @@
     "url_genius": "https://genius.com/artists/Lucio-bukowski"
   },
   {
-    "name": "2zer",
-    "id_spotify": "7Iw6TwPkS7bja1OrA3Neal",
-    "genres": [],
-    "id_genius": 14072,
-    "url_genius": "https://genius.com/artists/2zer"
-  },
-  {
     "name": "PSO THUG",
     "id_spotify": "34dSaKok3USBivMGTmIlXx",
     "genres": [],
@@ -1805,11 +1798,11 @@
     "url_genius": "https://genius.com/artists/Pso-thug"
   },
   {
-    "name": "Kheops",
-    "id_spotify": "7g9QCyx9r1R424eMqNtM2g",
+    "name": "2zer",
+    "id_spotify": "7Iw6TwPkS7bja1OrA3Neal",
     "genres": [],
-    "id_genius": 1961,
-    "url_genius": "https://genius.com/artists/Akhenaton"
+    "id_genius": 14072,
+    "url_genius": "https://genius.com/artists/2zer"
   },
   {
     "name": "JMK$",
@@ -1817,6 +1810,13 @@
     "genres": [],
     "id_genius": 749190,
     "url_genius": "https://genius.com/artists/Jmk"
+  },
+  {
+    "name": "Kheops",
+    "id_spotify": "7g9QCyx9r1R424eMqNtM2g",
+    "genres": [],
+    "id_genius": 1961,
+    "url_genius": "https://genius.com/artists/Akhenaton"
   },
   {
     "name": "DENZO",
@@ -1856,11 +1856,11 @@
     "url_genius": "https://genius.com/artists/French-montana"
   },
   {
-    "name": "L'uzine",
-    "id_spotify": "7BeihcnNgK5Md6ORbMEqwf",
+    "name": "Melan",
+    "id_spotify": "5TwGksCe3pSfpBcV96k6sS",
     "genres": [],
-    "id_genius": 223211,
-    "url_genius": "https://genius.com/artists/Luzine"
+    "id_genius": 153995,
+    "url_genius": "https://genius.com/artists/Melanie-martinez"
   },
   {
     "name": "Saké",
@@ -1870,32 +1870,25 @@
     "url_genius": "https://genius.com/artists/Genius-romanizations"
   },
   {
-    "name": "Melan",
-    "id_spotify": "5TwGksCe3pSfpBcV96k6sS",
-    "genres": [],
-    "id_genius": 29569,
-    "url_genius": "https://genius.com/artists/Melan"
-  },
-  {
-    "name": "Sam's",
-    "id_spotify": "3mvmdWXXKKpUrmYTvdALyS",
-    "genres": [],
-    "id_genius": 599,
-    "url_genius": "https://genius.com/artists/The-killers"
-  },
-  {
-    "name": "Vin's",
-    "id_spotify": "3kBOfwS7wKdNH41Zy8eJjx",
-    "genres": [],
-    "id_genius": 149845,
-    "url_genius": "https://genius.com/artists/Vins"
-  },
-  {
     "name": "sean",
     "id_spotify": "7CxSejERLJhkuYRU6D1d8C",
     "genres": [],
     "id_genius": 492,
     "url_genius": "https://genius.com/artists/Big-sean"
+  },
+  {
+    "name": "Brasco",
+    "id_spotify": "3tKR0XXN0pW0Kl7UDAVSHL",
+    "genres": [],
+    "id_genius": 12000,
+    "url_genius": "https://genius.com/artists/Brasco-fra"
+  },
+  {
+    "name": "Vin's",
+    "id_spotify": "3kBOfwS7wKdNH41Zy8eJjx",
+    "genres": [],
+    "id_genius": 365776,
+    "url_genius": "https://genius.com/artists/Dde"
   },
   {
     "name": "BRVMSOO",
@@ -1907,13 +1900,6 @@
     "url_genius": "https://genius.com/artists/Brvmsoo"
   },
   {
-    "name": "Brasco",
-    "id_spotify": "3tKR0XXN0pW0Kl7UDAVSHL",
-    "genres": [],
-    "id_genius": 1942703,
-    "url_genius": "https://genius.com/artists/Brasco"
-  },
-  {
     "name": "Senamo",
     "id_spotify": "2RPfjjkSe3N9gmyGk1ZBxo",
     "genres": [],
@@ -1921,18 +1907,11 @@
     "url_genius": "https://genius.com/artists/Senamo"
   },
   {
-    "name": "KDD",
-    "id_spotify": "0wNPt95tKAlBygX040Zi0V",
+    "name": "La Clinique",
+    "id_spotify": "47NHcwh7V1kVlxr9Co6k1r",
     "genres": [],
-    "id_genius": 17530,
-    "url_genius": "https://genius.com/artists/Kdd"
-  },
-  {
-    "name": "Lorage",
-    "id_spotify": "2roV5f30gWneIOkPjdpntN",
-    "genres": [],
-    "id_genius": 1030497,
-    "url_genius": "https://genius.com/artists/Lorage"
+    "id_genius": 54428,
+    "url_genius": "https://genius.com/artists/La-clinique"
   },
   {
     "name": "El Matador",
@@ -1944,11 +1923,25 @@
     "url_genius": "https://genius.com/artists/El-matador"
   },
   {
-    "name": "La Clinique",
-    "id_spotify": "47NHcwh7V1kVlxr9Co6k1r",
+    "name": "Lorage",
+    "id_spotify": "2roV5f30gWneIOkPjdpntN",
     "genres": [],
-    "id_genius": 54428,
-    "url_genius": "https://genius.com/artists/La-clinique"
+    "id_genius": 1030497,
+    "url_genius": "https://genius.com/artists/Lorage"
+  },
+  {
+    "name": "KDD",
+    "id_spotify": "0wNPt95tKAlBygX040Zi0V",
+    "genres": [],
+    "id_genius": 12715,
+    "url_genius": "https://genius.com/artists/Aka"
+  },
+  {
+    "name": "ATK",
+    "id_spotify": "4nOixYyTN15ZSzPSna2Oah",
+    "genres": [],
+    "id_genius": 11154,
+    "url_genius": "https://genius.com/artists/Jason-weaver"
   },
   {
     "name": "Fixpen Sill",
@@ -1956,13 +1949,6 @@
     "genres": [],
     "id_genius": 15706,
     "url_genius": "https://genius.com/artists/Fixpen-sill"
-  },
-  {
-    "name": "ATK",
-    "id_spotify": "4nOixYyTN15ZSzPSna2Oah",
-    "genres": [],
-    "id_genius": 15359,
-    "url_genius": "https://genius.com/artists/Atk"
   },
   {
     "name": "L'Or du Commun",
@@ -1975,8 +1961,15 @@
     "name": "Jeff Le Nerf",
     "id_spotify": "6BmoZG6Z7N10aKb4yyoo27",
     "genres": [],
-    "id_genius": 18374,
-    "url_genius": "https://genius.com/artists/Jeff-le-nerf"
+    "id_genius": 1245680,
+    "url_genius": "https://genius.com/artists/Furax-and-jeff-le-nerf"
+  },
+  {
+    "name": "L'uzine",
+    "id_spotify": "7BeihcnNgK5Md6ORbMEqwf",
+    "genres": [],
+    "id_genius": 223211,
+    "url_genius": "https://genius.com/artists/Luzine"
   },
   {
     "name": "Pins & Dimeh",
@@ -1986,18 +1979,18 @@
     "url_genius": "https://genius.com/artists/Pins-and-dimeh"
   },
   {
-    "name": "L'entourage",
-    "id_spotify": "0uziZOQoq7GATTdJqMOX5s",
-    "genres": [],
-    "id_genius": 13061,
-    "url_genius": "https://genius.com/artists/Lentourage"
-  },
-  {
     "name": "Aladin 135",
     "id_spotify": "2q8BTMaWesmxIXCB817C9I",
     "genres": [],
     "id_genius": 146430,
     "url_genius": "https://genius.com/artists/Aladin-135"
+  },
+  {
+    "name": "L'entourage",
+    "id_spotify": "0uziZOQoq7GATTdJqMOX5s",
+    "genres": [],
+    "id_genius": 13061,
+    "url_genius": "https://genius.com/artists/Lentourage"
   },
   {
     "name": "Take a Mic",
@@ -2014,13 +2007,6 @@
     "url_genius": "https://genius.com/artists/Twinsmatic"
   },
   {
-    "name": "XV",
-    "id_spotify": "0bLmm8afVAt8Vb5nhPsx1B",
-    "genres": [],
-    "id_genius": 1010,
-    "url_genius": "https://genius.com/artists/Xv"
-  },
-  {
     "name": "Anabel",
     "id_spotify": "50L9hhqxqvBX5FjcBV5t8P",
     "genres": [
@@ -2030,11 +2016,25 @@
     "url_genius": "https://genius.com/artists/Anabel-englund"
   },
   {
+    "name": "Sam's",
+    "id_spotify": "3mvmdWXXKKpUrmYTvdALyS",
+    "genres": [],
+    "id_genius": 49085,
+    "url_genius": "https://genius.com/artists/Basta"
+  },
+  {
     "name": "7 Jaws",
     "id_spotify": "2HXioEvQuzCcNmRsImBTET",
     "genres": [],
     "id_genius": 1078135,
     "url_genius": "https://genius.com/artists/Web7"
+  },
+  {
+    "name": "XV",
+    "id_spotify": "0bLmm8afVAt8Vb5nhPsx1B",
+    "genres": [],
+    "id_genius": 1261636,
+    "url_genius": "https://genius.com/artists/Xvxx"
   },
   {
     "name": "Cenza",
@@ -2047,8 +2047,8 @@
     "name": "VILK",
     "id_spotify": "47xk0ajcKCEKpiExs2FDZm",
     "genres": [],
-    "id_genius": 1138274,
-    "url_genius": "https://genius.com/artists/Vilk"
+    "id_genius": 357109,
+    "url_genius": "https://genius.com/artists/Ted-gardestad"
   },
   {
     "name": "La Smala",
@@ -2074,11 +2074,25 @@
     "url_genius": "https://genius.com/artists/Junior-bvndo"
   },
   {
+    "name": "La Brigade",
+    "id_spotify": "0KmSqHKu9V4ZvexLyQiS5X",
+    "genres": [],
+    "id_genius": 16172,
+    "url_genius": "https://genius.com/artists/La-brigade"
+  },
+  {
     "name": "Kobo",
     "id_spotify": "5O5o8ORa6JnUInvOUmmvft",
     "genres": [],
-    "id_genius": 1010841,
-    "url_genius": "https://genius.com/artists/Kobo"
+    "id_genius": 3109470,
+    "url_genius": "https://genius.com/artists/Kobo-kanaeru"
+  },
+  {
+    "name": "Badjer",
+    "id_spotify": "2FUHt23aPFLisAYXN73JMT",
+    "genres": [],
+    "id_genius": 1080563,
+    "url_genius": "https://genius.com/artists/Badjer"
   },
   {
     "name": "Lasco",
@@ -2088,25 +2102,11 @@
     "url_genius": "https://genius.com/artists/Lasco"
   },
   {
-    "name": "La Brigade",
-    "id_spotify": "0KmSqHKu9V4ZvexLyQiS5X",
-    "genres": [],
-    "id_genius": 16172,
-    "url_genius": "https://genius.com/artists/La-brigade"
-  },
-  {
     "name": "Tendry",
     "id_spotify": "5Br2VeVa0olMTdROCRLDPR",
     "genres": [],
     "id_genius": 1124551,
     "url_genius": "https://genius.com/artists/Tendry"
-  },
-  {
-    "name": "Badjer",
-    "id_spotify": "2FUHt23aPFLisAYXN73JMT",
-    "genres": [],
-    "id_genius": 1080563,
-    "url_genius": "https://genius.com/artists/Badjer"
   },
   {
     "name": "Beeby",
@@ -2119,8 +2119,8 @@
     "name": "CG6",
     "id_spotify": "3i3yb6Daaf3z6OLKvMFqlK",
     "genres": [],
-    "id_genius": 1296565,
-    "url_genius": "https://genius.com/artists/Cg6"
+    "id_genius": 1633108,
+    "url_genius": "https://genius.com/artists/Mlvs"
   },
   {
     "name": "Mafia Spartiate",
@@ -2136,8 +2136,8 @@
       "christian",
       "christian hip hop"
     ],
-    "id_genius": 47131,
-    "url_genius": "https://genius.com/artists/Partynextdoor"
+    "id_genius": 599,
+    "url_genius": "https://genius.com/artists/The-killers"
   },
   {
     "name": "X-Men",
@@ -2168,13 +2168,6 @@
     "url_genius": "https://genius.com/artists/Rockin-squat"
   },
   {
-    "name": "Mysa",
-    "id_spotify": "2MNPi0MHX0zRdMBtWAeXGU",
-    "genres": [],
-    "id_genius": 17534,
-    "url_genius": "https://genius.com/artists/Mysa"
-  },
-  {
     "name": "Dévotion",
     "id_spotify": "2uC6uVPsgm5ohAI7iwu7Xx",
     "genres": [
@@ -2185,13 +2178,6 @@
     "url_genius": "https://genius.com/artists/Adele"
   },
   {
-    "name": "LMB",
-    "id_spotify": "3EwKGrg1Y5dAF8frDO6mLS",
-    "genres": [],
-    "id_genius": 1636883,
-    "url_genius": "https://genius.com/artists/Lmb"
-  },
-  {
     "name": "Le Gouffre",
     "id_spotify": "4X4SnYGgU68gRnuuHzBTdY",
     "genres": [],
@@ -2199,11 +2185,11 @@
     "url_genius": "https://genius.com/artists/Le-gouffre"
   },
   {
-    "name": "Sirap",
-    "id_spotify": "2YLgUIzk2Ijs1Qz4vus5vZ",
+    "name": "LMB",
+    "id_spotify": "3EwKGrg1Y5dAF8frDO6mLS",
     "genres": [],
-    "id_genius": 279046,
-    "url_genius": "https://genius.com/artists/Sirap"
+    "id_genius": 2400713,
+    "url_genius": "https://genius.com/artists/Lmb-dg"
   },
   {
     "name": "Grödash",
@@ -2218,8 +2204,15 @@
     "genres": [
       "christian"
     ],
-    "id_genius": 578798,
-    "url_genius": "https://genius.com/artists/Meak"
+    "id_genius": 131982,
+    "url_genius": "https://genius.com/artists/Meaku"
+  },
+  {
+    "name": "Sirap",
+    "id_spotify": "2YLgUIzk2Ijs1Qz4vus5vZ",
+    "genres": [],
+    "id_genius": 279046,
+    "url_genius": "https://genius.com/artists/Sirap"
   },
   {
     "name": "Pejmaxx",
@@ -2284,13 +2277,6 @@
     "url_genius": "https://genius.com/artists/Ministere-amer"
   },
   {
-    "name": "Chiens de Paille",
-    "id_spotify": "6vbTpt2kutJQdFBAMw8Uuu",
-    "genres": [],
-    "id_genius": 13248,
-    "url_genius": "https://genius.com/artists/Chiens-de-paille"
-  },
-  {
     "name": "Stensy",
     "id_spotify": "0ER6tslXJUnG4g0c04Oy4K",
     "genres": [],
@@ -2298,11 +2284,25 @@
     "url_genius": "https://genius.com/artists/Stensy"
   },
   {
+    "name": "Chiens de Paille",
+    "id_spotify": "6vbTpt2kutJQdFBAMw8Uuu",
+    "genres": [],
+    "id_genius": 13248,
+    "url_genius": "https://genius.com/artists/Chiens-de-paille"
+  },
+  {
     "name": "Carré Rouge",
     "id_spotify": "1wKDP0QXvFff9WG6BqxbH9",
     "genres": [],
     "id_genius": 29000,
     "url_genius": "https://genius.com/artists/Carre-rouge"
+  },
+  {
+    "name": "Mysa",
+    "id_spotify": "2MNPi0MHX0zRdMBtWAeXGU",
+    "genres": [],
+    "id_genius": 17534,
+    "url_genius": "https://genius.com/artists/Mysa"
   },
   {
     "name": "Inglourious Bastardz",
@@ -2336,8 +2336,8 @@
     "name": "Robse",
     "id_spotify": "4BumdsyDAeFuC2MG376brO",
     "genres": [],
-    "id_genius": 136731,
-    "url_genius": "https://genius.com/artists/Robse"
+    "id_genius": 27869,
+    "url_genius": "https://genius.com/artists/Oster-lapwass"
   },
   {
     "name": "Lotus",
@@ -2359,8 +2359,8 @@
     "name": "Verto",
     "id_spotify": "6boUbYz1NlPNeXGDtAmA8q",
     "genres": [],
-    "id_genius": 2083909,
-    "url_genius": "https://genius.com/artists/Verto"
+    "id_genius": 3078061,
+    "url_genius": "https://genius.com/artists/Tan"
   },
   {
     "name": "Dino Killabizz",
