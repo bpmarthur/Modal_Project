@@ -4,8 +4,16 @@ import spotify
 import genius
 import csv
 import time
+import musicbrainz
 from pymongo import MongoClient
+from tools import get_key
 from bson.objectid import ObjectId
+
+GENIUS_API_TOKEN = get_key("Client_access_genius")
+
+headers = {
+    'Authorization': f'Bearer {GENIUS_API_TOKEN}'
+}
 
 this_name = os.path.basename(__file__)
 
@@ -55,6 +63,7 @@ def update(filename = "artists.json"):
     for artiste in artistes:
         print(f"[{this_name}] [{i}/{length}] Mise à jour de : {artiste['name'].strip()} {" "*100}", end='\r')
         _, artiste['id_genius'] , artiste['url_genius'], _= genius.get_artist_id_by_name(artiste['name']+" ")
+        artiste['id_mb'] = musicbrainz.get_artist_id_by_name(artiste['name'])
         #artiste['id_mb']
         #artiste['id_lastfm']
 
@@ -93,6 +102,62 @@ def update_json_to_mongo(filename = "artists.json"):
     # Insertion des artistes dans la base de données
     collection.insert_many(artistes)
 
+def update_featurings_and_songs_to_mongo():
+    client = MongoClient("mongodb://localhost:27017/")
+    db = client["musicdb"]
+    artists_col = db["artists"]
+    songs_col = db["songs"]
+    featurings_col = db["featurings"]
+
+    # Pour faire correspondre un nom à un id dans la base
+    all_artists = list(artists_col.find({}))
+    name_to_id = {artist['name'].lower(): artist['_id'] for artist in all_artists}
+    name_to_genius_id = {artist['name'].lower(): artist['id_genius'] for artist in all_artists}
+
+    for i, artist in enumerate(all_artists):
+        artist_name = artist['name']
+        artist_genius_id = artist['id_genius']
+        print(f"🔍 Traitement de l'artiste : {artist_name} ({i} / {len(all_artists)}) {' '*100}", end='\r')
+
+        try:
+            tracks = genius.get_artist_featurings(artist_genius_id, max_pages=50)
+        except Exception as e:
+            print(f"❌ Erreur pour {artist_name} : {e}")
+            continue
+
+        for track in tracks:
+            song_id = track[0]
+            title = track[1]
+            artist_names = [musicbrainz.normalize_string(a) for a in track[2]]
+
+            # # Enregistrement dans songs (avec upsert pour éviter les doublons)
+            # songs_col.update_one(
+            #     {"_id": song_id},
+            #     {"$setOnInsert": {"_id": song_id, "title": title}, },
+            #     upsert=True
+            # )
+
+            # Enregistrement dans featurings (avec upsert pour éviter les doublons)
+                
+            nb_artistes_presents = 0
+            artistes_presents_id = []
+            artistes_presents_name = []
+            for artist in artist_names:
+                artist_id = name_to_id.get(artist)
+                if artist_id:
+                    artistes_presents_id.append(artist_id)
+                    artistes_presents_name.append(artist)
+                    nb_artistes_presents += 1
+            if nb_artistes_presents >= 2:   
+                featurings_col.update_one(
+                    {"_id": song_id},
+                    {"$setOnInsert": {"_id": song_id, "title": title, "artists_id": artistes_presents_id},
+                     "artists_names": artistes_presents_name, "artists_genius_id": [name_to_genius_id[artist] for artist in artistes_presents_name]},
+                    upsert=True
+                )
+
+    
+
 def convert_to_csv(filename = "artists.csv"):
     # Connexion à MongoDB
     client = MongoClient("mongodb://localhost:27017/")
@@ -112,3 +177,4 @@ def convert_to_csv(filename = "artists.csv"):
 if __name__ == "__main__":
     update()
     #update_json_to_mongo()
+    update_featurings_and_songs_to_mongo()
