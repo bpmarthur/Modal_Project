@@ -80,4 +80,5 @@ def update_json_to_mongo(filename = "artists.json"):
     collection.insert_many(artistes)
 
 if __name__ == "__main__":
-    update_json_to_mongo()
+    update()
+    #update_json_to_mongo()

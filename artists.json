@@ -225,6 +225,13 @@
     "url_genius": "https://genius.com/artists/Niro"
   },
   {
+    "name": "Zola",
+    "id_spotify": "54kCbQZaZWHnwwj9VP2hn4",
+    "genres": [],
+    "id_genius": 585517,
+    "url_genius": "https://genius.com/artists/Zolarmoon"
+  },
+  {
     "name": "Kaaris",
     "id_spotify": "1ntQKIMIgESKpKoNXVBvQg",
     "genres": [
@@ -232,13 +239,6 @@
     ],
     "id_genius": 14693,
     "url_genius": "https://genius.com/artists/Kaaris"
-  },
-  {
-    "name": "Zola",
-    "id_spotify": "54kCbQZaZWHnwwj9VP2hn4",
-    "genres": [],
-    "id_genius": 585517,
-    "url_genius": "https://genius.com/artists/Zolarmoon"
   },
   {
     "name": "Orelsan",
@@ -811,15 +811,6 @@
     "url_genius": "https://genius.com/artists/Casseurs-flowters"
   },
   {
-    "name": "YL",
-    "id_spotify": "2k8fAJK9HbH1FhqVpZL98P",
-    "genres": [
-      "pop urbaine"
-    ],
-    "id_genius": 69575,
-    "url_genius": "https://genius.com/artists/Ylvis"
-  },
-  {
     "name": "Benash",
     "id_spotify": "53loJtHWjCG1TyKarW2mzk",
     "genres": [
@@ -848,6 +839,15 @@
     "genres": [],
     "id_genius": 21255,
     "url_genius": "https://genius.com/artists/Krisy"
+  },
+  {
+    "name": "YL",
+    "id_spotify": "2k8fAJK9HbH1FhqVpZL98P",
+    "genres": [
+      "pop urbaine"
+    ],
+    "id_genius": 69575,
+    "url_genius": "https://genius.com/artists/Ylvis"
   },
   {
     "name": "Mister V",
