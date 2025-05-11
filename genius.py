@@ -67,6 +67,7 @@ def get_all_songs_from_artist(artist_id, max_songs=1000):
 
 def get_artist_url_by_id(artist_id):
     url = f"https://api.genius.com/artists/{artist_id}"
+
     response = requests.get(url, headers=headers)
 
     if response.status_code != 200:
@@ -84,7 +85,9 @@ def get_artist_id_by_name(artist_name, artist_data = ""):
     else:
         params = {"q": f"{artist_name} {' '.join(artist_data)}"}
     response = requests.get(url, headers=headers, params=params)
-
+    
+    #print(json.dumps(response.json(), indent=2))
+    
     if response.status_code != 200:
         print(f"[{this_name}] Erreur :", response.status_code)
         return None
@@ -99,6 +102,7 @@ def get_artist_id_by_name(artist_name, artist_data = ""):
     found = False
     index_rep = 0
     for i in range(0, len(hits)):
+        print(f"[{this_name}] [{i}] Nom : {hits[i]['result']['primary_artist']['name']}, ID : {hits[i]['result']['primary_artist']['id']}, URL : {hits[i]['result']['primary_artist']['url']}")   #Debug
         if hits[i]["result"]["primary_artist"]["name"].lower() == artist_name.lower().strip():
             artist = hits[i]["result"]["primary_artist"]
             #print(f"[{this_name}] [{i}] Nom : {artist['name']}, ID : {artist['id']}, URL : {artist['url']}")   #Debug

@@ -1,8 +1,10 @@
 from pymongo import MongoClient
-import csv
+import os
+from bson.objectid import ObjectId
 import networkx as nx
 
-this_name = "graph.py"
+this_name = os.path.basename(__file__)
+
 def build_graph():
     print(f"[{this_name}] Building graph...")
     #Récupération des données
@@ -17,13 +19,22 @@ def build_graph():
 
     #On itère sur les artistes
     for artist in artists.find({}):
+        print(f"[{this_name}] Adding artist {artist['name']} to graph{' '*100}", end ="\r")
         G.add_node(artist["id_genius"], name=artist["name"], id=artist["_id"], id_genius=artist["id_genius"])
 
-        #On itère sur les featurings de la chanson
-        for featuring in featurings.find({}):
-            G.add_node(featuring["featuring"], id=featuring["_id"], type="utilisateur")
-            G.add_edge(song["title"], featuring["featuring"])
-
+    print(f"[{this_name}] All artists added to graph")
+    #On itère sur les featurings de la chanson
+    for featuring in featurings.find({}):
+        
+        node_1 = artists.find_one({"_id": featuring["artists"][0]})
+        node_2 = artists.find_one({"_id": featuring["artists"][1]})
+        print(f"[{this_name}] Adding featuring {featuring['title']} {node_1['name']} {node_2['name']} to graph{' '*100}", end ='\r')
+        if G.has_edge(node_1['id_genius'], node_2['id_genius']):
+            G[node_1['id_genius']][node_2['id_genius']]["weight"] += 1
+        else:
+            G.add_edge(node_1['id_genius'], node_2['id_genius'], weight=1)
+    
+    print(f"[{this_name}] All featurings added to graph")
     return G
         
 def export_graph_to_gephi(graph, filename = "graph.gexf"):

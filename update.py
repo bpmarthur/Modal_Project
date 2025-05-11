@@ -175,6 +175,6 @@ def convert_to_csv(filename = "artists.csv"):
             writer.writerow([artiste["name"], artiste["id_spotify"], artiste["id_genius"], artiste["url_genius"], ",".join(artiste["genres"])])  # Données d'artistes
 
 if __name__ == "__main__":
-    update()
+    #9+6update()
     #update_json_to_mongo()
     update_featurings_and_songs_to_mongo()
