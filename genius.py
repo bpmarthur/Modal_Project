@@ -103,7 +103,7 @@ def get_artist_id_by_name_manual():
             print(f"[{this_name}] [{i}] Nom : {hits[i]['result']['primary_artist']['name']}, ID : {hits[i]['result']['primary_artist']['id']}, URL : {hits[i]['result']['primary_artist']['url']}")   #Debug
         rep = ""
         while True:
-            rep = input(f"[{this_name}] Choisissez l'artiste qui convient, sinon entrez n'importe quel chiffre")
+            rep = input(f"[{this_name}] Choisissez l'artiste qui convient, sinon entrez n'importe quel chiffre : ")
             try:
                 rep = int(rep)
                 break  # Si ça marche, on sort de la boucle
