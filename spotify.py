@@ -85,3 +85,10 @@ def get_artists(genres = list_genres):
                 break
     print(f"Récupération terminée{' '*100}")
     return artists
+
+if __name__ == "__main__":
+    pass
+    artists = get_artists()
+    print(f"[{this_name}] {len(artists)} artistes récupérés")
+    for artist in artists:
+        print(f"[{this_name}] {artist['name']} : {artist['id_spotify']}")
