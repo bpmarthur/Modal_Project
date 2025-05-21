@@ -20,7 +20,7 @@ def normalize_string(s):
     s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')  # enlève les diacritiques
     return s
 
-def complete_artist_list(genre = ["rap français"]):
+# def complete_artist_list(genre = ["rap français"]):
     
 
 def get_artist_id_by_name(name):
@@ -46,7 +46,7 @@ def get_artists():
         }
 
         response = requests.get(f"{BASE_URL_MB}/artist", params=params, headers=HEADERS)
-        time.sleep(1)
+        time.sleep(0.2)
         response.raise_for_status()
         results = response.json().get("artists", [])
         
