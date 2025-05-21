@@ -4,6 +4,7 @@ import os
 import requests
 from tools import get_key
 import time
+import json
 
 this_name = os.path.basename(__file__)
 
@@ -39,7 +40,35 @@ results = response.json()
 for artist in results['artists']['items']:
     print(artist['name'], "→", artist['genres'])
 '''
-
+def get_popularity(artist_id):
+    """
+    This function returns the popularity of an artist from Spotify.
+    """
+    params = {
+        "ids": artist_id
+    }
+    #response = requests.get("https://api.spotify.com/v1/artists", headers=headers, params=params)
+    response = requests.get(f"https://api.spotify.com/v1/artists/{artist_id}", headers=headers)
+    results = response.json()
+    # Vérification de la présence de la clé 'artists' et du contenu
+    pop, followers = None, None
+    try:
+        followers = results['followers']['total']
+    except Exception as e:
+        followers = None
+        print(json.dumps(results, indent=4))
+    try:
+        pop = results['popularity']
+    except Exception as e:
+        pop = None
+    return pop, followers
+    '''
+    if 'artists' in results and results['artists']:
+        return results['artists'][0]['popularity']
+    else:
+        print(f"[{this_name}] Erreur : clé 'artists' absente ou vide pour l'id {artist_id}")
+        return None
+    '''
 # Afficher les artistes d'un genre spécifique
 def show_artists(genre):
     print(f"[{this_name}] Récupération des artistes de : {genre}")
@@ -83,5 +112,18 @@ def get_artists(genres = list_genres):
                 })
             if empty:
                 break
-    print(f"Récupération terminée{' '*100}")
+    print(f"[{this_name}] Récupération terminée{' '*100}")
     return artists
+
+if __name__ == "__main__":
+    '''
+    artists = get_artists()
+    print(f"[{this_name}] {len(artists)} artistes récupérés")
+    for artist in artists:
+        popularity, followers = get_popularity(artist['id_spotify'])
+        print(f"{artist['name']} {artist['id_spotify']} -> Popularity : {popularity} . Followers : {followers}")
+        #print(f"[{this_name}] {artist['name']} : {artist['id_spotify']} . Popularity : {get_popularity(artist['id_spotify'])}")
+    print(f"[{this_name}] {len(artists)} artistes récupérés")
+    '''
+    val = input("Entrez l'id d'un artiste : ")
+    print(f"{get_popularity(val)}")
