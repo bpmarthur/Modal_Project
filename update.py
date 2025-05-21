@@ -231,7 +231,7 @@ def update_featurings_and_songs_to_mongo():
     songs_col = db["songs"]
     featurings_col = db["featurings"]
 
-    # Pour faire correspondre un nom à un id dans la base
+    # Pour faire correspondre un nom à un id dans la base en utilisant des dictionnaires
     all_artists = list(artists_col.find({}))
     name_to_id = {artist['name'].lower(): artist['_id'] for artist in all_artists}
     name_to_genius_id = {artist['name'].lower(): artist['id_genius'] for artist in all_artists}

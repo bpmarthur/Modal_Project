@@ -120,7 +120,8 @@ def set_clusters(graph, method, k:int = 3):
     return graph
 
 def export_graph_to_gephi(graph, filename = "graph.gexf"):
-    file_path = "./graphs/"+filename
+    rel_path = "./graphs/"
+    file_path = rel_path+filename
     print(f"[{this_name}] Exporting graph to Gephi...")
     os.makedirs("./graphs", exist_ok=True)
     nx.write_gexf(graph, file_path)

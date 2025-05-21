@@ -270,7 +270,7 @@ def get_artist_featurings(artist_id, max_pages=1):
         response = requests.get(url, headers=headers, params=params)
         if response.status_code != 200:
             print(f"Erreur page {page} : {response.status_code}")
-            break
+            break   #Pas continue ?
 
         data = response.json()
         song_list = data.get('response', {}).get('songs', [])
