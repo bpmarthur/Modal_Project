@@ -3,6 +3,7 @@ import time
 import os
 import json
 from tools import get_key
+import sys
 
 GENIUS_API_TOKEN = get_key("Client_access_genius")
 
@@ -109,11 +110,28 @@ def get_artist_id_by_name_manual():
                 break  # Si ça marche, on sort de la boucle
             except ValueError:
                 print("Ce n'est pas un entier valide. Réessayez.")
+        #Supprimer les lignes d'avant
+        sys.stdout.write("\033[K")
+        time.sleep(1)
+        for i in range(0, 12):
+            sys.stdout.write("\033[F")
+            time.sleep(1)
+            #sys.stdout.write("\033[K")
+            #print(i, end='')
+            #time.sleep(1)
+
+        sys.stdout.write("\033[F")
+        time.sleep(1)
+        sys.stdout.write("\033[K")
+        time.sleep(1)    
+
+
         if rep >= 0 and rep < len(hits):
             artist = hits[rep]["result"]["primary_artist"]
             found = True
             break
-    
+        else:
+            print(f"[{this_name}] Aucun résultat sélectionné.")
     url = artist["url"]
     id = artist["id"]
     name = artist["name"]
@@ -276,7 +294,7 @@ def get_artist_featurings(artist_id, max_pages=1):
 
 
 if __name__ == "__main__":
-    show_artist()
+    show_artist_manual()
     # Exemple
     #search_song("Lose Yourself Eminem")
 

@@ -184,7 +184,7 @@ def update_mongo(db_name = "arthur_modal", force_update = False):
         if rep == 1:
             print(f"[{this_name}] Mise à jour des fails")
             for artist_fail in fails:
-                print(f"[{this_name}] Mise à jour de l'artiste : {artist_fail['name']} {" "*100}", end='\r')
+                print(f"[{this_name}] Mise à jour de l'artiste : {artist_fail['name']} {" "*100}")
                 rep_genius = genius.get_artist_id_by_name_manual()
                 if rep_genius is not None:
                     collection.update_one({"name": artist_fail['name']}, {"$set": {"id_genius": rep_genius[1], "url_genius": rep_genius[2]}})
