@@ -34,35 +34,57 @@ def update(filename = "artists.json"):
     """
     Récupération des artistes en ligne depuis Spotify grâce à l'API via spotify.py. Sauvegarde de cette liste dans un autre fichier.
     """
-    print(f"[{this_name}] Récupération des artistes en ligne...")
-    new_artistes = spotify.get_artists()
+    print(f"[{this_name}] Récupération des artistes en ligne sur spotify...")
+    new_artistes_spotify = spotify.get_artists()
     f = open("artists_list.txt", "w", encoding="utf-8")
-    for artiste in new_artistes:
+    for artiste in new_artistes_spotify:
         f.write(f"{artiste['name']}\n")
     f.close()
-    print(f"[{this_name}] Récupération des artistes en ligne terminée. {len(new_artistes)} artistes récupérés.")
-
+    print(f"[{this_name}] Récupération des artistes en ligne terminée. {len(new_artistes_spotify)} artistes récupérés via spotify.")
+    
+    """
+    Récupération des artistes en ligne depuis Musicbrainz grâce à l'API via musicbrainz.py. Sauvegarde de cette liste dans un autre fichier.
+    """
+    print(f"[{this_name}] Récupération des artistes en ligne sur musicbrainz...")
+    new_artistes_musicbrainz = musicbrainz.get_artists()
+    f = open("artists_list.txt", "w", encoding="utf-8")
+    for artiste in new_artistes_musicbrainz:
+        f.write(f"{artiste['name']}\n")
+    f.close()
+    print(f"[{this_name}] Récupération des artistes en ligne terminée. {len(new_artistes_musicbrainz)} artistes récupérés via musicbrainz.")
+    
     """
     Rajout de ces artistes à notre base de données JSON.
     """
     print(f"[{this_name}] Mise à jour de la base de données...")
-    for artiste in new_artistes:
+    for artiste in new_artistes_spotify:
         if not any(a['name'] == artiste['name'] for a in artistes):
             # Ajouter l'artiste à la liste
             artistes.append(artiste)
-            print(f"[{this_name}] Ajout de l'artiste : {artiste['name']} {" "*100}", end='\r')
+            print(f"[{this_name}] Ajout de l'artiste : {artiste['name']} {' '*100}", end='\r')
         else:
-            print(f"[{this_name}] Artiste mis à jour : {artiste['name']} {" "*100}", end='\r')
-            
+            print(f"[{this_name}] Artiste mis à jour : {artiste['name']} {' '*100}", end='\r')
+    for artiste in new_artistes_musicbrainz:
+        if not any(a['name'] == artiste['name'] for a in artistes):
+            # Ajouter l'artiste à la liste
+            artistes.append(artiste)
+            print(f"[{this_name}] Ajout de l'artiste : {artiste['name']} {' '*100}", end='\r')
+        else:
+            print(f"[{this_name}] Artiste mis à jour : {artiste['name']} {' '*100}", end='\r')
     """
     Mise à jour des liens Genius, Last-FM, MusicBrainz... pour chaque artiste.
     """
-    print(f"[{this_name}] Mise à jour des liens... {" "*100}")
+    print(f"[{this_name}] Mise à jour des liens... {' '*100}")
     length = len(artistes)
     i = 0
     for artiste in artistes:
-        print(f"[{this_name}] [{i}/{length}] Mise à jour de : {artiste['name'].strip()} {" "*100}", end='\r')
-        _, artiste['id_genius'] , artiste['url_genius'], _= genius.get_artist_id_by_name(artiste['name']+" ")
+        print(f"[{this_name}] [{i}/{length}] Mise à jour de : {artiste['name'].strip()} {' '*100}", end='\r')
+        object_or_None = genius.get_artist_id_by_name(artiste['name'])
+        if object_or_None is None:
+            print(f"[{this_name}] Impossible de trouver l'artiste {artiste['name']}")
+            continue
+        else :
+            _, artiste['id_genius'] , artiste['url_genius'], _= object_or_None
         artiste['id_mb'] = musicbrainz.get_artist_id_by_name(artiste['name'])
         #artiste['id_mb']
         #artiste['id_lastfm']
@@ -72,7 +94,7 @@ def update(filename = "artists.json"):
     """
     Sauvegarde de la base de données JSON.
     """
-    print(f"[{this_name}] Écriture dans la base de données... {" "*100}")
+    print(f"[{this_name}] Écriture dans la base de données... {' '*100}")
     with open(filename, "w", encoding="utf-8") as f:
         json.dump(artistes, f, indent=2, ensure_ascii=False)
     print(f"[{this_name}] Fermeture de la base de données...")
@@ -117,7 +139,7 @@ def update_featurings_and_songs_to_mongo():
     for i, artist in enumerate(all_artists):
         artist_name = artist['name']
         artist_genius_id = artist['id_genius']
-        print(f"🔍 Traitement de l'artiste : {artist_name} ({i} / {len(all_artists)}) {' '*100}", end='\r')
+        print(f"🔍 Traitement de l'artiste : {artist_name} ({i} / {len(all_artists)}) {' '*100}")
 
         try:
             tracks = genius.get_artist_featurings(artist_genius_id, max_pages=50)
@@ -155,6 +177,8 @@ def update_featurings_and_songs_to_mongo():
                      "artists_names": artistes_presents_name, "artists_genius_id": [name_to_genius_id[artist] for artist in artistes_presents_name]},
                     upsert=True
                 )
+            print(end="\r")
+            
 
     
 
@@ -177,4 +201,4 @@ def convert_to_csv(filename = "artists.csv"):
 if __name__ == "__main__":
     update()
     #update_json_to_mongo()
-    update_featurings_and_songs_to_mongo()
+    #update_featurings_and_songs_to_mongo()
