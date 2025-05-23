@@ -165,14 +165,14 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
         """
         Récupération des artistes en ligne depuis Spotify grâce à l'API via spotify.py.
         """
-        print(f"[{this_name}] Récupération des artistes en ligne...")
+        print(f"[{this_name}] Récupération des artistes spotify en ligne...")
         new_artistes_spotify = spotify.get_artists()
         print(f"[{this_name}] Récupération des artistes en ligne terminée. {len(new_artistes_spotify)} artistes récupérés sur spotify.")
 
         """
         Récupération des artistes en ligne depuis Musicbrainz grâce à l'API via musicbrainz.py.
         """
-        print(f"[{this_name}] Récupération des artistes en ligne...")
+        print(f"[{this_name}] Récupération des artistes musicbrainz en ligne...")
         new_artistes_musicbrainz = musicbrainz.get_artists()
         print(f"[{this_name}] Récupération des artistes en ligne terminée. {len(new_artistes_musicbrainz)} artistes récupérés sur musicbrainz.")
 
@@ -205,6 +205,7 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
             if collection.find_one({"name": {"$regex": f"^{re.escape(name)}$", "$options": "i"}}):
                 continue  # l'artiste est déjà dans la BDD
             new_artistes.append(artiste)
+        
 
         print(f"[{this_name}] Filtrage des artistes terminé. {len(unique_artistes)} artistes conservés au total.")
         print(f"[{this_name}] {len(new_artistes)} nouveaux artistes rencontrés.")
@@ -217,7 +218,7 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
         f.close()
         longueur = len(unique_artistes)
         """
-        Rajout de ces artistes à notre base de données JSON.
+        Rajout de ces artistes à notre base de données MongoDB.
         """
         print(f"[{this_name}] Mise à jour de la base de données...")
         i = 0
@@ -231,7 +232,6 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
     """
 
     fails = []
-    print(f"[{this_name}] Mise à jour des liens... {' '*100}")
     print(f"[{this_name}] Mise à jour des liens... {' '*100}")
     length = collection.count_documents({})
     i = 0
@@ -266,13 +266,6 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
                         collection.update_one({"name": artiste['name']}, {"$set": {"embedding": vect}})
                 
 
-        '''
-        Mise à jour de l'artiste en entier
-        artiste['id_mb'] = musicbrainz.get_artist_id_by_name(artiste['name'])
-        '''
-        '''
-        Mise à jour de l'artiste en partie
-        '''
         if update_musicbrainz:
             if "id_mb" not in artiste:
                 id_mb = musicbrainz.get_artist_id_by_name(artiste['name'])
@@ -295,7 +288,6 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
         if rep == 1:
             print(f"[{this_name}] Mise à jour des fails")
             for artist_fail in fails:
-                print(f"[{this_name}] Mise à jour de l'artiste : {artist_fail['name']} {' '*100}")
                 print(f"[{this_name}] Mise à jour de l'artiste : {artist_fail['name']} {' '*100}")
                 rep_genius = genius.get_artist_id_by_name_manual()
                 if rep_genius is not None:

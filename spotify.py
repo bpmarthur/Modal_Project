@@ -72,7 +72,6 @@ def get_artists(genres = list_genres):
                 artists.append({
                     "name": artist['name'],
                     "id_spotify": artist['id'],
-                    "genres": artist['genres'],
                     "popularity": artist['popularity'],
                     "followers": artist['followers']['total']
                 })
@@ -86,6 +85,21 @@ def show_artists():
     for i in range(len(art)):
         artiste = art[i]
         print(f"[{this_name}] {artiste['name']} : {artiste['id_spotify']} . Popularity : {artiste['popularity']} . Followers : {artiste['followers']}")
+
+def get_artist_data(artist_name):
+    """
+    Récupère l'id Spotify, la popularité et le nombre de followers d'un artiste à partir de son nom.
+    """
+    url = f"https://api.spotify.com/v1/search?q={artist_name}&type=artist&limit=1"
+    response = requests.get(url, headers=headers)
+    items = response.json().get('artists', {}).get('items', [])
+    if not items:
+        return None, None, None
+    artist = items[0]
+    id_spotify = artist.get('id')
+    popularity = artist.get('popularity')
+    followers = artist.get('followers', {}).get('total')
+    return id_spotify, popularity, followers
 
 # Chercher l'ID d'un artiste
 def get_artist_id(artist_name):
@@ -138,9 +152,7 @@ def get_labels(artist_id):
 
 
 if __name__ == "__main__":
-    #show_artists()
-    for lbl in get_labels(get_artist_id("Damso")):
-        print(f"[{this_name}] {lbl['name']} : {lbl['data']}")
+    show_artists()
 
 '''
 response = requests.get("https://api.spotify.com/v1/search", headers=headers, params=params)
