@@ -3,11 +3,13 @@ GIMS
 Damso
 Hamza
 PLK
+Gazo
 L2B
 Booba
 SCH
 Maes
 Guy2Bezbar
+Leto
 Josman
 Nekfeu
 Alonzo
@@ -32,9 +34,9 @@ Naza
 Gradur
 Timal
 UZI
-Bigflo & Oli
 Gambi
 So La Lune
+Bigflo & Oli
 Landy
 Youssoupha
 DA Uzi
@@ -44,13 +46,16 @@ Sofiane
 Green Montana
 Zed
 Bekar
-Kalash Criminel
+RK
 Zamdane
+Kalash Criminel
 Zkr
 1PLIKÉ140
 Luv Resval
 TK
 Soso Maness
+Kekra
+Kore
 Médine
 Hugo TSR
 DTF
@@ -59,16 +64,17 @@ Kofs
 Lorenzo
 Hornet La Frappe
 Rohff
-Kekra
 Moha La Squale
-ISK
 IAM
+ISK
 4Keus
 Mig
 Kaza
+L'Algérino
 Elams
-Le Rat Luciano
 Fresh laDouille
+Le Rat Luciano
+Sasso
 Black M
 Suprême NTM
 Dosseh
@@ -83,9 +89,9 @@ Scylla
 Lujipeka
 Lefa
 Benab
-ASHE 22
 SNIPER
 Stupeflip
+ASHE 22
 Gambino
 Benash
 Nahir
@@ -102,20 +108,23 @@ ISHA
 Fonky Family
 Ashh
 A2h
+Shurik'n
 Kamikaz
+L'Allemand
 Doums
-Gambino La MG
 113
+Gambino La MG
 Bosh
-Sneazzy
 Lesram
+Sneazzy
 Yaro
 GLK
-Akhenaton
 Kery James
+Akhenaton
 Graya
-USKY
 Gringe
+USKY
+Passi
 Hös Copperfield
 Larry
 Hooss
@@ -125,8 +134,8 @@ MMZ
 Django
 Seth Gueko
 Bramsito
-Nèg' Marrons
 Keny Arkana
+Nèg' Marrons
 Zuukou mayzie
 Psy 4 De La Rime
 Rémy
@@ -167,8 +176,8 @@ Scred Connexion
 Zikxo
 PRIME
 Haristone
-Zed Yun Pavarotti
 Tandem
+Zed Yun Pavarotti
 Youv Dee
 404Billy
 La Famax
@@ -176,8 +185,8 @@ Kodes
 Cheu-B
 AM La Scampia
 Elh Kmer
-Lord Esperanza
 Mehdi Yz
+Lord Esperanza
 Zoxea
 100 Blaze
 Tunisiano
@@ -189,16 +198,19 @@ Mafia K'1 Fry
 MRC
 Key Largo
 Swing
+L'Skadrille
+Fabe
+L'Hexaler
 Kacem Wapalek
+Sheldon
 Frenetik
 Pit Baccardi
-Sheldon
 Sat
-Dehmo
 Lacraps
+Dehmo
 Q.E Favelas
-nelick
 Shotas
+nelick
 Di-Meh
 Kool Shen
 ZeGuerre
@@ -214,9 +226,11 @@ Lucio Bukowski
 PSO THUG
 Kheops
 DENZO
+L'uzine
 Norsacce Berlusconi
-JMK$
 Ideal J
+JMK$
+Cinco
 Sam's
 Youri
 Saké
@@ -229,24 +243,27 @@ El Matador
 KDD
 Senamo
 Fixpen Sill
-Lorage
 ATK
+Lorage
 Jeff Le Nerf
+L'Or du Commun
 La Clinique
-Pins & Dimeh
 Tendry
+Pins & Dimeh
+L'entourage
 Aladin 135
-twinsmatic
 XV
 Take a Mic
+twinsmatic
 Cenza
 7 Jaws
 Anabel
 La Smala
 VILK
-Les Sages Poètes de la rue
 Junior Bvndo
+Les Sages Poètes de la rue
 Mysa
+Kobo
 La Brigade
 Beeby
 Lasco
@@ -261,49 +278,56 @@ Less du neuf
 Rockin' Squat
 Le Gouffre
 Dévotion
-Meak
+Sirap
 Pejmaxx
+Meak
 Grödash
 Tortoz
 Nefaste
 Beat De Boul
+B-NØM
 Le Psalmiste
 Ministère A.M.E.R.
 Chiens de Paille
 La Cliqua
 Stensy
 Carré Rouge
+Abah
 Inglourious Bastardz
 La Swija
 Lucci
+Robse
 Lotus
 Fadah
 Verto
 Ateyaba
+Art Melody
 Alizée
 Alliance Ethnik
 Aketo
 Lous and the Yakuza
 Vulves Assassines
 Dimitri Vegas & Like Mike
-Adès
 Aphrow
 AllttA
+Ministère AMER
 Alpha 5.20
 Alpha Wann
 Atamatoki
 Angle Mort & Clignotant
+Ménélik & La Tribu
 Ménage à 3
 Aazar
+B.B. Jerome and the Bang Gang
 Akro
-ASK
 Le “A”
 Secteur Ä
 Aisake
 Aloïse Sauvage
 Aiguille
 ABS
-Nova AR
+Akīn
+Fred Astèr
 Achile
 Butter Bullets
 Billie Brelok
@@ -313,6 +337,7 @@ Stomy Bugsy
 Def Bond
 Biga Ranx
 Ben Mazué
+Blam'S
 Deen Burbigo
 Baloji
 Benjamin Epps
@@ -326,16 +351,19 @@ La Boussole
 Boogie Belgique
 Brav
 Blacko
+Boboch 1Pakt
 Blu Samu
 Black Jack
-Epic Pixel Battle
 Busy P
+Epic Pixel Battle
 Ben‐J
 B. Esca
+Karim Bensadia
 Black Mozart
+BUSTACRIME
 BIDØ
 Basement
-Bënji
+Collectif Boz Productionz
 DJ Cam
 C Y G N
 Chilla
@@ -346,53 +374,63 @@ Saïan Supa Crew
 CRO
 Carson
 Daddy Lord C
+Craniq
 Cabadzi
-CIK
 ClassiK
+Cool et Sans Reproche
 Cassidy
+Coup d'État Phonique
 Chow‐Chow
 Clément Matrat
 Négatif Clan
 DJ Snake
 Sexion d’Assaut
-DJ YUNG VAMP
 Dau
+DJ YUNG VAMP
 Diam’s
-Dystinct
 Despo Rutti
+Dystinct
 Demi Portion
 Dany Dan
 DJ Leska
 Dadju
-Expression Direkt
 Damlif
+Expression Direkt
 DJ Mehdi
 Doctor Flake
+Django DKZ
 DLJ
 Lex (de Kalhex)
-James Deano
 Eddy de Pretto
+James Deano
 Dee Nasty
 Diabologum
 Gnawa Diffusion
 Dontcha
 Electro Deluxe
 Démocrates D
+Destroy Man
 Doodseskader
-Sly-D
 D0d.
-Diaz
 Dimaa
 DJ Ralph
-DJ Fab
+Grand Organisateur D.E.F.
+Dope Rhyme Sayer
+Lago de Feu
+Eric Dorgal
+Turntable Dragun’z
 DracoBoy
+DJ Deilf
 Evil Needle
 ECHT!
+Soon E MC
 La Fanfare en Pétard
 Eptic
+Eli MC
 East
 Epektase
 Exo
+Eta
 Nick Eyra
 Uzi Freyja
 Freeman
@@ -408,13 +446,15 @@ Faada Freddy
 Feadz
 First Serve
 Fayçal
+Fonky Flav
 Freekill
 Georgio
 Guts
+GreenShop
 Yoann Garel
 M Group
 Lucid Green
-Geraldo
+The Grey Stars
 Hocus Pocus
 H JeuneCrack
 Pierre Hugues José
@@ -423,10 +463,10 @@ Hal
 Hang Øver
 Imhotep
 No One Is Innocent
-IPM
 Ill
 Illuminine
-IMS
+Iras
+InFine
 Jazz Liberatorz
 Sly Johnson
 Jeremie
@@ -437,23 +477,29 @@ Kohndo
 Kazam
 Manu Key
 K. Rhyme Le Roi
-K Special
 Kissamilé
 Kayna Samet
+Kilomaître
 Kayo
 La Secte Phonétik
 La Rumeur
+L’Algérino
+L’Hexaler
+L’uZine
 Le 3ème Œil
 L’1consolable
-Les X
+L’Skadrille
 Psykick Lyrikah
+L’Entourage
 Lomme
+Mo’vez Lang
 Le Lij
 La Vipère
-Logilo
 Lygne 26
 Léna
+Lazer27
 La Pietà
+Shit Lizard
 MHD
 Massilia Sound System
 Ménélik
@@ -464,19 +510,22 @@ Manau
 Mayaewk
 Mafia Trece
 Mystik
+Moar
 Morgan
 MOH
 Monocloud
 Tiers Monde
 5 Majeur
 Malekal Morte
+Raphaël Mussard
+Mapassa
 Martial
-Mké
+Maël
+Mosey
 Ninho
 Népal
 Nasty
 Niska
-N.A.P.
 nymano
 Naâman
 N3rdistan
@@ -490,15 +539,15 @@ Nothingtosay
 Rise of the Northstar
 nohone
 Norma
-Nawa
+NepTenn
 Onra
 Orishas
 ØDYSSEE
 OBL
 Orties
 PNL
-Poldoore
 Parental
+Poldoore
 Phlocalyst
 ProleteR
 Shaka Ponk
@@ -509,10 +558,13 @@ Tony Parker
 Pone
 Polo
 paris91
+Pierre Sarkozy
 Rim’K
 Rocca
 Rockin’ Squat
+Rako
 Ritmo
+RHINO
 Soudiere
 Sinik
 Shay
@@ -528,15 +580,14 @@ Spectateur
 shogonodo
 Sté Strausz
 Seb
-Stamina
 Stuffed Tomato
 Soulkast
 Souleance
 Suzane
+Solystik
 Sidney
 Saï
 Souf
-Sincere
 SEA
 THEODORT
 Wax Tailor
@@ -559,5 +610,5 @@ Yovo
 Yannick
 Youthstar
 Yak
-Yari
 Ziak
+Zonca

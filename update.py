@@ -303,51 +303,6 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
     print(f"[{this_name}] Fermeture de la base de données MongoDB...{' '*100}")
     return fails
 
-# def filter_artists(artist_names, min_listeners=10000):
-#     """
-#     Filtre les artistes ayant au moins `min_listeners` auditeurs mensuels sur Spotify.
-#     Args:
-#         artist_names (list): Liste de noms d'artistes (str).
-#         min_listeners (int): Seuil minimal d'auditeurs mensuels.
-    
-#     Returns:
-#         list: Liste d'artistes ayant au moins `min_listeners` auditeurs.
-#     """
-#     valid_artists = []
-#     for name in artist_names:
-#         try:
-#             listeners = spotify.get_monthly_listeners(name)
-#             if listeners is not None and listeners >= min_listeners:
-#                 valid_artists.append(name)
-#             else:
-#                 print(f"[update.py] {name} n'a pas assez d'auditeurs ({listeners})")
-#         except Exception as e:
-#             print(f"[update.py] ⚠️ Erreur pour {name} : {e}")
-#     return valid_artists
-
-
-# def filter_artists(artist_names, min_listeners=10000):
-#     """
-#     Filtre les artistes ayant au moins `min_listeners` auditeurs mensuels sur Spotify.
-#     Args:
-#         artist_names (list): Liste de noms d'artistes (str).
-#         min_listeners (int): Seuil minimal d'auditeurs mensuels.
-    
-#     Returns:
-#         list: Liste d'artistes ayant au moins `min_listeners` auditeurs.
-#     """
-#     valid_artists = []
-#     for name in artist_names:
-#         try:
-#             listeners = spotify.get_monthly_listeners(name)
-#             if listeners is not None and listeners >= min_listeners:
-#                 valid_artists.append(name)
-#             else:
-#                 print(f"[update.py] {name} n'a pas assez d'auditeurs ({listeners})")
-#         except Exception as e:
-#             print(f"[update.py] ⚠️ Erreur pour {name} : {e}")
-#     return valid_artists
-
 
 def update_json_to_mongo(filename = "artists.json"):
     """
@@ -451,6 +406,194 @@ def test_init_db():
     db = client["musicdb_artists"]
     collection = db["artists"]
     collection.insert_one({"name": "Jul"})
+    
+    
+    
+    
+def final_update(db_name = "data_final", former_db_name = "arthur_modal", search_new_artists = False, update_genius = False, update_musicbrainz=False, update_embeddings = False, force_update = False):
+    
+    if force_update:
+        print(f"[{this_name}] La base de données va être entièrement réinitialisée.")
+        rep = int_response(f"[{this_name}] Voulez-vous continuer ? Oui = 1, Non = 0 : ")
+        if rep == 0:
+            print(f"[{this_name}] Abandon de la mise à jour de la base de données.")
+            return
+    
+    """
+    Ouverture de la base de données Mongo.
+    """
+    print(f"[{this_name}] Ouverture de la base de données MongoDB...")
+    client = MongoClient("mongodb://localhost:27017")
+    db = client[db_name]
+    former_db = client[former_db_name]
+    collection = db["artists"]
+    former_collection = former_db["artists"]
+    
+    if search_new_artists:
+        """
+        Récupération des artistes en ligne depuis Spotify grâce à l'API via spotify.py.
+        """
+        print(f"[{this_name}] Récupération des artistes spotify en ligne...")
+        new_artists_spotify = spotify.get_artists()
+        print(f"[{this_name}] Récupération des artistes sur spotify terminée. {len(new_artists_spotify)} artistes récupérés.")
+
+        """
+        Récupération des artistes en ligne depuis Musicbrainz grâce à l'API via musicbrainz.py.
+        """
+        print(f"[{this_name}] Récupération des artistes musicbrainz en ligne...")
+        new_artists_musicbrainz = musicbrainz.get_artists()
+        print(f"[{this_name}] Récupération des artistes sur musicbrainz terminée. {len(new_artists_musicbrainz)} artistes récupérés.")
+
+        """
+        Standardisation du format de new_artists_musicbrainz sur le format de new_artists_spotify
+        """
+        print(f"[{this_name}] Standardisation du format des artistes...")
+        new_artists = new_artists_spotify
+        for artist in new_artists_musicbrainz:
+            id_spotify, popularity, followers = spotify.get_artist_data(artist['name'])
+            if id_spotify is not None:
+                new_artists.append({
+                    "name": artist['name'],
+                    "id_spotify": id_spotify,
+                    "popularity": popularity,
+                    "followers": followers
+                })
+
+        print(f"[{this_name}] Récupération des artistes en ligne terminée. {len(new_artists_musicbrainz)} obtenus avant filtrage.")
+
+        """
+        Filtrage des artistes pour ne garder que ceux qui sont pertinents (nombre d'auditeurs minimum, genre musical, etc...)
+        """
+        """
+        Suppression des doublons par nom d'artiste (insensible à la casse)
+        """
+        print(f"[{this_name}] Filtrage des artistes récupérés...")
+        seen = set()
+        unique_artists = []
+        for artist in new_artists:
+            name = artist['name'].strip().lower()
+            if name not in seen:
+                unique_artists.append(artist)
+                seen.add(name)
+        new_artists = unique_artists.copy()
+        
+        filtre_artists = []
+        for artist in unique_artists:
+            followers = artist.get('followers')
+            if followers is not None and followers >= 1000:
+                filtre_artists.append(artist)
+        new_artists = filtre_artists.copy()
+
+        print(f"[{this_name}] Filtrage des artistes terminé. {len(new_artists)} artistes conservés au total.")
+        '''
+        # Sauvegarde de la liste des artistes dans un fichier texte
+        '''
+        f = open("artists_list.txt", "w", encoding="utf-8")
+        for artist in new_artists:
+            f.write(f"{artist['name']}\n")
+        f.close()
+        longueur = len(new_artists)
+        """
+        Rajout de ces artistes à notre base de données MongoDB.
+        """
+        print(f"[{this_name}] Mise à jour de la base de données...")
+        i = 0
+        for artist in new_artists:
+            i+=1
+            print(f"[{this_name}] [{i}/{longueur}] Mise à jour de l'artiste : {artist['name']} {' '*100}", end='\r')
+            collection.update_one({"name": artist['name'], "id_spotify": artist['id_spotify'], "followers": artist['followers'], "popularity": artist['popularity']},
+                                  {"$setOnInsert": {"name": artist['name'], "id_spotify": artist['id_spotify'], "followers": artist['followers'], "popularity": artist['popularity']}},
+                                  upsert=True)
+        print(f"[{this_name}] Mise à jour de la base de données terminée. {i} artistes mis à jour.")
+    
+    """
+    Mise à jour des liens Genius, Last-FM, MusicBrainz... pour chaque artiste.
+    """
+
+    fails = []
+    print(f"[{this_name}] Mise à jour des liens... {' '*100}")
+    length = collection.count_documents({})
+    i = 0
+    for artist in collection.find():
+        print(f"[{this_name}] [{i}/{length}] Mise à jour de : {artist['name'].strip()} {' '*100}", end='\r')
+        if update_genius:
+            if "id_genius" not in artist:
+                rep_genius = genius.get_artist_id_by_name(artist['name'])
+                if rep_genius is None:
+                    print(f"[{this_name}] Impossible de trouver l'artiste : {artist['name']}")
+                    fails.append(artist)
+                    collection.delete_one({"name": artist['name']})
+                    continue
+                else:
+                    collection.update_one({"name": artist['name']}, {"$set": {"id_genius": rep_genius[1], "url_genius": rep_genius[2]}})
+
+        if update_embeddings:
+            if "id_genius" in artist and ("embedding" not in artist or artist['embedding'] == None):
+                    """
+                    Calcul du vecteur d'embedding de l'artiste
+                    """
+                    artist_id = artist['id_genius']
+                    former_artist = former_collection.find_one({"id_genius": artist_id})
+                    if former_artist is not None and "embedding" in former_artist:
+                        vect = former_artist["embedding"]
+                    else:
+                        vect = None
+                    if vect is None: 
+                        vect = embeddings.get_artist_vector(artist_id, model, max_songs=5)
+                    if vect is not None:
+                        vect = vect.tolist() 
+                        collection.update_one({"name": artist['name']}, {"$set": {"embedding": vect}})
+
+
+        if update_musicbrainz:
+            if "id_mb" not in artist:
+                id_mb = musicbrainz.get_artist_id_by_name(artist['name'])
+                if id_mb != None:
+                    collection.update_one({"name": artist['name']}, {"$set": {"id_mb": id_mb}})
+        i+=1
+        
+        print(f" [{this_name}] Nombre d'artiste restants après suppression de ceux qui n'ont pas pu être trouvés : {collection.count_documents({})}")
+
+    '''
+    Mise à jour des fails
+    '''
+    """
+    if len(fails) > 0:
+        rep = ""
+        while True:
+            rep = input(f"[{this_name}] Il y a {len(fails)} fails. Voulez-vous les mettre à jour ? Oui = 1, Non = 0 : ")
+            try:
+                rep = int(rep)
+                break  # Si ça marche, on sort de la boucle
+            except ValueError:
+                print("Ce n'est pas un entier valide. Réessayez.")
+        if rep == 1:
+            print(f"[{this_name}] Mise à jour des fails")
+            for artist_fail in fails:
+                print(f"[{this_name}] Mise à jour de l'artiste : {artist_fail['name']} {' '*100}")
+                rep_genius = genius.get_artist_id_by_name_manual()
+                if rep_genius is not None:
+                    collection.update_one({"name": artist_fail['name']}, {"$set": {"id_genius": rep_genius[1], "url_genius": rep_genius[2]}})
+        else:
+            print(f"[{this_name}] Pas de mise à jour des fails {' '*100}")
+    else:
+        print(f"[{this_name}] Pas de fails {' '*100}")
+    """
+    
+    """
+    Sauvegarde des fails dans un fichier extérieur
+    """
+    
+    with open("fails.txt", "w", encoding="utf-8") as f:
+        for artist in fails:
+            f.write(f"{artist['name']}\n")
+    
+    """
+    Sauvegarde de la base de données JSON.
+    """
+    client.close()
+    print(f"[{this_name}] Fermeture de la base de données MongoDB...{' '*100}")
+    
 
 if __name__ == "__main__":
     #9+6update()
@@ -463,4 +606,4 @@ if __name__ == "__main__":
     collection = db["artists"]
     collection.delete_many({})
     '''
-    update_mongo("test_pop_followers", update_embeddings=True, force_update=True)
+    final_update(search_new_artists = True, update_genius=True, update_embeddings=True, update_musicbrainz=True, force_update=True)

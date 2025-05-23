@@ -65,10 +65,9 @@ def get_artists():
             name = artist.get("name")
             if name:
                 all_artists.append({
-                    "name": artist['name'],
-                    "id_spotify": artist.get('id')
+                    "name": artist['name']
                 })
-                print(f" [musicbrainz.py] {i} / {len(results)} artistes récupérés pour la lettre '{letter.upper()}*' {100 * ' '}", end = "\r")
+                print(f" [musicbrainz.py] {i+1} / {len(results)} artistes récupérés pour la lettre {letter.upper()} {50 * ' '}", end = '\r')
 
     return all_artists
 
