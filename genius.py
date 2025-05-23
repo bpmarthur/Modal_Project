@@ -147,7 +147,7 @@ def get_artist_id_by_name_manual():
 
     return name, id, url     #Retourne le nom, l'id, l'url de l'artiste et l'index de la réponse
 
-specifications = ["fra", "fr", "rap fr", "rap français", "french rap", "new wave"] 
+specifications = ["fr", "fra", "rap fr", "rap français", "french rap", "new wave"] 
 def get_artist_id_by_name(artist_name, artist_data = None):    
     url = "https://api.genius.com/search"
     if artist_data is None:

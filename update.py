@@ -152,11 +152,11 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
         if rep == 0:
             print(f"[{this_name}] Abandon de la mise à jour de la base de données.")
             return
+    
     """
     Ouverture de la base de données Mongo.
     """
     print(f"[{this_name}] Ouverture de la base de données MongoDB...")
-    artistes = []
     client = MongoClient("mongodb://localhost:27017")
     db = client[db_name]
     collection = db["artists"]
@@ -167,8 +167,6 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
         """
         print(f"[{this_name}] Récupération des artistes en ligne...")
         new_artistes_spotify = spotify.get_artists()
-        #new_artistes.append({"name": "luther"})
-        #new_artistes = [{"name": "luther"}, {"name": "Jul"}, {"name": "Nekfeu"}, {"name": "Alpha Wann"}] 
         print(f"[{this_name}] Récupération des artistes en ligne terminée. {len(new_artistes_spotify)} artistes récupérés sur spotify.")
 
         """
@@ -176,8 +174,6 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
         """
         print(f"[{this_name}] Récupération des artistes en ligne...")
         new_artistes_musicbrainz = musicbrainz.get_artists()
-        #new_artistes.append({"name": "luther"})
-        #new_artistes = [{"name": "luther"}, {"name": "Jul"}, {"name": "Nekfeu"}, {"name": "Alpha Wann"}] 
         print(f"[{this_name}] Récupération des artistes en ligne terminée. {len(new_artistes_musicbrainz)} artistes récupérés sur musicbrainz.")
 
         """
@@ -475,4 +471,4 @@ if __name__ == "__main__":
     collection = db["artists"]
     collection.delete_many({})
     '''
-    update_mongo(update_embeddings=True)
+    update_mongo("test_pop_followers", update_embeddings=True, force_update=True)
