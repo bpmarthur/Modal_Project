@@ -541,7 +541,8 @@ def final_update(db_name = "data_final", former_db_name = "arthur_modal", search
                     if vect is None: 
                         vect = embeddings.get_artist_vector(artist_id, model, max_songs=5)
                     if vect is not None:
-                        vect = vect.tolist() 
+                        if type(vect) != list:
+                            vect = vect.tolist()
                         collection.update_one({"name": artist['name']}, {"$set": {"embedding": vect}})
 
 
@@ -552,7 +553,7 @@ def final_update(db_name = "data_final", former_db_name = "arthur_modal", search
                     collection.update_one({"name": artist['name']}, {"$set": {"id_mb": id_mb}})
         i+=1
 
-        print(f" [{this_name}] Nombre d'artiste restants après suppression de ceux qui n'ont pas pu être trouvés : {collection.count_documents({})}")
+    print(f" [{this_name}] Nombre d'artiste restants après suppression de ceux qui n'ont pas pu être trouvés : {collection.count_documents({})}")
 
     '''
     Mise à jour des fails
