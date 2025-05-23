@@ -4,14 +4,12 @@ import os
 import spotify
 import genius
 import csv
-import time
 import musicbrainz
 from pymongo import MongoClient
 from tools import get_key, int_response
-from bson.objectid import ObjectId
-import gensim
-import embeddings
-import re
+#import gensim
+#import embeddings
+#import re
 
 GENIUS_API_TOKEN = get_key("Client_access_genius")
 
@@ -21,7 +19,7 @@ headers = {
 
 this_name = os.path.basename(__file__)
 
-model = gensim.models.Word2Vec.load("Word2Bezbar-large/word2vec.model")
+#model = gensim.models.Word2Vec.load("Word2Bezbar-large/word2vec.model")
 
 def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_genius = False, update_musicbrainz=False, update_embeddings = False, force_update = False):
     
@@ -185,52 +183,11 @@ def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_ge
         for fail in fails:
             f.write(fail['name'] + "\n")
 
-def fail_update_mongo(db_name = "arthur_modal"):
-    print(f"[{this_name}] Ouverture de la base de données MongoDB...")
-    client = MongoClient("mongodb://localhost:27017")
-    db = client[db_name]
-    collection = db["artists"]
-    print(f"[{this_name}] Récupération des artistes dont la récupération des données a échouée.")
-    fails = []
-    with open("noms_artistes.txt", "r", encoding="utf-8") as f:
-        fails = [line.strip() for line in f.readlines()]
-
-    print(f"[{this_name}] Mise a jour des fails... {' '*100}")
-    if len(fails) > 0:
-        rep = ""
-        while True:
-            rep = input(f"[{this_name}] Il y a {len(fails)} fails. Voulez-vous les mettre à jour ? Oui = 1, Non = 0 : ")
-            try:
-                rep = int(rep)
-                break  # Si ça marche, on sort de la boucle
-            except ValueError:
-                print("Ce n'est pas un entier valide. Réessayez.")
-        if rep == 1:
-            print(f"[{this_name}] Mise à jour des fails")
-            for artist_fail in fails:
-                print(f"[{this_name}] Mise à jour de l'artiste : {artist_fail} {' '*100}")
-                rep_genius = genius.get_artist_id_by_name_manual()
-                if rep_genius is not None:
-                    collection.update_one({"name": artist_fail}, {"$set": {"id_genius": rep_genius[1], "url_genius": rep_genius[2]}})
-                    fails.remove(artist_fail)
-        else:
-            print(f"[{this_name}] Pas de mise à jour des fails {' '*100}")
-    else:
-        print(f"[{this_name}] Pas de fails {' '*100}")
-
-    print(f"[{this_name}] Fermeture de la base de données MongoDB...{' '*100}")
-    client.close()
-    print(f"[{this_name}] Enregistrement des fails restants dans fail_update_mongo.txt ...{' '*100}")
-    with open("fail_update_mongo.txt", "w", encoding="utf-8") as f:
-        for fail in fails:
-            f.write(fail['name'] + "\n")
-
 def update_featurings_and_songs_to_mongo(db_name = "arthur_modal"):
     print(f"[{this_name}] Ouverture de la base de données MongoDB...")
     client = MongoClient("mongodb://localhost:27017/")
     db = client[db_name]
     artists_col = db["artists"]
-    songs_col = db["songs"]
     featurings_col = db["featurings"]
     fails = []
 
@@ -281,46 +238,97 @@ def update_featurings_and_songs_to_mongo(db_name = "arthur_modal"):
             if nb_artistes_presents >= 2:   
                 featurings_col.update_one(
                     {"_id": song_id},
-                    {"$setOnInsert": {"_id": song_id, "title": title, "artists_id": artistes_presents_id},
-                     "artists_names": artistes_presents_name, "artists_genius_id": [name_to_genius_id[artist] for artist in artistes_presents_name]},
+                    {
+                        "$setOnInsert": {
+                            "_id": int(song_id),
+                            "title": title,
+                            "artists_id": artistes_presents_id,
+                            "artists_names": artistes_presents_name,
+                            "artists_genius_id": [name_to_genius_id[artist] for artist in artistes_presents_name]
+                        }
+                    },
+                    upsert=True
+                )
+            sys.stdout.write("\033[F")
+            sys.stdout.write("\033[K")
+    
+def update_featurings_and_songs_to_mongo_v2(db_name = "arthur_modal"):
+    print(f"[{this_name}] Ouverture de la base de données MongoDB...")
+    client = MongoClient("mongodb://localhost:27017/")
+    db = client[db_name]
+    artists_col = db["artists"]
+    featurings_col = db["featurings"]
+    fails = []
+
+    # Pour faire correspondre un nom à un id dans la base en utilisant des dictionnaires
+    all_artists = list(artists_col.find({}))
+    length = len(all_artists)
+    
+
+    for i, artist in enumerate(all_artists):
+        artist_name = artist['name']
+        artist_genius_id = artist['id_genius']
+        print(f"[{this_name}] [{i}/{length}] Traitement de l'artiste : {artist_name} {' '*100}")
+
+        try:
+            tracks = genius.get_artist_featurings_v2(artist_genius_id, max_pages=60)
+        except Exception as e:
+            
+            sys.stdout.write("\033[F")
+            sys.stdout.write("\033[K")
+            print(f"[{this_name}] Erreur pour {artist_name} : {e}")
+            fails.append(artist_name)
+            continue
+
+        for track in tracks:
+            song_id = track[0]
+            title = track[1]
+            authors_id = track[2]
+            """
+            print(f"[{this_name}] Traitement de la chanson : {title}")
+            for author_id in authors_id:
+                print(f"[{this_name}] {author_id}")
+            """
+            #artist_names = [musicbrainz.normalize_string(a) for a in track[2]]
+
+            # # Enregistrement dans songs (avec upsert pour éviter les doublons)
+            # songs_col.update_one(
+            #     {"_id": song_id},
+            #     {"$setOnInsert": {"_id": song_id, "title": title}, },
+            #     upsert=True
+            # )
+
+            # Enregistrement dans featurings (avec upsert pour éviter les doublons)
+                
+            nb_artistes_presents = len(authors_id)
+            artistes_presents_name = []
+            artistes_presents_id = []
+            real_authors_id = []
+            for author_id in authors_id:
+                artiste = artists_col.find_one({"id_genius": int(author_id)})
+                if artiste is not None:
+                    nb_artistes_presents += 1
+                    artistes_presents_name.append(artiste['name'])
+                    artistes_presents_id.append(artiste['_id'])
+                    real_authors_id.append(artiste['id_genius'])
+            if nb_artistes_presents >= 2:
+                featurings_col.update_one(
+                    {"_id": song_id},
+                    {
+                        "$setOnInsert": {
+                            "_id": int(song_id),
+                            "title": title,
+                            "artists_id": artistes_presents_id,
+                            "artists_names": artistes_presents_name,
+                            "artists_genius_id": real_authors_id
+                        }
+                    },
                     upsert=True
                 )
             sys.stdout.write("\033[F")
             sys.stdout.write("\033[K")
 
-def convert_to_csv(filename = "artists.csv"):
-    # Connexion à MongoDB
-    client = MongoClient("mongodb://localhost:27017/")
-    db = client["musicdb"]  # nom de la base de données
-    collection = db["artists"]  # nom de la collection
-
-    # Récupération des données des artistes
-    artistes = collection.find()
-
-    # Exportation vers un fichier CSV pour Gephi
-    with open(filename, mode="w", newline="", encoding="utf-8") as file:
-        writer = csv.writer(file)
-        writer.writerow(["name", "id_spotify", "id_genius", "url_genius", "genres"])  # En-têtes de colonnes
-        for artiste in artistes:
-            writer.writerow([artiste["name"], artiste["id_spotify"], artiste["id_genius"], artiste["url_genius"], ",".join(artiste["genres"])])  # Données d'artistes
-
-def test_init_db():
-    client = MongoClient("mongodb://localhost:27017")
-    db = client["musicdb_artists"]
-    collection = db["artists"]
-    collection.insert_one({"name": "Jul"})
-    
-    
-    
-    
-def final_update(db_name = "data_final", former_db_name = "arthur_modal", search_new_artists = False, update_genius = False, update_musicbrainz=False, update_embeddings = False, force_update = False):
-    
-    if force_update:
-        print(f"[{this_name}] La base de données va être entièrement réinitialisée.")
-        rep = int_response(f"[{this_name}] Voulez-vous continuer ? Oui = 1, Non = 0 : ")
-        if rep == 0:
-            print(f"[{this_name}] Abandon de la mise à jour de la base de données.")
-            return
+def final_update(db_name = "data_final", former_db_name = "arthur_modal", search_new_artists = False, update_genius = False, update_musicbrainz=False, update_embeddings = False):
     
     """
     Ouverture de la base de données Mongo.
@@ -425,7 +433,6 @@ def final_update(db_name = "data_final", former_db_name = "arthur_modal", search
                 if rep_genius is None:
                     print(f"[{this_name}] Impossible de trouver l'artiste : {artist['name']}")
                     fails.append(artist)
-                    collection.delete_one({"name": artist['name']})
                     continue
                 else:
                     collection.update_one({"name": artist['name']}, {"$set": {"id_genius": rep_genius[1], "url_genius": rep_genius[2]}})
@@ -487,17 +494,111 @@ def final_update(db_name = "data_final", former_db_name = "arthur_modal", search
     """
     Sauvegarde des fails dans un fichier extérieur
     """
-    
-    with open("fails.txt", "w", encoding="utf-8") as f:
+    print(f"[{this_name}] Enregistrement des fails dans fail_final_update_mongo.txt ...{' '*100}")
+    with open("fail_final_update_mongo.txt", "w", encoding="utf-8") as f:
         for artist in fails:
             f.write(f"{artist['name']}\n")
     
     """
     Sauvegarde de la base de données JSON.
     """
-    client.close()
     print(f"[{this_name}] Fermeture de la base de données MongoDB...{' '*100}")
-    
+    client.close()
+
+def fail_update_mongo(filename = "fail_final_update_mongo.txt", db_name = "arthur_modal"):
+    print(f"[{this_name}] Ouverture de la base de données MongoDB...")
+    client = MongoClient("mongodb://localhost:27017")
+    db = client[db_name]
+    collection = db["artists"]
+    print(f"[{this_name}] Récupération des artistes dont la récupération des données a échouée dans {filename}...")
+    fails = []
+    new_fails = []
+    with open(filename, "r", encoding="utf-8") as f:
+        fails = [line.strip() for line in f.readlines()]
+    length = len(fails)
+    print(f"[{this_name}] {length} fails récupérés dans {filename}...")
+
+    if len(fails) > 0:
+        print(f"[{this_name}] Mise à jour des fails")
+        i = 1
+        for artist in fails:
+            print(f"[{this_name}] [{i}/{length}] Mise à jour de l'artiste : {artist} {' '*100}")
+            rep_genius = genius.get_artist_id_by_name_manual()
+            if rep_genius is not None:
+                collection.update_one({"name": artist}, {"$set": {"id_genius": rep_genius[1], "url_genius": rep_genius[2]}})
+            else:
+                print(f"[{this_name}] {artist} non mis à jour")
+                new_fails.append(artist)
+            i+=1
+    else:
+        print(f"[{this_name}] Pas de fails {' '*100}")
+
+    print(f"[{this_name}] Fermeture de la base de données MongoDB...{' '*100}")
+    client.close()
+    print(f"[{this_name}] Enregistrement des fails restants dans fail_update_mongo.txt ...{' '*100}")
+    with open(filename, "w", encoding="utf-8") as f:
+        for fail in new_fails:
+            f.write(fail + "\n")
+
+
+def update_json_to_mongo(db_name, filename = "clean_artists.json"):
+    """
+    This function updates the data in the MongoDB database.
+    """
+    print(f"[{this_name}] Ouverture de la base de données...")
+    client = MongoClient("mongodb://localhost:27017/")
+    '''
+    localhost : signifie "ma propre machine" (équivalent de 127.0.0.1).
+    mongodb:// : indique que nous utilisons le protocole MongoDB.
+    27017 : c’est le port par défaut utilisé par un serveur MongoDB local.
+    '''
+    db = client[db_name]
+    collection = db["artists"]
+
+    # Suppression de tous les documents existants
+    collection.delete_many({})
+
+    # Chargement des artistes depuis le fichier JSON
+    with open(filename, "r", encoding="utf-8") as f:
+        artistes = json.load(f)
+
+    # Insertion des artistes dans la base de données
+    collection.insert_many(artistes)
+
+def update_csv_to_mongo(db_name, filename = "arthur_fou_db.artists.csv"):
+    """
+    This function updates the data in the MongoDB database.
+    """
+    print(f"[{this_name}] Ouverture de la base de données...")
+    client = MongoClient("mongodb://localhost:27017/")
+    db = client[db_name]
+    collection = db["artists"]
+
+    # Suppression de tous les documents existants
+    collection.delete_many({})
+    print(f"[{this_name}] Lecture du fichier CSV...")
+    with open(filename, newline=None) as csvfile:
+        reader = csv.DictReader(csvfile)
+        for row in reader:
+            collection.insert_one({
+    "name": row['name'],
+    "id_spotify": row['id_spotify'],
+    "followers": int(row['followers']),
+    "popularity": int(row['popularity']),
+    "id_genius": int(row['id_genius']),
+    "url_genius": row['url_genius'],
+    "id_mb": row.get('id_mb')
+            })
+    print(f"[{this_name}] Fermeture de la base de données MongoDB...{' '*100}")
+    client.close()
 
 if __name__ == "__main__":
-    final_update(update_embeddings=True)
+    #final_update(db_name = "arthur_fou_db", search_new_artists= True, update_genius= True, update_musicbrainz= True)
+    #fail_update_mongo(filename = "fail_final_update_mongo.txt", db_name = "arthur_fou_db")
+    
+    #update_csv_to_mongo(db_name = "final_db")
+    #update_featurings_and_songs_to_mongo(db_name = "final_db")
+    #update_csv_to_mongo(db_name = "final_db_2")
+    #update_featurings_and_songs_to_mongo_v2(db_name = "final_db_2")
+    #update_csv_to_mongo(db_name = "final_db_3")
+    update_featurings_and_songs_to_mongo_v2(db_name = "final_db_3")
