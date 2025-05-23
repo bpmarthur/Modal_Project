@@ -223,3 +223,16 @@ if __name__ == "__main__":
                 print(f"{artist} → {listeners if listeners else 'introuvable'} auditeurs mensuels")
         except Exception as e:
             print(f"❌ Erreur avec {artist} : {e}")
+    # val = input("Entrez l'id d'un artiste : ")
+    # print(f"{get_popularity(val)}")
+    def load_artists_from_file(file_path="artists_list.txt"):
+        with open(file_path, "r", encoding="utf-8") as f:
+            return [line.strip() for line in f if line.strip()]
+    artists = load_artists_from_file()
+    for artist in artists:
+        try:
+            listeners = get_monthly_listeners(artist)
+            if listeners is None or listeners <= 10000:
+                print(f"{artist} → {listeners if listeners else 'introuvable'} auditeurs mensuels")
+        except Exception as e:
+            print(f"❌ Erreur avec {artist} : {e}")

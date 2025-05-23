@@ -4,8 +4,18 @@ import unicodedata
 import requests
 import time
 import string
+import unicodedata    
+import requests
+import time
+import string
 
 musicbrainzngs.set_useragent("musicbrainzngs","0.7.0")
+
+HEADERS = {
+    "User-Agent": "RapCollabParser/1.0 ( contact@example.org )"
+}
+
+BASE_URL_MB = "https://musicbrainz.org/ws/2"
 
 HEADERS = {
     "User-Agent": "RapCollabParser/1.0 ( contact@example.org )"
@@ -20,6 +30,7 @@ def normalize_string(s):
     s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')  # enlève les diacritiques
     return s
 
+# def complete_artist_list(genre = ["rap français"]):
 # def complete_artist_list(genre = ["rap français"]):
     
 
