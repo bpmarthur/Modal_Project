@@ -3,13 +3,11 @@ GIMS
 Damso
 Hamza
 PLK
-Gazo
 L2B
 Booba
 SCH
 Maes
 Guy2Bezbar
-Leto
 Josman
 Nekfeu
 Alonzo
@@ -46,15 +44,13 @@ Sofiane
 Green Montana
 Zed
 Bekar
-RK
-Zamdane
 Kalash Criminel
+Zamdane
 Zkr
 1PLIKÉ140
 Luv Resval
 TK
 Soso Maness
-Kore
 Médine
 Hugo TSR
 DTF
@@ -70,10 +66,8 @@ IAM
 4Keus
 Mig
 Kaza
-L'Algérino
 Elams
 Le Rat Luciano
-Sasso
 Fresh laDouille
 Black M
 Suprême NTM
@@ -89,8 +83,8 @@ Scylla
 Lujipeka
 Lefa
 Benab
-SNIPER
 ASHE 22
+SNIPER
 Stupeflip
 Gambino
 Benash
@@ -108,9 +102,7 @@ ISHA
 Fonky Family
 Ashh
 A2h
-Shurik'n
 Kamikaz
-L'Allemand
 Doums
 Gambino La MG
 113
@@ -124,7 +116,6 @@ Kery James
 Graya
 USKY
 Gringe
-Passi
 Hös Copperfield
 Larry
 Hooss
@@ -198,16 +189,13 @@ Mafia K'1 Fry
 MRC
 Key Largo
 Swing
-L'Skadrille
-L'Hexaler
-Fabe
 Kacem Wapalek
 Frenetik
 Pit Baccardi
 Sheldon
 Sat
-Lacraps
 Dehmo
+Lacraps
 Q.E Favelas
 nelick
 Shotas
@@ -226,11 +214,9 @@ Lucio Bukowski
 PSO THUG
 Kheops
 DENZO
-L'uzine
 Norsacce Berlusconi
 JMK$
 Ideal J
-Cinco
 Sam's
 Youri
 Saké
@@ -246,11 +232,9 @@ Fixpen Sill
 Lorage
 ATK
 Jeff Le Nerf
-L'Or du Commun
 La Clinique
 Pins & Dimeh
 Tendry
-L'entourage
 Aladin 135
 twinsmatic
 XV
@@ -263,7 +247,6 @@ VILK
 Les Sages Poètes de la rue
 Junior Bvndo
 Mysa
-Kobo
 La Brigade
 Beeby
 Lasco
@@ -278,26 +261,303 @@ Less du neuf
 Rockin' Squat
 Le Gouffre
 Dévotion
-Sirap
 Meak
 Pejmaxx
 Grödash
 Tortoz
 Nefaste
 Beat De Boul
-B-NØM
 Le Psalmiste
 Ministère A.M.E.R.
 Chiens de Paille
 La Cliqua
 Stensy
 Carré Rouge
-Abah
 Inglourious Bastardz
 La Swija
 Lucci
-Robse
 Lotus
 Fadah
 Verto
-Dino Killabizz
+Ateyaba
+Alizée
+Alliance Ethnik
+Aketo
+Lous and the Yakuza
+Vulves Assassines
+Dimitri Vegas & Like Mike
+Adès
+Aphrow
+AllttA
+Alpha 5.20
+Alpha Wann
+Atamatoki
+Angle Mort & Clignotant
+Ménage à 3
+Aazar
+Akro
+ASK
+Le “A”
+Secteur Ä
+Aisake
+Aloïse Sauvage
+Aiguille
+ABS
+Nova AR
+Achile
+Butter Bullets
+Billie Brelok
+Busta Flex
+Benny B
+Stomy Bugsy
+Def Bond
+Biga Ranx
+Ben Mazué
+Deen Burbigo
+Baloji
+Benjamin Epps
+Brenky
+Naïve New Beaters
+Boztown
+Babylon Circus
+Bisso Na Bisso
+2 Bal 2 Neg’
+La Boussole
+Boogie Belgique
+Brav
+Blacko
+Blu Samu
+Black Jack
+Epic Pixel Battle
+Busy P
+Ben‐J
+B. Esca
+Black Mozart
+BIDØ
+Basement
+Bënji
+DJ Cam
+C Y G N
+Chilla
+Manu Chao
+La Caution
+Les Chirurgiens Du Son
+Saïan Supa Crew
+CRO
+Carson
+Daddy Lord C
+Cabadzi
+CIK
+ClassiK
+Cassidy
+Chow‐Chow
+Clément Matrat
+Négatif Clan
+DJ Snake
+Sexion d’Assaut
+DJ YUNG VAMP
+Dau
+Diam’s
+Dystinct
+Despo Rutti
+Demi Portion
+Dany Dan
+DJ Leska
+Dadju
+Expression Direkt
+Damlif
+DJ Mehdi
+Doctor Flake
+DLJ
+Lex (de Kalhex)
+James Deano
+Eddy de Pretto
+Dee Nasty
+Diabologum
+Gnawa Diffusion
+Dontcha
+Electro Deluxe
+Démocrates D
+Doodseskader
+Sly-D
+D0d.
+Diaz
+Dimaa
+DJ Ralph
+DJ Fab
+DracoBoy
+Evil Needle
+ECHT!
+La Fanfare en Pétard
+Eptic
+East
+Epektase
+Exo
+Nick Eyra
+Uzi Freyja
+Freeman
+Faf Larage
+Franglish
+Mafia K’1 Fry
+Fakear
+Natsu Fuji
+Fossoyeur
+Hi‐Fi
+Honshu Lo fi
+Faada Freddy
+Feadz
+First Serve
+Fayçal
+Freekill
+Georgio
+Guts
+Yoann Garel
+M Group
+Lucid Green
+Geraldo
+Hocus Pocus
+H JeuneCrack
+Pierre Hugues José
+Hi-Tekk
+Hal
+Hang Øver
+Imhotep
+No One Is Innocent
+IPM
+Ill
+Illuminine
+IMS
+Jazz Liberatorz
+Sly Johnson
+Jeremie
+Jahneration
+Ol’ Kainry
+Kaysha
+Kohndo
+Kazam
+Manu Key
+K. Rhyme Le Roi
+K Special
+Kissamilé
+Kayna Samet
+Kayo
+La Secte Phonétik
+La Rumeur
+Le 3ème Œil
+L’1consolable
+Les X
+Psykick Lyrikah
+Lomme
+Le Lij
+La Vipère
+Logilo
+Lygne 26
+Léna
+La Pietà
+MHD
+Massilia Sound System
+Ménélik
+Roger Molls
+Mr. Oizo
+Mr R
+Manau
+Mayaewk
+Mafia Trece
+Mystik
+Morgan
+MOH
+Monocloud
+Tiers Monde
+5 Majeur
+Malekal Morte
+Martial
+Mké
+Ninho
+Népal
+Nasty
+Niska
+N.A.P.
+nymano
+Naâman
+N3rdistan
+Tout Simplement Noir
+Nizi
+Soleil Noir
+Nadir
+2 Neg’
+Nouvel R
+Nothingtosay
+Rise of the Northstar
+nohone
+Norma
+Nawa
+Onra
+Orishas
+ØDYSSEE
+OBL
+Orties
+PNL
+Poldoore
+Parental
+Phlocalyst
+ProleteR
+Shaka Ponk
+Puzzle
+Pyroman
+Ptite Soeur
+Tony Parker
+Pone
+Polo
+paris91
+Rim’K
+Rocca
+Rockin’ Squat
+Ritmo
+Soudiere
+Sinik
+Shay
+Svinkels
+Salif
+Starflam
+Selah Sue
+The Spectre
+Youssef Swatt’s
+Scarecrow
+Samm
+Spectateur
+shogonodo
+Sté Strausz
+Seb
+Stamina
+Stuffed Tomato
+Soulkast
+Souleance
+Suzane
+Sidney
+Saï
+Souf
+Sincere
+SEA
+THEODORT
+Wax Tailor
+Tribeqa
+Tibeauthetraveler
+Triptik
+t.Stratt
+Tchami
+Tah.
+TKKF
+Twinky
+Tohaj
+Theodora
+UltraMoule
+Vegedream
+Vîrus
+WeRenoi
+40 Winks
+Yovo
+Yannick
+Youthstar
+Yak
+Yari
+Ziak
