@@ -29,8 +29,9 @@ def build_graph(clientname, weighted = True):
         node_1 = artists.find_one({"_id": featuring["artists"][0]})
         node_2 = artists.find_one({"_id": featuring["artists"][1]})
         print(f"\033[F[{this_name}] Adding featuring {featuring['title']} {node_1['name']} {node_2['name']} to graph{' '*100}", end ='')
-        if G.has_edge(node_1['id_genius'], node_2['id_genius']) and weighted:
-            G[node_1['id_genius']][node_2['id_genius']]["weight"] += 1
+        if G.has_edge(node_1['id_genius'], node_2['id_genius']):
+            if weighted:
+                G[node_1['id_genius']][node_2['id_genius']]["weight"] += 1
         else:
             G.add_edge(node_1['id_genius'], node_2['id_genius'], weight=1)
     

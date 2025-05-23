@@ -289,6 +289,7 @@ def get_artist_featurings(artist_id, max_pages=1):
     
     songs = []
     for page in range(1, max_pages + 1):
+        print(f"Traitement de la page {page} / ? ... {' '*100}", end='\r')
         url = f'https://api.genius.com/artists/{artist_id}/songs'
         params = {
             'page': page,
@@ -296,7 +297,7 @@ def get_artist_featurings(artist_id, max_pages=1):
         }
         response = requests.get(url, headers=headers, params=params)
         if response.status_code != 200:
-            print(f"Erreur page {page} : {response.status_code}")
+            print(f"Erreur 200 à la page {page} : {response.status_code}")
             break   #Pas continue ?
 
         data = response.json()
@@ -307,7 +308,7 @@ def get_artist_featurings(artist_id, max_pages=1):
             song_id = song.get('id')
             primary_artist = song.get('primary_artist', {}).get('name')
             featured_artists = song.get('featured_artists', [])
-            print(f"Traitement de la page {page} / ? ... {' '*100}", end='\r')
+            
 
             # Extraire les noms des artistes (principal + feats)
             authors = [primary_artist] + [artist['name'] for artist in featured_artists]
@@ -316,12 +317,18 @@ def get_artist_featurings(artist_id, max_pages=1):
 
         if not song_list:
             break
-
+        sys.stdout.write("\033[F")
+        sys.stdout.write("\033[K")
+    
+    sys.stdout.write("\033[F")
+    sys.stdout.write("\033[K")
     return songs
 
 
 if __name__ == "__main__":
-    show_artist_manual()
+
+    get_artist_featurings(get_artist_id_by_name("Nekfeu")[1], max_pages=50)
+    #show_artist_manual()
     # Exemple
     #search_song("Lose Yourself Eminem")
 
