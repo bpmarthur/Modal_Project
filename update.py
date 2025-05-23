@@ -91,14 +91,6 @@ def update_json(filename = "artists.json"):
         else:
             print(f"[{this_name}] Artiste mis à jour : {artiste['name']} {' '*100}", end='\r')
     for artiste in new_artistes_musicbrainz:
-    for artiste in new_artistes_spotify:
-        if not any(a['name'] == artiste['name'] for a in artistes):
-            # Ajouter l'artiste à la liste
-            artistes.append(artiste)
-            print(f"[{this_name}] Ajout de l'artiste : {artiste['name']} {' '*100}", end='\r')
-        else:
-            print(f"[{this_name}] Artiste mis à jour : {artiste['name']} {' '*100}", end='\r')
-    for artiste in new_artistes_musicbrainz:
         if not any(a['name'] == artiste['name'] for a in artistes):
             # Ajouter l'artiste à la liste
             artistes.append(artiste)
