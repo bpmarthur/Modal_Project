@@ -12,10 +12,10 @@ load_dotenv("API.md")
 API_KEY = os.getenv("LASTFM_API_KEY")
 BASE_URL_LFM = "http://ws.audioscrobbler.com/2.0/"
 
-def get_similar_artists_lastfm(artist_id, limit=20):
+def get_similar_artists_lastfm(artist_name, limit=20):
     params = {
         "method": "artist.getsimilar",
-        "mbid": artist_id,
+        "artist": artist_name,
         "api_key": API_KEY,
         "format": "json",
         "limit": limit
@@ -33,11 +33,9 @@ def build_graph(db_name, limit=20):
     added_edges = set()
 
     all_artists = list(artists_collection.find({}))
-    id_set = set()
+    name_to_artist = {}
 
     for artist in all_artists:
-        if "id_mb" not in artist:
-            continue
         name = artist["name"]
         id_genius = artist["id_genius"]
 
@@ -45,46 +43,44 @@ def build_graph(db_name, limit=20):
             "name": name,
             "id_mongo": str(artist["_id"]),
             "id_genius": id_genius,
-            "id_mb": str(artist["id_mb"]),
             "id_spotify": str(artist["id_spotify"]),
             "url_genius": str(artist["url_genius"]),
             "popularity": artist.get("popularity"),
             "followers": artist.get("followers")
         })
-        id_set.add(artist["id_mb"])
+        name_to_artist[name.lower()] = artist  # pour correspondance par nom, insensible à la casse
         
     i = 0
+    nb_aretes_current = 0
     for artist in all_artists:
-        if "id_mb" not in artist:
-            continue
         
+        id_genius = artist["id_genius"]
+
         try:
-            response = get_similar_artists_lastfm(artist["id_mb"], limit=limit)
-            similar = response.get("similarartists", {}).get("mbid", [])
+            response = get_similar_artists_lastfm(artist["name"], limit=limit)
+            similar = response["similarartists"]["artist"]
         except Exception as e:
             print(f"Erreur pour {artist['name']} : {e}")
             continue
 
         for sim_artist in similar:
-            sim_id = sim_artist["mbid"]
+            sim_name = sim_artist["name"].strip()
             sim_score = float(sim_artist["match"])
 
-            # Vérifie que sim_id est valide et dans la base MongoDB
-            if sim_id != None and sim_id in id_set:
-                # Récupérer l'id_genius de l'artiste similaire
-                target_artist = next((a for a in all_artists if a.get("id_mb") == sim_id), None)
-                if target_artist:
-                    target_id = target_artist["id_genius"]
-                    edge_key = tuple(sorted((id_genius, target_id)))
-                    if edge_key not in added_edges:
-                        G.add_edge(id_genius, target_id, weight=sim_score)
-                        added_edges.add(edge_key)
-
+            # Vérifie que l'artiste similaire est dans la base MongoDB
+            if sim_name and sim_name.lower() in name_to_artist:
+                target_artist = name_to_artist[sim_name.lower()]
+                target_id = target_artist["id_genius"]
+                edge_key = tuple(sorted((id_genius, target_id)))
+                if edge_key not in added_edges:
+                    G.add_edge(id_genius, target_id, weight=sim_score)
+                    added_edges.add(edge_key)
 
         time.sleep(0.1)  # Respecte les limites d’API
-        print(f"[{this_name}] Ajout de l'artiste {i} : pour le moment {len(G.nodes)} noeuds et {len(G.edges)} arêtes.{' '*100}", end="\r")
+        print(f"[{this_name}] Ajout de {artist['name']} ({i+1}/{len(G.nodes)}) : {len(G.edges) - nb_aretes_current} nouvelles arêtes.{' '*100}", end="\r")
+        nb_aretes_current = len(G.edges)
         i += 1
-    print(f"Graphe construit avec {len(G.nodes)} noeuds et {len(G.edges)} arêtes.")
+    print(f" [{this_name}] Graphe construit avec {len(G.nodes)} noeuds et {len(G.edges)} arêtes.")
     return G
 
 
