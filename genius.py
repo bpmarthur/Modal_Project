@@ -59,7 +59,7 @@ def get_all_songs_from_artist(artist_id, max_songs=1000):
 
         print(f"[{this_name}] Page {page} : {len(new_songs)} chansons récupérées")
         page += 1
-        time.sleep(0.2)  # pour éviter d'être bloqué par l'API
+        time.sleep(0.05)  # pour éviter d'être bloqué par l'API
 
         if len(songs) >= max_songs:
             break
@@ -112,18 +112,18 @@ def get_artist_id_by_name_manual():
                 print("Ce n'est pas un entier valide. Réessayez.")
         #Supprimer les lignes d'avant
         sys.stdout.write("\033[K")
-        time.sleep(1)
+        time.sleep(0.1)
         for i in range(0, 12):
             sys.stdout.write("\033[F")
-            time.sleep(1)
+            time.sleep(0.1)
             #sys.stdout.write("\033[K")
             #print(i, end='')
             #time.sleep(1)
 
         sys.stdout.write("\033[F")
-        time.sleep(1)
+        time.sleep(0.1)
         sys.stdout.write("\033[K")
-        time.sleep(1)    
+        time.sleep(0.1)
 
 
         if rep >= 0 and rep < len(hits):
@@ -257,6 +257,16 @@ def show_artist_manual():
         return
     name, id, url = reponse
     print(f"[{this_name}] Résultat -> Nom : {name}, ID : {id}, URL : {url}")
+    
+def get_artist_name_by_id(id):
+    url = f"https://api.genius.com/artists/{id}"
+    response = requests.get(url, headers=headers)
+    if response.status_code != 200:
+        print(f"[{this_name}] Erreur :", response.status_code)
+        return None
+    data = response.json()
+    artist_name = data["response"]["artist"]["name"]
+    return artist_name
     
 def get_artist_featurings(artist_id, max_pages=1):
     

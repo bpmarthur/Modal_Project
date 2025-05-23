@@ -1,5 +1,6 @@
 # Ignorer le fichier contenant les clés d'API
 API.md
+Word2Bezbar-large/
 
 __pycache__/
 *.pyc

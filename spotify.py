@@ -115,6 +115,38 @@ def get_artists(genres = list_genres):
     print(f"[{this_name}] Récupération terminée{' '*100}")
     return artists
 
+def get_followers(artist_name):
+    """
+    Returns the monthly listeners (followers) of an artist on Spotify.
+    In case of failure, returns None.
+    """
+    try:
+        params = {
+            "q": f"artist:{artist_name}",
+            "type": "artist",
+            "limit": 1
+        }
+        response = requests.get("https://api.spotify.com/v1/search", headers=headers, params=params, timeout=10)
+        response.raise_for_status()  # raises an HTTPError if the status is 4xx, 5xx
+
+        results = response.json()
+        time.sleep(0.1)
+
+        items = results.get('artists', {}).get('items', [])
+        if items:
+            return items[0].get('followers', {}).get('total', None)
+        else:
+            print(f"[{this_name}] [WARN] Aucun résultat pour l’artiste : {artist_name}")
+            return None
+    except requests.exceptions.RequestException as e:
+        print(f"[{this_name}] [ERROR] Erreur réseau avec l’artiste {artist_name} : {e}")
+        return None
+    except (KeyError, TypeError, ValueError) as e:
+        print(f"[{this_name}] [ERROR] Erreur de parsing pour l’artiste {artist_name} : {e}")
+        return None
+
+
+
 def get_artist_albums(artist_id):
     albums = []
     url = f"https://api.spotify.com/v1/artists/{artist_id}/albums?include_groups=album&limit=50"
@@ -177,7 +209,17 @@ if __name__ == "__main__":
         print(f"{artist['name']} {artist['id_spotify']} -> Popularity : {popularity} . Followers : {followers}")
         #print(f"[{this_name}] {artist['name']} : {artist['id_spotify']} . Popularity : {get_popularity(artist['id_spotify'])}")
     print(f"[{this_name}] {len(artists)} artistes récupérés")
-    
-    val = input("Entrez l'id d'un artiste : ")
-    print(f"{get_popularity(val)}")
     '''
+    # val = input("Entrez l'id d'un artiste : ")
+    # print(f"{get_popularity(val)}")
+    def load_artists_from_file(file_path="artists_list.txt"):
+        with open(file_path, "r", encoding="utf-8") as f:
+            return [line.strip() for line in f if line.strip()]
+    artists = load_artists_from_file()
+    for artist in artists:
+        try:
+            listeners = get_monthly_listeners(artist)
+            if listeners is None or listeners <= 10000:
+                print(f"{artist} → {listeners if listeners else 'introuvable'} auditeurs mensuels")
+        except Exception as e:
+            print(f"❌ Erreur avec {artist} : {e}")
