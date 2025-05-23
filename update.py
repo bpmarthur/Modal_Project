@@ -208,14 +208,22 @@ def fail_update_mongo(db_name = "arthur_modal"):
         if rep == 1:
             print(f"[{this_name}] Mise à jour des fails")
             for artist_fail in fails:
-                print(f"[{this_name}] Mise à jour de l'artiste : {artist_fail['name']} {' '*100}")
+                print(f"[{this_name}] Mise à jour de l'artiste : {artist_fail} {' '*100}")
                 rep_genius = genius.get_artist_id_by_name_manual()
                 if rep_genius is not None:
-                    collection.update_one({"name": artist_fail['name']}, {"$set": {"id_genius": rep_genius[1], "url_genius": rep_genius[2]}})
+                    collection.update_one({"name": artist_fail}, {"$set": {"id_genius": rep_genius[1], "url_genius": rep_genius[2]}})
+                    fails.remove(artist_fail)
         else:
             print(f"[{this_name}] Pas de mise à jour des fails {' '*100}")
     else:
         print(f"[{this_name}] Pas de fails {' '*100}")
+
+    print(f"[{this_name}] Fermeture de la base de données MongoDB...{' '*100}")
+    client.close()
+    print(f"[{this_name}] Enregistrement des fails restants dans fail_update_mongo.txt ...{' '*100}")
+    with open("fail_update_mongo.txt", "w", encoding="utf-8") as f:
+        for fail in fails:
+            f.write(fail['name'] + "\n")
 
 def update_featurings_and_songs_to_mongo(db_name = "arthur_modal"):
     print(f"[{this_name}] Ouverture de la base de données MongoDB...")
