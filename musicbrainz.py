@@ -11,8 +11,6 @@ def normalize_string(s):
     s = ''.join(c for c in s if unicodedata.category(c) != 'Mn')  # enlève les diacritiques
     return s
 
-def complete_artist_list(genre = ["rap français"]):
-    
 
 def get_artist_id_by_name(name):
     try:

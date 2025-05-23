@@ -136,10 +136,11 @@ if __name__ == "__main__":
     #Création des différents graphes liés aux différentes méthodes de clustering
     graph = set_clusters(graph, "louvain")
     export_graph_to_gephi(graph, filename = "graph_louvain.gexf")
+    '''
     graph = set_clusters(graph, "clique_percolation", 5)
     export_graph_to_gephi(graph, "graph_clique_percolation.gexf")
 
-    '''
+    
     graph = set_clusters(graph, "label_propagation")
     export_graph_to_gephi(graph, "graph_label_propagation.gexf")
     graph = set_clusters(graph, "girvan_newman")

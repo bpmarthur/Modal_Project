@@ -115,7 +115,60 @@ def get_artists(genres = list_genres):
     print(f"[{this_name}] Récupération terminée{' '*100}")
     return artists
 
+def get_artist_albums(artist_id):
+    albums = []
+    url = f"https://api.spotify.com/v1/artists/{artist_id}/albums?include_groups=album&limit=50"
+    while url:
+        response = requests.get(url, headers=headers)
+        data = response.json()
+        albums += data['items']
+        url = data.get('next')  # Pagination
+    # Éliminer les doublons (même album réédité dans différents marchés)
+    seen = set()
+    unique_albums = []
+    for album in albums:
+        if album['name'] not in seen:
+            seen.add(album['name'])
+            unique_albums.append(album)
+    return unique_albums
+
+# Récupérer les labels de chaque album
+def get_album_labels(albums):
+    labels = {}
+    for album in albums:
+        album_id = album['id']
+        url = f"https://api.spotify.com/v1/albums/{album_id}"
+        response = requests.get(url, headers=headers)
+        data = response.json()
+        print(json.dumps(response.json(), indent=4))
+        labels[data['name']] = data.get('label', 'Inconnu')
+    return labels
+
+# Chercher l'ID d'un artiste
+def get_artist_id(artist_name):
+    url = f"https://api.spotify.com/v1/search?q={artist_name}&type=artist"
+    response = requests.get(url, headers=headers)
+    items = response.json()['artists']['items']
+    return items[0]['id'] if items else None
+
+# Fonction principale
+def get_artist_album_labels(artist_name):
+    artist_id = get_artist_id(artist_name)
+    if not artist_id:
+        print(f"Artiste introuvable : {artist_name}")
+        return {}
+    albums = get_artist_albums(artist_id)
+    return get_album_labels(albums)
+
+# Exemple d’utilisation
 if __name__ == "__main__":
+    
+    artist_name = "Nekfeu"
+
+    labels = get_artist_album_labels(artist_name)
+    for album, label in labels.items():
+        print(f"{album} → {label}")
+
     '''
     artists = get_artists()
     print(f"[{this_name}] {len(artists)} artistes récupérés")
@@ -124,6 +177,7 @@ if __name__ == "__main__":
         print(f"{artist['name']} {artist['id_spotify']} -> Popularity : {popularity} . Followers : {followers}")
         #print(f"[{this_name}] {artist['name']} : {artist['id_spotify']} . Popularity : {get_popularity(artist['id_spotify'])}")
     print(f"[{this_name}] {len(artists)} artistes récupérés")
-    '''
+    
     val = input("Entrez l'id d'un artiste : ")
     print(f"{get_popularity(val)}")
+    '''
