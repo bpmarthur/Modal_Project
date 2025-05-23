@@ -2,6 +2,7 @@ from pymongo import MongoClient
 import os
 from bson.objectid import ObjectId
 import networkx as nx
+from itertools import combinations
 
 this_name = os.path.basename(__file__)
 
@@ -11,7 +12,6 @@ def build_graph(clientname, weighted = True):
     client = MongoClient("mongodb://localhost:27017/")
     db = client[clientname]  # nom de la base de données
     artists = db["artists"] 
-    songs = db["songs"] 
     featurings = db["featurings"] 
 
     #Création du graphe
@@ -25,16 +25,19 @@ def build_graph(clientname, weighted = True):
     print(f"[{this_name}] All artists added to graph")
     #On itère sur les featurings de la chanson
     for featuring in featurings.find({}):
+        pairs = list(combinations(featuring['artists_genius_id'], 2))
         
-        node_1 = artists.find_one({"_id": featuring["artists"][0]})
-        node_2 = artists.find_one({"_id": featuring["artists"][1]})
-        print(f"\033[F[{this_name}] Adding featuring {featuring['title']} {node_1['name']} {node_2['name']} to graph{' '*100}", end ='')
-        if G.has_edge(node_1['id_genius'], node_2['id_genius']):
-            if weighted:
-                G[node_1['id_genius']][node_2['id_genius']]["weight"] += 1
-        else:
-            G.add_edge(node_1['id_genius'], node_2['id_genius'], weight=1)
-    
+        for pair in pairs:
+            id_1, id_2 = pair
+            print(f"pair : {pair}")
+            node_1 = artists.find_one({"id_genius": id_1})
+            node_2 = artists.find_one({"id_genius": id_2})
+            print(f"\033[F[{this_name}] Adding featuring {featuring['title']} {node_1['name']} {node_2['name']} to graph{' '*100}", end ='')
+            if G.has_edge(id_1, id_2):
+                if weighted:
+                    G[id_1][id_2]["weight"] += 1
+            else:
+                G.add_edge(id_1, id_2, weight=1)
     print(f"[{this_name}] All featurings added to graph")
     return G
         
@@ -63,8 +66,8 @@ def graph_stats(graph):
     print(f"Average degree: {sum(dict(graph.degree()).values()) / graph.number_of_nodes():.2f}")
     print(f"Density: {nx.density(graph):.4f}")
     print(f"Clustering coefficient: {nx.average_clustering(graph):.4f}")
-    print(f"Diameter: {nx.diameter(graph)}")
-    print(f"Average shortest path length: {nx.average_shortest_path_length(graph):.2f}")
+    #print(f"Diameter: {nx.diameter(graph)}")
+    #print(f"Average shortest path length: {nx.average_shortest_path_length(graph):.2f}")
     print(f"Connected components: {nx.number_connected_components(graph)}")
     print(f"Is connected: {nx.is_connected(graph)}")
     print(f"Average clustering coefficient: {nx.average_clustering(graph):.4f}")
@@ -93,6 +96,33 @@ def delete_isolated_nodes(graph):
     isolated_nodes = list(nx.isolates(graph))
     graph.remove_nodes_from(isolated_nodes)
     print(f"[{this_name}] Deleted {len(isolated_nodes)} isolated nodes")
+    return graph
+
+def delete_low_degree_nodes(graph, k, filename=None):
+    """
+    Supprime tous les noeuds du graphe dont le degré est strictement inférieur à k.
+    Si filename est fourni, enregistre les noms des noeuds supprimés dans ce fichier.
+    """
+    low_degree_nodes = [node for node, degree in dict(graph.degree()).items() if degree < k]
+    if filename:
+        with open(filename, "w", encoding="utf-8") as f:
+            for node in low_degree_nodes:
+                name = graph.nodes[node].get("name", str(node))
+                f.write(name + "\n")
+    graph.remove_nodes_from(low_degree_nodes)
+    print(f"[{this_name}] Deleted {len(low_degree_nodes)} nodes with degree < {k}")
+    return graph
+
+def delete_small_components(graph, min_size=10):
+    """
+    Supprime toutes les composantes connexes du graphe ayant moins de min_size nœuds.
+    """
+    small_components = [c for c in nx.connected_components(graph) if len(c) < min_size]
+    nodes_to_remove = set()
+    for comp in small_components:
+        nodes_to_remove.update(comp)
+    graph.remove_nodes_from(nodes_to_remove)
+    print(f"[{this_name}] Deleted {len(small_components)} components with less than {min_size} nodes ({len(nodes_to_remove)} nodes removed)")
     return graph
 
 def set_clusters(graph, method, k:int = 3):
@@ -129,14 +159,16 @@ def export_graph_to_gephi(graph, filename = "graph.gexf"):
     print(f"[{this_name}] Graph exported to {file_path}")
 
 if __name__ == "__main__":
-    graph = build_graph("musicdb", weighted = False)
-    graph = delete_isolated_nodes(graph)
+    graph = build_graph("final_db_3", weighted = True)
+    #delete_low_degree_nodes(graph, 1, "deleted_nodes_3_2.txt")
+    delete_small_components(graph, 10)
+    #graph = delete_isolated_nodes(graph)
     graph_stats(graph)
     nodes_stats(graph)
     
     #Création des différents graphes liés aux différentes méthodes de clustering
     graph = set_clusters(graph, "louvain")
-    export_graph_to_gephi(graph, filename = "graph_louvain.gexf")
+    export_graph_to_gephi(graph, filename = "graph_louvain_del_small_comp.gexf")
     '''
     graph = set_clusters(graph, "clique_percolation", 5)
     export_graph_to_gephi(graph, "graph_clique_percolation.gexf")
