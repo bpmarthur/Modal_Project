@@ -551,7 +551,7 @@ def final_update(db_name = "data_final", former_db_name = "arthur_modal", search
                 if id_mb != None:
                     collection.update_one({"name": artist['name']}, {"$set": {"id_mb": id_mb}})
         i+=1
-        
+
         print(f" [{this_name}] Nombre d'artiste restants après suppression de ceux qui n'ont pas pu être trouvés : {collection.count_documents({})}")
 
     '''
@@ -606,4 +606,4 @@ if __name__ == "__main__":
     collection = db["artists"]
     collection.delete_many({})
     '''
-    final_update(search_new_artists = True, update_genius=True, update_embeddings=True, update_musicbrainz=True, force_update=True)
+    final_update(update_embeddings=True)
