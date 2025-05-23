@@ -4,6 +4,7 @@ import os
 import json
 from tools import get_key
 import sys
+import math
 
 GENIUS_API_TOKEN = get_key("Client_access_genius")
 
@@ -100,31 +101,38 @@ def get_artist_id_by_name_manual():
             return None
 
         #On liste les artistes
+        pair = True
         for i in range(0, len(hits)):
-            print(f"[{this_name}] [{i}] Nom : {hits[i]['result']['primary_artist']['name']}, ID : {hits[i]['result']['primary_artist']['id']}, URL : {hits[i]['result']['primary_artist']['url']}")   #Debug
+            print(f"[{i}] Nom : {hits[i]['result']['primary_artist']['name']}, ID : {hits[i]['result']['primary_artist']['id']}, URL : {hits[i]['result']['primary_artist']['url']}", end = " ")   #Debug
+            if pair:
+                print('\t', end = " ")
+            else:
+                print('\n', end = "")
+            pair = not pair
+        if not pair:
+            print('\n', end = "")
         rep = ""
         while True:
-            rep = input(f"[{this_name}] Choisissez l'artiste qui convient, sinon entrez n'importe quel chiffre : ")
+            rep = input(f"Choisissez l'artiste qui convient, sinon entrez n'importe quel chiffre : ")
             try:
                 rep = int(rep)
                 break  # Si ça marche, on sort de la boucle
             except ValueError:
-                print("Ce n'est pas un entier valide. Réessayez.")
+                sys.stdout.write("\033[F")
+                sys.stdout.write("\033[K")
+                print("Ce n'est pas un entier valide. Réessayez.", end=' ')
         #Supprimer les lignes d'avant
         sys.stdout.write("\033[K")
-        time.sleep(1)
-        for i in range(0, 12):
-            sys.stdout.write("\033[F")
-            time.sleep(1)
-            #sys.stdout.write("\033[K")
-            #print(i, end='')
-            #time.sleep(1)
 
+        for i in range(0, math.ceil(len(hits)/2)+2):
+            sys.stdout.write("\033[F")
+            sys.stdout.write("\033[K")
+        '''
         sys.stdout.write("\033[F")
         time.sleep(1)
         sys.stdout.write("\033[K")
         time.sleep(1)    
-
+        '''
 
         if rep >= 0 and rep < len(hits):
             artist = hits[rep]["result"]["primary_artist"]
@@ -132,11 +140,12 @@ def get_artist_id_by_name_manual():
             break
         else:
             print(f"[{this_name}] Aucun résultat sélectionné.")
+    print(f"[{this_name}] Artiste Sélectionné  [{rep}] Nom : {artist['name']}, ID : {artist['id']}, URL : {artist['url']}")   #Debug
     url = artist["url"]
     id = artist["id"]
     name = artist["name"]
 
-    return name, id, url#Retourne le nom, l'id, l'url de l'artiste et l'index de la réponse
+    return name, id, url     #Retourne le nom, l'id, l'url de l'artiste et l'index de la réponse
 
 specifications = ["fra", "fr", "rap fr", "rap français", "french rap", "new wave"] 
 def get_artist_id_by_name(artist_name, artist_data = None):    
@@ -255,8 +264,6 @@ def show_artist_manual():
     if reponse is None:
         print(f"[{this_name}] Aucune réponse trouvée")
         return
-    name, id, url = reponse
-    print(f"[{this_name}] Résultat -> Nom : {name}, ID : {id}, URL : {url}")
     
 def get_artist_featurings(artist_id, max_pages=1):
     
