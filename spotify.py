@@ -87,8 +87,60 @@ def show_artists():
         artiste = art[i]
         print(f"[{this_name}] {artiste['name']} : {artiste['id_spotify']} . Popularity : {artiste['popularity']} . Followers : {artiste['followers']}")
 
+# Chercher l'ID d'un artiste
+def get_artist_id(artist_name):
+    url = f"https://api.spotify.com/v1/search?q={artist_name}&type=artist&limit=1"
+    response = requests.get(url, headers=headers)
+    items = response.json()['artists']['items']
+    return items[0]['id'] if items else None
+
+# Récupérer tous les albums de l’artiste
+def get_artist_albums(artist_id):
+    albums = []
+    url = f"https://api.spotify.com/v1/artists/{artist_id}/albums?include_groups=album&limit=50"
+    while url:
+        response = requests.get(url, headers=headers)
+        data = response.json()
+        albums += data['items']
+        url = data.get('next')  # Pagination
+    # Éliminer les doublons (même album réédité dans différents marchés)
+    seen = set()
+    unique_albums = []
+    for album in albums:
+        if album['name'] not in seen:
+            seen.add(album['name'])
+            unique_albums.append(album)
+    return unique_albums
+
+# Récupérer les labels de chaque album
+def get_album_labels(albums):
+    labels = []
+    for album in albums:
+        album_id = album['id']
+        url = f"https://api.spotify.com/v1/albums/{album_id}"
+        response = requests.get(url, headers=headers)
+        data = response.json()
+        nouveau_label = {}
+        nouveau_label['name'] = data['name']
+        nouveau_label['data'] = []
+        copyrights = data.get('copyrights', [])
+        for cr in copyrights:
+            if cr['type'] == 'P':
+                nouveau_label['data'].append(cr['text'])
+        nouveau_label['data'].append(data.get('label', 'Inconnu'))
+        labels.append(nouveau_label)
+    return labels
+
+# Fonction principale
+def get_labels(artist_id):
+    albums = get_artist_albums(artist_id)
+    return get_album_labels(albums)
+
+
 if __name__ == "__main__":
-    show_artists()
+    #show_artists()
+    for lbl in get_labels(get_artist_id("Damso")):
+        print(f"[{this_name}] {lbl['name']} : {lbl['data']}")
 
 '''
 response = requests.get("https://api.spotify.com/v1/search", headers=headers, params=params)
@@ -101,9 +153,6 @@ def get_popularity(artist_id):
     """
     This function returns the popularity of an artist from Spotify.
     """
-    params = {
-        "ids": artist_id
-    }
     #response = requests.get("https://api.spotify.com/v1/artists", headers=headers, params=params)
     response = requests.get(f"https://api.spotify.com/v1/artists/{artist_id}", headers=headers)
     results = response.json()

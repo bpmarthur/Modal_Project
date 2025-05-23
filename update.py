@@ -130,7 +130,18 @@ def update_mongo(db_name = "arthur_modal", force_update = False):
     for artiste in new_artistes:
         i+=1
         print(f"[{this_name}] [{i}/{longueur}] Mise à jour de l'artiste : {artiste['name']} {" "*100}", end='\r')
-        collection.update_one({"name": artiste['name']}, {"$setOnInsert": {"name": artiste['name']}}, upsert=True)
+        collection.update_one(
+            {"name": artiste['name']},
+            {
+                "$setOnInsert": {"name": artiste['name']},
+                "$set": {
+                    "id_spotify": artiste["id_spotify"],
+                    "popularity": artiste["popularity"],
+                    "followers": artiste["followers"]
+                }
+            },
+            upsert=True
+        )
         
     print(f"[{this_name}] Mise à jour de la base de données terminée. {i} artistes mis à jour.") 
     """
@@ -312,4 +323,4 @@ if __name__ == "__main__":
     collection = db["artists"]
     collection.delete_many({})
     '''
-    update_mongo()
+    update_mongo("test_pop_followers", force_update=True)
