@@ -298,6 +298,7 @@ def update_csv_to_mongo(db_name, filename = "./data/db_artists_clean.csv"):
 
     # Suppression de tous les documents existants
     collection.delete_many({})
+    
     print(f"[{this_name}] Lecture du fichier CSV...")
     with open(filename, newline=None) as csvfile:
         reader = csv.DictReader(csvfile)
