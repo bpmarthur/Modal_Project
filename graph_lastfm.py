@@ -4,6 +4,7 @@ import requests
 import networkx as nx
 import time
 from dotenv import load_dotenv
+import matplotlib.pyplot as plt
 
 this_name = os.path.basename(__file__)
 
@@ -24,7 +25,7 @@ def get_similar_artists_lastfm(artist_name, limit=20):
     response.raise_for_status()
     return response.json()
 
-def build_graph(db_name, limit=20):
+def build_graph(db_name, limit=20, plot_distribution=True):
     client = MongoClient("mongodb://localhost:27017/")
     db = client[db_name]
     artists_collection = db["artists"]
@@ -52,6 +53,7 @@ def build_graph(db_name, limit=20):
         
     i = 0
     nb_aretes_current = 0
+    all_similarities = []
     for artist in all_artists:
         
         id_genius = artist["id_genius"]
@@ -74,6 +76,7 @@ def build_graph(db_name, limit=20):
                 edge_key = tuple(sorted((id_genius, target_id)))
                 if edge_key not in added_edges:
                     G.add_edge(id_genius, target_id, weight=sim_score)
+                    all_similarities.append(sim_score)
                     added_edges.add(edge_key)
 
         time.sleep(0.1)  # Respecte les limites d’API
@@ -81,6 +84,19 @@ def build_graph(db_name, limit=20):
         nb_aretes_current = len(G.edges)
         i += 1
     print(f" [{this_name}] Graphe construit avec {len(G.nodes)} noeuds et {len(G.edges)} arêtes.")
+    
+        # Tracer la distribution des similarités
+    if plot_distribution:
+        print(f"[{this_name}] Plotting similarity distribution...")
+        plt.figure(figsize=(8, 5))
+        plt.hist(all_similarities, bins=50, range=(0, 1), color='steelblue', edgecolor='black')
+        plt.title("Distribution des similarités Last.fm entre artistes")
+        plt.xlabel("Similarité Last.fm")
+        plt.ylabel("Fréquence")
+        plt.grid(True, linestyle='--', alpha=0.6)
+        plt.tight_layout()
+        plt.show()
+    
     return G
 
 
@@ -110,8 +126,8 @@ def graph_stats(graph):
     print(f"Average degree: {sum(dict(graph.degree()).values()) / graph.number_of_nodes():.2f}")
     print(f"Density: {nx.density(graph):.4f}")
     print(f"Clustering coefficient: {nx.average_clustering(graph):.4f}")
-    print(f"Diameter: {nx.diameter(graph)}")
-    print(f"Average shortest path length: {nx.average_shortest_path_length(graph):.2f}")
+    #print(f"Diameter: {nx.diameter(graph)}")
+    #print(f"Average shortest path length: {nx.average_shortest_path_length(graph):.2f}")
     print(f"Connected components: {nx.number_connected_components(graph)}")
     print(f"Is connected: {nx.is_connected(graph)}")
     print(f"Average clustering coefficient: {nx.average_clustering(graph):.4f}")
@@ -174,16 +190,30 @@ def export_graph_to_gephi(graph, filename = "graph.gexf"):
     os.makedirs("./graphs", exist_ok=True)
     nx.write_gexf(graph, file_path)
     print(f"[{this_name}] Graph exported to {file_path}")
+    
+def delete_small_components(graph, min_size=10):
+    """
+    Supprime toutes les composantes connexes du graphe ayant moins de min_size nœuds.
+    """
+    small_components = [c for c in nx.connected_components(graph) if len(c) < min_size]
+    nodes_to_remove = set()
+    for comp in small_components:
+        nodes_to_remove.update(comp)
+    graph.remove_nodes_from(nodes_to_remove)
+    print(f"[{this_name}] Deleted {len(small_components)} components with less than {min_size} nodes ({len(nodes_to_remove)} nodes removed)")
+    return graph
 
 if __name__ == "__main__":
-    graph = build_graph("data_final")
-    # graph = delete_isolated_nodes(graph)
-    # graph_stats(graph)
-    # nodes_stats(graph)
+    graph = build_graph("final_db_3")
+    #delete_low_degree_nodes(graph, 1, "deleted_nodes_3_2.txt")
+    delete_small_components(graph, 5)
+    #graph = delete_isolated_nodes(graph)
+    graph_stats(graph)
+    nodes_stats(graph)
     
     #Création des différents graphes liés aux différentes méthodes de clustering
-    # graph = set_clusters(graph, "louvain")
-    # export_graph_to_gephi(graph, filename = "graph_louvain.gexf")
+    graph = set_clusters(graph, "louvain")
+    export_graph_to_gephi(graph, filename = "graph_louvain_last_fm.gexf")
     '''
     graph = set_clusters(graph, "clique_percolation", 5)
     export_graph_to_gephi(graph, "graph_clique_percolation.gexf")

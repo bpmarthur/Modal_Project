@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 this_name = os.path.basename(__file__)
 
-def build_graph(clientname, weighted=True, similarity_threshold=0.9, plot_distribution=True):
+def build_graph(clientname, weighted=True, similarity_threshold=0.98, plot_distribution=True):
     print(f"[{this_name}] Building graph...")
     
     # Connexion à la base de données
@@ -48,7 +48,7 @@ def build_graph(clientname, weighted=True, similarity_threshold=0.9, plot_distri
     for i in range(len(artist_ids)):
         for j in range(i + 1, len(artist_ids)):
             sim = similarity_matrix[i][j]
-            score = (sim - similarity_threshold) * 10
+            score = (sim - similarity_threshold) * 50
             all_similarities.append(score)
             if sim >= similarity_threshold:
                 if weighted:
@@ -163,16 +163,30 @@ def export_graph_to_gephi(graph, filename = "graph.gexf"):
     os.makedirs("./graphs", exist_ok=True)
     nx.write_gexf(graph, file_path)
     print(f"[{this_name}] Graph exported to {file_path}")
+    
+def delete_small_components(graph, min_size=10):
+    """
+    Supprime toutes les composantes connexes du graphe ayant moins de min_size nœuds.
+    """
+    small_components = [c for c in nx.connected_components(graph) if len(c) < min_size]
+    nodes_to_remove = set()
+    for comp in small_components:
+        nodes_to_remove.update(comp)
+    graph.remove_nodes_from(nodes_to_remove)
+    print(f"[{this_name}] Deleted {len(small_components)} components with less than {min_size} nodes ({len(nodes_to_remove)} nodes removed)")
+    return graph
 
 if __name__ == "__main__":
-    graph = build_graph("data_final")
-    # graph = delete_isolated_nodes(graph)
+    graph = build_graph("final_db_3", weighted = True)
+    #delete_low_degree_nodes(graph, 1, "deleted_nodes_3_2.txt")
+    delete_small_components(graph, 5)
+    #graph = delete_isolated_nodes(graph)
     # graph_stats(graph)
-    # nodes_stats(graph)
+    nodes_stats(graph)
     
     #Création des différents graphes liés aux différentes méthodes de clustering
-    # graph = set_clusters(graph, "louvain")
-    # export_graph_to_gephi(graph, filename = "graph_louvain.gexf")
+    graph = set_clusters(graph, "louvain")
+    export_graph_to_gephi(graph, filename = "graph_louvain_embedding_2.gexf")
     '''
     graph = set_clusters(graph, "clique_percolation", 5)
     export_graph_to_gephi(graph, "graph_clique_percolation.gexf")
