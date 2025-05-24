@@ -4,6 +4,8 @@ Ce projet permet de manipuler, analyser et visualiser un graphe de collaboration
 
 Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
 
+Les bases de données générées se trouvent dans le fichier data/ du repo.
+
 ## Structure des fichiers
 
 - **graph.py**  
