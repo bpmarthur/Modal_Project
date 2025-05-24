@@ -8,7 +8,7 @@ import matplotlib.pyplot as plt
 
 this_name = os.path.basename(__file__)
 
-def build_graph(clientname, weighted=True, similarity_threshold=0.95, plot_distribution=True):
+def build_graph(clientname, weighted=True, similarity_threshold=0.98, plot_distribution=True):
     print(f"[{this_name}] Building graph...")
     
     # Connexion à la base de données
@@ -48,7 +48,7 @@ def build_graph(clientname, weighted=True, similarity_threshold=0.95, plot_distr
     for i in range(len(artist_ids)):
         for j in range(i + 1, len(artist_ids)):
             sim = similarity_matrix[i][j]
-            score = (sim - similarity_threshold) * 20
+            score = (sim - similarity_threshold) * 50
             all_similarities.append(score)
             if sim >= similarity_threshold:
                 if weighted:
@@ -186,7 +186,7 @@ if __name__ == "__main__":
     
     #Création des différents graphes liés aux différentes méthodes de clustering
     graph = set_clusters(graph, "louvain")
-    export_graph_to_gephi(graph, filename = "graph_louvain_last_fm.gexf")
+    export_graph_to_gephi(graph, filename = "graph_louvain_embedding_2.gexf")
     '''
     graph = set_clusters(graph, "clique_percolation", 5)
     export_graph_to_gephi(graph, "graph_clique_percolation.gexf")
