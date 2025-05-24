@@ -1,6 +1,8 @@
-# Projet : Analyse de collaborations musicales
+# Projet de Modal CSC_43M02_EP - Exploration et apprentissage sur les graphes du Web : Analyse de collaborations musicales
 
 Ce projet permet de manipuler, analyser et visualiser un graphe de collaborations entre artistes musicaux, à partir de données issues de Spotify, Genius, MusicBrainz et Last.fm. Il utilise Python, NetworkX et MongoDB pour construire le graphe, extraire des statistiques, gérer les données et exporter les résultats pour Gephi.
+
+Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
 
 ## Structure des fichiers
 
