@@ -1,6 +1,6 @@
 # Projet de Modal CSC_43M02_EP - Exploration et apprentissage sur les graphes du Web : Analyse de collaborations musicales
 
-Ce projet permet de manipuler, analyser et visualiser un graphe de collaborations entre artistes musicaux, à partir de données issues de Spotify, Genius, MusicBrainz et Last.fm. Il utilise Python, NetworkX et MongoDB pour construire le graphe, extraire des statistiques, gérer les données et exporter les résultats pour Gephi.
+Ce projet permet de manipuler, analyser et visualiser un graphe de collaborations entre artistes musicaux, à partir de données issues de Spotify, Genius, MusicBrainz et Last.fm. Il utilise Python, NetworkX et MongoDB pour construire le graphe, extraire et gérer les données avant de les exploiter avec Gephi.
 
 Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
 
@@ -32,14 +32,14 @@ Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
   Fonctions pour interroger l’API Genius (récupération d’ID, featurings, etc.).
 
 - **musicbrainz.py**  
-  Fonctions pour interroger l’API MusicBrainz (récupération d’artistes, normalisation de noms, etc.).
+  Fonctions pour interroger la base de données MusicBrainz (récupération d’artistes, normalisation de noms, etc.) grâce à leur bibliothèque python.
 
 - **tools.py**  
   Fonctions utilitaires (gestion des clés API, saisie utilisateur sécurisée, etc.).
   `get_key`, `int_response` : Utilitaires pour la gestion des clés et des entrées utilisateur.
 
 - **embeddings.py**  
-  Fonctions pour calculer et manipuler des embeddings d’artistes (Word2Vec).
+  Fonctions pour calculer et manipuler des embeddings d’artistes en utilisant notamment le modèle Word2Bezbar. Lien du modèle : https://huggingface.co/rapminerz/Word2Bezbar-large
 
 - **graph_embedding.py**, **graph_lastfm.py**  
   Fonctions avancées pour l’analyse de graphes et l’intégration de données Last.fm.
