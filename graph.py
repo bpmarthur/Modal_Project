@@ -20,7 +20,7 @@ def build_graph(clientname, weighted = True):
     #On itère sur les artistes
     for artist in artists.find({}):
         print(f"[{this_name}] Adding artist {artist['name']} to graph{' '*100}", end ="\r")
-        G.add_node(artist["id_genius"], name=str(artist["name"]), id_mongo=str(artist["_id"]), id_genius= int(artist["id_genius"]), id_mb = str(artist["id_mb"]), id_spotify=str(artist["id_spotify"]),url_genius = str(artist["url_genius"]))
+        G.add_node(artist["id_genius"], name=str(artist["name"]), id_mongo=str(artist["_id"]), id_genius= int(artist["id_genius"]), pop = int(artist['popularity']), followers = int(artist["followers"]), id_mb = str(artist["id_mb"]), id_spotify=str(artist["id_spotify"]),url_genius = str(artist["url_genius"]))
 
     print(f"[{this_name}] All artists added to graph")
     #On itère sur les featurings de la chanson
@@ -160,16 +160,22 @@ def export_graph_to_gephi(graph, filename = "graph.gexf"):
 
 if __name__ == "__main__":
     graph = build_graph("final_db_3", weighted = True)
-    #delete_low_degree_nodes(graph, 1, "deleted_nodes_3_2.txt")
-    delete_small_components(graph, 10)
+
+    # Nettoyage du graphe
+    #graph = delete_low_degree_nodes(graph, 1, "deleted_nodes_3_2.txt")
     #graph = delete_isolated_nodes(graph)
+    graph = delete_small_components(graph, 10)
+
+    # Affichage des statistiques du graphe
     graph_stats(graph)
     nodes_stats(graph)
     
     #Création des différents graphes liés aux différentes méthodes de clustering
     graph = set_clusters(graph, "louvain")
     export_graph_to_gephi(graph, filename = "graph_louvain_del_small_comp.gexf")
+
     '''
+    Autres méthodes de clustering
     graph = set_clusters(graph, "clique_percolation", 5)
     export_graph_to_gephi(graph, "graph_clique_percolation.gexf")
 
