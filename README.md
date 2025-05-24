@@ -91,4 +91,4 @@ Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
     Méthode similaire pour les fichiers graph_embedding.py et graph_lastfm.py.
 
 5. **Visualiser dans Gephi**  
-   Ouvre le fichier `.gexf` du dossier graphs/ dans Gephi pour explorer le graphe.
+   Ouvrir le fichier `.gexf` du dossier graphs/ dans Gephi pour explorer le graphe.
