@@ -3,6 +3,8 @@ import os
 from bson.objectid import ObjectId
 import networkx as nx
 from itertools import combinations
+import matplotlib.pyplot as plt
+
 
 this_name = os.path.basename(__file__)
 
@@ -23,22 +25,26 @@ def build_graph(clientname, weighted = True):
         G.add_node(artist["id_genius"], name=str(artist["name"]), id_mongo=str(artist["_id"]), id_genius= int(artist["id_genius"]), pop = int(artist['popularity']), followers = int(artist["followers"]), id_mb = str(artist["id_mb"]), id_spotify=str(artist["id_spotify"]),url_genius = str(artist["url_genius"]))
 
     print(f"[{this_name}] All artists added to graph")
+    i = 0
     #On itère sur les featurings de la chanson
+    print(f"[{this_name}] Adding featurings to graph {len(list(featurings.find({})))} featurings found")
     for featuring in featurings.find({}):
-        pairs = list(combinations(featuring['artists_genius_id'], 2))
+        pairs = list(combinations(featuring['artists_genius_id'], 2))   #S'il n'y a qu'un seul artiste, on ne peut pas faire de featuring
         
         for pair in pairs:
             id_1, id_2 = pair
-            print(f"pair : {pair}")
+            #print(f"pair : {pair}")
             node_1 = artists.find_one({"id_genius": id_1})
             node_2 = artists.find_one({"id_genius": id_2})
-            print(f"\033[F[{this_name}] Adding featuring {featuring['title']} {node_1['name']} {node_2['name']} to graph{' '*100}", end ='')
+            #print(f"\033[F[{this_name}] Adding featuring {featuring['title']} {node_1['name']} {node_2['name']} to graph{' '*100}", end ='')
             if G.has_edge(id_1, id_2):
                 if weighted:
                     G[id_1][id_2]["weight"] += 1
+                    i += 1
             else:
                 G.add_edge(id_1, id_2, weight=1)
-    print(f"[{this_name}] All featurings added to graph")
+                i += 1
+    print(f"[{this_name}] All featurings added to graph. Number of edges added: {i}")
     return G
         
 def louvain(graph):
@@ -77,8 +83,10 @@ def graph_stats(graph):
 def cluster_stats(graph, clusters):
     print(f"[{this_name}] Cluster stats:")
     print(f"Number of communities: {len(set(nx.get_node_attributes(graph, 'cluster').values()))}")
-    print(f"Number of nodes in each community: {len(dict(nx.get_node_attributes(graph, 'cluster')))}")
-    print(f"Number of edges in each community: {len(dict(nx.get_edge_attributes(graph, 'weight')))}")
+    print(f"Number of nodes in each community:")
+    for i, cluster in enumerate(clusters):
+        print(f"  Community {i}: {len(cluster)} nodes")
+    #print(f"Number of edges in each community: {len(dict(nx.get_edge_attributes(graph, 'weight')))}")
     #mod = nx.algorithms.community.quality.modularity(graph, clusters)
     #print(f"Modularity: {mod:.4f}")
     #print(f"Modularity: {nx.algorithms.community.modularity(graph, nx.get_node_attributes(graph, 'cluster').values())}")
@@ -173,6 +181,47 @@ if __name__ == "__main__":
     #Création des différents graphes liés aux différentes méthodes de clustering
     graph = set_clusters(graph, "louvain")
     export_graph_to_gephi(graph, filename = "graph_louvain_del_small_comp.gexf")
+
+    betweenness = nx.betweenness_centrality(graph)
+
+    # Extraction des valeurs
+    values = list(betweenness.values())
+
+    # Affichage de l'histogramme
+    plt.figure(figsize=(8,5))
+    plt.hist(values, bins=20, color='skyblue', edgecolor='black')
+    plt.title("Histogramme de la betweenness centrality")
+    plt.xlabel("Betweenness centrality")
+    plt.ylabel("Nombre de nœuds")
+    plt.grid(axis='y', alpha=0.75)
+    plt.show()
+
+    # Calcul de l'eigenvector centrality
+    eigenvector = nx.eigenvector_centrality(graph, max_iter=1000)
+
+    # Extraction des valeurs
+    values = list(eigenvector.values())
+
+    # Affichage de l'histogramme
+    plt.figure(figsize=(8,5))
+    plt.hist(values, bins=20, color='lightcoral', edgecolor='black')
+    plt.title("Histogramme de l'eigenvector centrality")
+    plt.xlabel("Eigenvector centrality")
+    plt.ylabel("Nombre de nœuds")
+    plt.grid(axis='y', alpha=0.75)
+    plt.show()
+
+    # Calcul des degrés de chaque nœud
+    degrees = [deg for _, deg in graph.degree()]
+
+    # Affichage de l'histogramme
+    plt.figure(figsize=(8,5))
+    plt.hist(degrees, bins=range(min(degrees), max(degrees) + 2), edgecolor='black', align='left')
+    plt.title("Histogramme des degrés du graphe")
+    plt.xlabel("Degré")
+    plt.ylabel("Nombre de nœuds")
+    plt.grid(axis='y', alpha=0.7)
+    plt.show()
 
     '''
     Autres méthodes de clustering

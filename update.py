@@ -300,7 +300,7 @@ def update_featurings_and_songs_to_mongo_v2(db_name = "arthur_modal"):
 
             # Enregistrement dans featurings (avec upsert pour éviter les doublons)
                 
-            nb_artistes_presents = len(authors_id)
+            nb_artistes_presents = 0
             artistes_presents_name = []
             artistes_presents_id = []
             real_authors_id = []

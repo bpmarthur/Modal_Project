@@ -364,8 +364,10 @@ def get_artist_featurings_v2(artist_id, max_pages=1):
 
 
 if __name__ == "__main__":
-
-    print(get_artist_featurings_v2(get_artist_id_by_name("Nekfeu")[1], max_pages=1))
+    feats = get_artist_featurings_v2(get_artist_id_by_name("Nekfeu")[1], max_pages=50)
+    for song in feats:
+        artistes = [get_artist_name_by_id(artist_id) for artist_id in song[2]]
+        print(f"{song[1]} -> id = {song[0]} -> {', '.join(map(str, artistes))}")
     #show_artist_manual()
     # Exemple
     #search_song("Lose Yourself Eminem")
