@@ -7,9 +7,9 @@ import csv
 import musicbrainz
 from pymongo import MongoClient
 from tools import get_key, int_response
-#import gensim
-#import embeddings
-#import re
+import gensim
+import embeddings
+import re
 
 GENIUS_API_TOKEN = get_key("Client_access_genius")
 
@@ -19,7 +19,7 @@ headers = {
 
 this_name = os.path.basename(__file__)
 
-#model = gensim.models.Word2Vec.load("Word2Bezbar-large/word2vec.model")
+model = gensim.models.Word2Vec.load("Word2Bezbar-large/word2vec.model")
 
 def update_mongo(db_name = "arthur_modal", search_new_artists = False, update_genius = False, update_musicbrainz=False, update_embeddings = False, force_update = False):
     
@@ -593,12 +593,12 @@ def update_csv_to_mongo(db_name, filename = "arthur_fou_db.artists.csv"):
     client.close()
 
 if __name__ == "__main__":
-    #final_update(db_name = "arthur_fou_db", search_new_artists= True, update_genius= True, update_musicbrainz= True)
+    final_update(db_name = "final_db_3", update_embeddings=True)
     #fail_update_mongo(filename = "fail_final_update_mongo.txt", db_name = "arthur_fou_db")
     
     #update_csv_to_mongo(db_name = "final_db")
     #update_featurings_and_songs_to_mongo(db_name = "final_db")
     #update_csv_to_mongo(db_name = "final_db_2")
     #update_featurings_and_songs_to_mongo_v2(db_name = "final_db_2")
-    #update_csv_to_mongo(db_name = "final_db_3")
-    update_featurings_and_songs_to_mongo_v2(db_name = "final_db_3")
+    # update_csv_to_mongo(db_name = "final_db_3")
+    #update_featurings_and_songs_to_mongo_v2(db_name = "final_db_3")
