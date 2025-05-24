@@ -50,43 +50,47 @@ Ce projet permet de manipuler, analyser et visualiser un graphe de collaboration
 ## Lancer le projet
 
 1. **Installer les dépendances**  
-   Assure-toi d’avoir Python 3, MongoDB, et les packages suivants :
    ```
-   pip install pymongo networkx
+   pip install pymongo networkx lyricsgenius musicbrainz
    ```
-   (ajoute aussi les dépendances pour les API si besoin)
 
-2. **Lancer MongoDB**  
-   Démarre le serveur MongoDB local.
-
-3. **Importer les données**  
-   Utilise les fonctions d’import dans `update.py` :
+2. **Générer ou importer les données**  
+   Depuis `update.py` :
+   - Récupération des données depuis internet dans la base MongoDB *final_db* :
+    ```python
+    update_mongo(db_name = "final_db", update_embeddings=True)
+    fail_update_mongo(db_name = "final_db", filename = "fail_final_update_mongo.txt")
+    ```
    - Depuis un CSV :
      ```python
      from update import update_csv_to_mongo
      update_csv_to_mongo(db_name="final_db")
      ```
-   - Depuis un JSON :
-     ```python
-     from update import update_json_to_mongo
-     update_json_to_mongo(db_name="final_db")
-     ```
+    Puis récupération des feats :
+    ```python
+    update_featurings_and_songs_to_mongo(db_name = "final_db")
+    ```
 
-4. **Mettre à jour la base et générer le graphe**  
-   Exemple :
-   ```python
-   from update import update_featurings_and_songs_to_mongo_v2
-   update_featurings_and_songs_to_mongo_v2(db_name="final_db")
-   ```
+4. **Générer le graphe**  
+   Dans graph.py pour le graphe des collaborations :
+    ```python
+    graph = build_graph("final_db_3", weighted = True)
 
-   Puis, pour générer et exporter le graphe :
-   ```python
-   from graph import build_graph, delete_small_components, export_graph_to_gephi
-   G = build_graph("final_db")
-   G = delete_small_components(G, min_size=10)
-   export_graph_to_gephi(G, filename="graph_final.gexf")
-   ```
+    # Nettoyage du graphe
+    #graph = delete_low_degree_nodes(graph, 1, "deleted_nodes_3_2.txt")
+    #graph = delete_isolated_nodes(graph)
+    graph = delete_small_components(graph, 10)
+
+    # Affichage des statistiques du graphe
+    graph_stats(graph)
+    nodes_stats(graph)
+    
+    #Création des différents graphes liés aux différentes méthodes de clustering
+    graph = set_clusters(graph, "louvain")
+    export_graph_to_gephi(graph, filename = "graph_louvain_final.gexf")
+    ```
+
+    Méthode similaire pour les fichiers graph_embedding.py et graph_lastfm.py.
 
 5. **Visualiser dans Gephi**  
    Ouvre le fichier `.gexf` dans Gephi pour explorer le graphe.
-

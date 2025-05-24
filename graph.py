@@ -182,6 +182,8 @@ if __name__ == "__main__":
     graph = set_clusters(graph, "louvain")
     export_graph_to_gephi(graph, filename = "graph_louvain_del_small_comp.gexf")
 
+    '''
+    # Affichage des statistiques de clustering
     betweenness = nx.betweenness_centrality(graph)
 
     # Extraction des valeurs
@@ -222,7 +224,7 @@ if __name__ == "__main__":
     plt.ylabel("Nombre de nœuds")
     plt.grid(axis='y', alpha=0.7)
     plt.show()
-
+    '''
     '''
     Autres méthodes de clustering
     graph = set_clusters(graph, "clique_percolation", 5)
