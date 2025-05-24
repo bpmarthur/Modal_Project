@@ -42,7 +42,6 @@ Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
   Fonctions pour calculer et manipuler des embeddings d’artistes en utilisant notamment le modèle Word2Bezbar. Lien du modèle : https://huggingface.co/rapminerz/Word2Bezbar-large
 
 - **graph_embedding.py**, **graph_lastfm.py**  
-  Fonctions avancées pour l’analyse de graphes et l’intégration de données Last.fm.
   Ces deux fichiers, similaires au fichier graph, permettent de construire le graphe de similarité Last.Fm et le graphe des embeddings.
 
 - **data/**, **graphs/**  
@@ -64,11 +63,10 @@ Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
     fail_update_mongo(db_name = "final_db", filename = "fail_final_update_mongo.txt")
     ```
    - Depuis un CSV :
-     ```python
-     from update import update_csv_to_mongo
-     update_csv_to_mongo(db_name="final_db")
-     ```
-    Puis récupération des feats :
+    ```python
+    update_csv_to_mongo(db_name="final_db")
+    ```
+    Puis récupération des featurings :
     ```python
     update_featurings_and_songs_to_mongo(db_name = "final_db")
     ```
@@ -76,18 +74,16 @@ Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
 4. **Générer le graphe**  
    Dans graph.py pour le graphe des collaborations :
     ```python
-    graph = build_graph("final_db_3", weighted = True)
+    graph = build_graph("final_db", weighted = True)
 
     # Nettoyage du graphe
-    #graph = delete_low_degree_nodes(graph, 1, "deleted_nodes_3_2.txt")
-    #graph = delete_isolated_nodes(graph)
     graph = delete_small_components(graph, 10)
 
     # Affichage des statistiques du graphe
     graph_stats(graph)
     nodes_stats(graph)
     
-    #Création des différents graphes liés aux différentes méthodes de clustering
+    #Clustering puis export du graphe
     graph = set_clusters(graph, "louvain")
     export_graph_to_gephi(graph, filename = "graph_louvain_final.gexf")
     ```
@@ -95,4 +91,4 @@ Lien du rapport de notre modal : https://plmlatex.math.cnrs.fr/read/hvtgtnmvykbn
     Méthode similaire pour les fichiers graph_embedding.py et graph_lastfm.py.
 
 5. **Visualiser dans Gephi**  
-   Ouvre le fichier `.gexf` dans Gephi pour explorer le graphe.
+   Ouvre le fichier `.gexf` du dossier graphs/ dans Gephi pour explorer le graphe.
